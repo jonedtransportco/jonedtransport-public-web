@@ -1,0 +1,45 @@
+{
+  "contract": "JONED Portal Mock API",
+  "version": "1.0.0",
+  "basePath": "/api/v1",
+  "mode": "local-fixtures-only",
+  "authentication": {
+    "current": "simulated-microsoft-entra-ui",
+    "future": "bearer-token-from-approved-entra-flow"
+  },
+  "envelope": {
+    "success": { "data": "T", "meta": { "requestId": "string", "generatedAt": "ISO-8601" } },
+    "error": { "error": { "code": "string", "message": "string", "correlationId": "string" } }
+  },
+  "endpoints": [
+    { "method": "GET", "path": "/me", "response": "UserProfile" },
+    { "method": "GET", "path": "/me/permissions", "response": "PermissionSet" },
+    { "method": "GET", "path": "/dashboard/summary", "response": "ExecutiveSummary" },
+    { "method": "GET", "path": "/dashboard/activity", "response": "ActivityItem[]" },
+    { "method": "GET", "path": "/human-resources", "response": "ModuleCollection" },
+    { "method": "GET", "path": "/drivers", "response": "ModuleCollection" },
+    { "method": "GET", "path": "/fleet", "response": "ModuleCollection" },
+    { "method": "GET", "path": "/clients", "response": "ModuleCollection" },
+    { "method": "GET", "path": "/vendors", "response": "ModuleCollection" },
+    { "method": "GET", "path": "/documents", "response": "ModuleCollection" },
+    { "method": "GET", "path": "/reports", "response": "ModuleCollection" },
+    { "method": "GET", "path": "/administration", "response": "ModuleCollection" },
+    { "method": "GET", "path": "/company-settings", "response": "CompanySettings" },
+    { "method": "GET", "path": "/notifications", "response": "Notification[]" }
+  ],
+  "schemas": {
+    "UserProfile": { "id": "string", "displayName": "string", "role": "string", "organization": "string" },
+    "PermissionSet": { "role": "string", "modules": "string[]", "capabilities": "string[]" },
+    "ExecutiveSummary": { "period": "string", "deliveriesCompleted": "number", "fleetActive": "number", "driversAvailable": "number", "customerSatisfaction": "number" },
+    "ActivityItem": { "id": "string", "type": "string", "title": "string", "detail": "string", "occurredAt": "ISO-8601" },
+    "ModuleCollection": { "items": "unknown[]", "total": "number", "status": "mock" },
+    "CompanySettings": { "companyName": "string", "region": "string", "preferences": "object" },
+    "Notification": { "id": "string", "severity": "info|attention|critical", "title": "string", "read": "boolean" }
+  },
+  "constraints": [
+    "No endpoint is implemented in this work package.",
+    "All displayed values are deterministic local fixtures.",
+    "Future authorization must be enforced by APIs, never inferred from UI visibility.",
+    "No operational integration is authorized."
+  ]
+}

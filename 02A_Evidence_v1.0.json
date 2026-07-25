@@ -1,0 +1,35 @@
+{
+  "workPackage": "02A",
+  "title": "Portal Web | Frontend Foundation",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "authorizationState": "AUTHORIZED_FRONTEND_FOUNDATION_MOCK_DATA_ONLY",
+  "deliverables": [
+    "Public corporate page",
+    "Simulated Microsoft Entra ID sign-in flow",
+    "Authenticated application shell",
+    "Executive dashboard using local simulated data",
+    "Complete responsive navigation",
+    "Visual role and permission system",
+    "Reusable foundation components",
+    "Initial non-operational views for all authorized modules",
+    "Versioned mock integration contract",
+    "Documented replacement path from fixtures to future APIs"
+  ],
+  "prohibitedConnectionsVerifiedAbsent": [
+    "Azure SQL",
+    "Operational Microsoft Graph",
+    "Operational SharePoint",
+    "Email",
+    "Document intake",
+    "Payments",
+    "Gusto",
+    "PNC",
+    "OneRail",
+    "Frayt",
+    "ELD"
+  ],
+  "businessAutomationImplemented": false,
+  "azureWorkPackagesModified": false,
+  "readiness": "READY_FOR_ARCHITECTURE_REVIEW_NOT_AUTHORIZED_FOR_OPERATIONAL_USE"
+}
