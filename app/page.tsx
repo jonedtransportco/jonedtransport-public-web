@@ -5,7 +5,7 @@ import { useState } from "react";
 type IconName =
   | "grid" | "people" | "driver" | "truck" | "client" | "vendor"
   | "doc" | "chart" | "shield" | "gear" | "bell" | "arrow"
-  | "search" | "menu" | "close" | "check" | "clock" | "route";
+  | "search" | "menu" | "close" | "check" | "clock" | "route" | "lock";
 
 const icons: Record<IconName, string> = {
   grid: "M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z",
@@ -26,6 +26,7 @@ const icons: Record<IconName, string> = {
   check: "M5 12l4 4L19 6",
   clock: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 6v6l4 2",
   route: "M6 19a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 16c0-5 12-3 12-9",
+  lock: "M7 11V8a5 5 0 0 1 10 0v3M6 11h12v10H6zM12 15v2",
 };
 
 function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
@@ -38,6 +39,60 @@ const modules = [
   ["Documentos", "doc"], ["Reportes", "chart"], ["Administración", "shield"],
   ["Configuración", "gear"], ["Notificaciones", "bell"],
 ] as const;
+
+type RoleId = "administration" | "operations" | "human-resources" | "drivers" | "executive";
+
+const roles: Record<RoleId, { label: string; short: string; title: string; permissions: string[]; modules: string[] }> = {
+  administration: {
+    label: "Administración",
+    short: "Admin",
+    title: "Administración · control visual completo",
+    permissions: ["view", "create", "edit", "approve-mock", "manage-users-interface"],
+    modules: modules.map(([label]) => label),
+  },
+  operations: {
+    label: "Operaciones",
+    short: "Ops",
+    title: "Operaciones · ejecución diaria simulada",
+    permissions: ["view", "create", "edit", "dispatch-interface"],
+    modules: ["Resumen ejecutivo", "Conductores", "Flota", "Clientes", "Proveedores", "Documentos", "Reportes", "Notificaciones"],
+  },
+  "human-resources": {
+    label: "Human Resources",
+    short: "HR",
+    title: "Human Resources · personas y cumplimiento",
+    permissions: ["view", "create", "edit", "hr-interface"],
+    modules: ["Resumen ejecutivo", "Recursos Humanos", "Conductores", "Documentos", "Reportes", "Notificaciones"],
+  },
+  drivers: {
+    label: "Drivers",
+    short: "Driver",
+    title: "Drivers · autoservicio visual",
+    permissions: ["view-self", "submit-mock", "acknowledge"],
+    modules: ["Resumen ejecutivo", "Conductores", "Documentos", "Notificaciones", "Configuración"],
+  },
+  executive: {
+    label: "Executive read-only",
+    short: "Exec",
+    title: "Executive read-only · visibilidad sin edición",
+    permissions: ["view", "export-mock"],
+    modules: ["Resumen ejecutivo", "Clientes", "Reportes", "Notificaciones"],
+  },
+};
+
+const permissionLabels: Record<string, string> = {
+  view: "Lectura",
+  create: "Crear",
+  edit: "Editar",
+  "approve-mock": "Aprobación mock",
+  "manage-users-interface": "Usuarios UI",
+  "dispatch-interface": "Despacho UI",
+  "hr-interface": "HR UI",
+  "view-self": "Lectura propia",
+  "submit-mock": "Enviar mock",
+  acknowledge: "Acusar recibo",
+  "export-mock": "Exportar mock",
+};
 
 const stats = [
   { label: "Entregas completadas", value: "1,284", delta: "+8.2%", tone: "mint", detail: "este mes" },
@@ -70,6 +125,10 @@ export default function Home() {
   const [signedIn, setSignedIn] = useState(false);
   const [active, setActive] = useState("Resumen ejecutivo");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [role, setRole] = useState<RoleId>("administration");
+  const [showModal, setShowModal] = useState(false);
+  const currentRole = roles[role];
+  const visibleModules = modules.filter(([label]) => currentRole.modules.includes(label));
 
   if (!signedIn) {
     return (
@@ -118,10 +177,14 @@ export default function Home() {
       <aside className={menuOpen ? "sidebar open" : "sidebar"}>
         <div className="sidebar-head"><Brand /><button className="mobile-close" onClick={() => setMenuOpen(false)} aria-label="Cerrar menú"><Icon name="close" /></button></div>
         <div className="workspace"><span>ESPACIO DE TRABAJO</span><b>JONED Transport Co.</b><small>Denver, Colorado</small></div>
+        <div className="role-switcher" aria-label="Rol simulado">
+          {(Object.keys(roles) as RoleId[]).map((id) => <button key={id} className={role === id ? "selected" : ""} onClick={() => { setRole(id); if (!roles[id].modules.includes(active)) setActive("Resumen ejecutivo"); }}>{roles[id].short}</button>)}
+        </div>
         <nav className="side-nav" aria-label="Módulos del portal">
-          {modules.map(([label, icon]) => <button key={label} className={active === label ? "active" : ""} onClick={() => { setActive(label); setMenuOpen(false); }}><Icon name={icon} /><span>{label}</span>{label === "Notificaciones" && <i>3</i>}</button>)}
+          {visibleModules.map(([label, icon]) => <button key={label} className={active === label ? "active" : ""} onClick={() => { setActive(label); setMenuOpen(false); }}><Icon name={icon} /><span>{label}</span>{label === "Notificaciones" && <i>3</i>}</button>)}
+          {modules.filter(([label]) => !currentRole.modules.includes(label)).map(([label, icon]) => <button key={label} className="locked" aria-disabled="true" title="No visible para este rol simulado"><Icon name={icon} /><span>{label}</span><Icon name="lock" size={13} /></button>)}
         </nav>
-        <div className="user-card"><div className="avatar">AM</div><div><b>Alex Morgan</b><span>Administrador</span></div><button onClick={() => setSignedIn(false)} title="Cerrar sesión">↗</button></div>
+        <div className="user-card"><div className="avatar">AM</div><div><b>Alex Morgan</b><span>{currentRole.label}</span></div><button onClick={() => setSignedIn(false)} title="Cerrar sesión">↗</button></div>
       </aside>
       {menuOpen && <button className="scrim" onClick={() => setMenuOpen(false)} aria-label="Cerrar menú" />}
       <section className="main-panel">
@@ -130,8 +193,9 @@ export default function Home() {
           <div className="search"><Icon name="search" size={18} /><input aria-label="Buscar" placeholder="Buscar en el portal…" /><kbd>⌘ K</kbd></div>
           <div className="top-actions"><span className="mock-badge">ENTORNO SIMULADO</span><button aria-label="Notificaciones"><Icon name="bell" /><i /></button><div className="avatar small">AM</div></div>
         </header>
-        {active === "Resumen ejecutivo" ? <Dashboard /> : <ModuleView name={active} data={sub} />}
+        {active === "Resumen ejecutivo" ? <Dashboard role={currentRole} onOpen={() => setShowModal(true)} /> : <ModuleView name={active} data={sub} role={currentRole} onOpen={() => setShowModal(true)} />}
       </section>
+      {showModal && <div className="modal-layer" role="presentation"><section className="modal" role="dialog" aria-modal="true" aria-labelledby="permissions-title"><button className="modal-close" onClick={() => setShowModal(false)} aria-label="Cerrar"><Icon name="close" /></button><span>PERMISOS DE INTERFAZ</span><h2 id="permissions-title">{currentRole.title}</h2><p>Esta matriz es mock y gobierna solo visibilidad de interfaz. La autorización real deberá implementarse en APIs aprobadas.</p><div className="permission-pills">{currentRole.permissions.map((p) => <b key={p}>{permissionLabels[p] ?? p}</b>)}</div></section></div>}
     </main>
   );
 }
@@ -140,26 +204,27 @@ function Brand({ light = false }: { light?: boolean }) {
   return <div className={`brand ${light ? "light" : ""}`}><span className="brand-mark">J</span><div><b>JONED</b><small>TRANSPORT CO.</small></div></div>;
 }
 
-function Dashboard() {
+function Dashboard({ role, onOpen }: { role: (typeof roles)[RoleId]; onOpen: () => void }) {
   return <div className="content">
-    <div className="page-heading"><div><span>VIERNES, 25 DE JULIO</span><h2>Buenos días, Alex.</h2><p>Aquí está el pulso de tu operación hoy.</p></div><button className="period">Últimos 30 días <span>⌄</span></button></div>
+    <div className="page-heading"><div><span>SÁBADO, 25 DE JULIO · ENTORNO MOCK</span><h2>Buenos días, Alex.</h2><p>Aquí está el pulso de tu operación hoy.</p></div><button className="period">Últimos 30 días <span>⌄</span></button></div>
     <div className="stat-grid">{stats.map((s, i) => <article className="stat-card" key={s.label}><div className={`stat-icon ${s.tone}`}><Icon name={(["check","truck","driver","chart"] as IconName[])[i]} /></div><span>{s.label}</span><div className="stat-value">{s.value}<em className={i === 2 ? "neutral" : ""}>{s.delta}</em></div><small>{s.detail}</small></article>)}</div>
+    <section className="component-strip" aria-label="Estados reutilizables"><span className="badge success">Activo</span><span className="badge warning">Pendiente</span><span className="badge info">Solo lectura</span><button className="filter-chip"><Icon name="search" size={14}/> Filtro</button><div className="loading-line" aria-label="Estado de carga simulado" /><span className="error-chip">Error mock controlado</span></section>
     <div className="dashboard-grid">
       <article className="panel performance"><div className="panel-title"><div><span>RENDIMIENTO OPERATIVO</span><h3>Entregas por semana</h3></div><div className="legend"><i /> Completadas <i /> Objetivo</div></div><div className="chart-wrap"><div className="y-axis"><span>400</span><span>300</span><span>200</span><span>100</span><span>0</span></div><div className="bars">{[68,79,66,88,76,91,83].map((h, i) => <div className="bar-col" key={i}><div className="goal" style={{height:`${Math.min(h+9,98)}%`}}/><div className="bar" style={{height:`${h}%`}}/><span>{["S1","S2","S3","S4","S5","S6","S7"][i]}</span></div>)}</div></div></article>
       <article className="panel fleet"><div className="panel-title"><div><span>ESTADO DE FLOTA</span><h3>Disponibilidad</h3></div><button>Ver flota <Icon name="arrow" size={14}/></button></div><div className="donut-row"><div className="donut"><div><b>47</b><span>activas</span></div></div><div className="fleet-legend"><p><i className="green"/>En ruta <b>31</b></p><p><i className="blue-dot"/>Disponibles <b>16</b></p><p><i className="orange"/>Mantenimiento <b>3</b></p></div></div><div className="fleet-note"><Icon name="clock" size={17}/><span><b>Próximo servicio</b> · FL-038 en 2 días</span></div></article>
       <article className="panel activity"><div className="panel-title"><div><span>ACTIVIDAD RECIENTE</span><h3>Lo que está pasando</h3></div><button>Ver todo</button></div><div className="activity-list">{activities.map(([title, detail, time, icon]) => <div className="activity-item" key={title}><div className="activity-icon"><Icon name={icon as IconName} size={18}/></div><div><b>{title}</b><span>{detail}</span></div><time>{time}</time></div>)}</div></article>
-      <article className="panel role-panel"><div className="role-head"><Icon name="shield" /><div><span>TU NIVEL DE ACCESO</span><h3>Administrador de empresa</h3></div></div><p>Tienes acceso completo a los módulos, ajustes y gestión de usuarios.</p><div className="permissions"><span><Icon name="check" size={14}/> 11 módulos</span><span><Icon name="check" size={14}/> Gestión de usuarios</span><span><Icon name="check" size={14}/> Reportes</span></div><button>Revisar permisos <Icon name="arrow" size={14}/></button></article>
+      <article className="panel role-panel"><div className="role-head"><Icon name="shield" /><div><span>TU NIVEL DE ACCESO</span><h3>{role.title}</h3></div></div><p>Visibilidad actual: {role.modules.length} módulos. Los permisos son solamente de interfaz y usan fixtures locales.</p><div className="permissions">{role.permissions.slice(0,3).map((p) => <span key={p}><Icon name="check" size={14}/> {permissionLabels[p] ?? p}</span>)}</div><button onClick={onOpen}>Revisar permisos <Icon name="arrow" size={14}/></button></article>
     </div>
     <footer className="data-note"><Icon name="shield" size={15}/> Todos los datos que ves en esta versión son simulados y no representan operaciones reales.</footer>
   </div>;
 }
 
-function ModuleView({ name, data }: { name: string; data: { eyebrow: string; title: string; copy: string } }) {
+function ModuleView({ name, data, role, onOpen }: { name: string; data: { eyebrow: string; title: string; copy: string }; role: (typeof roles)[RoleId]; onOpen: () => void }) {
   return <div className="content module-view">
     <div className="module-hero"><div><span>{data.eyebrow.toUpperCase()}</span><h2>{data.title}</h2><p>{data.copy}</p></div><div className="module-watermark">{name.slice(0,1)}</div></div>
     <div className="foundation-grid">
       <article><div className="foundation-icon"><Icon name="grid"/></div><span>VISTA FUNDACIONAL</span><h3>{name}</h3><p>La estructura visual, los estados y la navegación están listos para enlazar el contrato de integración futuro.</p><button>Explorar vista <Icon name="arrow" size={15}/></button></article>
-      <article className="access-card"><div className="foundation-icon"><Icon name="shield"/></div><span>ACCESO POR ROL</span><h3>Administrador</h3><p>Lectura y gestión simuladas. Las decisiones de autorización reales se resolverán en backend.</p><div className="access-line"><i/><b>Acceso visual habilitado</b></div></article>
+      <article className="access-card"><div className="foundation-icon"><Icon name="shield"/></div><span>ACCESO POR ROL</span><h3>{role.label}</h3><p>Lectura y gestión simuladas. Las decisiones de autorización reales se resolverán en backend.</p><div className="access-line"><i/><b>Acceso visual habilitado</b></div><button onClick={onOpen}>Ver matriz <Icon name="arrow" size={15}/></button></article>
       <article className="contract-card"><div className="foundation-icon"><Icon name="route"/></div><span>CONTRATO MOCK</span><h3>API desacoplada</h3><p>Fuente actual: fixtures locales. Adaptador preparado para sustituirse sin rediseñar esta interfaz.</p><code>GET /api/v1/{name.toLowerCase().replaceAll(" ", "-")}</code></article>
     </div>
     <div className="empty-preview"><div className="table-head"><span>Elemento</span><span>Estado</span><span>Última actualización</span></div>{["Registro de ejemplo A","Registro de ejemplo B","Registro de ejemplo C"].map((x,i)=><div className="table-row" key={x}><b>{x}</b><span><i/> {i===1?"Pendiente":"Activo"}</span><time>Datos simulados</time></div>)}</div>

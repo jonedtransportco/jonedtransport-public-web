@@ -1,0 +1,6 @@
+Role,Visible modules,Interface-only permissions,Notes
+Administration,"Resumen ejecutivo; Recursos Humanos; Conductores; Flota; Clientes; Proveedores; Documentos; Reportes; Administración; Configuración; Notificaciones","view; create; edit; approve-mock; manage-users-interface","Full visual administration coverage; mock only"
+Operations,"Resumen ejecutivo; Conductores; Flota; Clientes; Proveedores; Documentos; Reportes; Notificaciones","view; create; edit; dispatch-interface","Operational navigation without Administration or Settings"
+Human Resources,"Resumen ejecutivo; Recursos Humanos; Conductores; Documentos; Reportes; Notificaciones","view; create; edit; hr-interface","People-focused navigation without financial or external systems"
+Drivers,"Resumen ejecutivo; Conductores; Documentos; Notificaciones; Configuración","view-self; submit-mock; acknowledge","Driver self-service visibility only"
+Executive read-only,"Resumen ejecutivo; Clientes; Reportes; Notificaciones","view; export-mock","Read-only executive surface with no edit controls"

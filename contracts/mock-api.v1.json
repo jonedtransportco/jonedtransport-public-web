@@ -1,6 +1,6 @@
 {
   "contract": "JONED Portal Mock API",
-  "version": "1.0.0",
+  "version": "1.1.0-02A.02",
   "basePath": "/api/v1",
   "mode": "local-fixtures-only",
   "authentication": {
@@ -14,6 +14,8 @@
   "endpoints": [
     { "method": "GET", "path": "/me", "response": "UserProfile" },
     { "method": "GET", "path": "/me/permissions", "response": "PermissionSet" },
+    { "method": "GET", "path": "/roles", "response": "RoleDefinition[]" },
+    { "method": "GET", "path": "/navigation", "response": "NavigationModule[]" },
     { "method": "GET", "path": "/dashboard/summary", "response": "ExecutiveSummary" },
     { "method": "GET", "path": "/dashboard/activity", "response": "ActivityItem[]" },
     { "method": "GET", "path": "/human-resources", "response": "ModuleCollection" },
@@ -29,7 +31,9 @@
   ],
   "schemas": {
     "UserProfile": { "id": "string", "displayName": "string", "role": "string", "organization": "string" },
-    "PermissionSet": { "role": "string", "modules": "string[]", "capabilities": "string[]" },
+    "PermissionSet": { "role": "administration|operations|human-resources|drivers|executive", "modules": "string[]", "capabilities": "string[]" },
+    "RoleDefinition": { "id": "string", "label": "string", "interfaceOnlyPermissions": "string[]", "visibleModules": "string[]" },
+    "NavigationModule": { "id": "string", "label": "string", "icon": "string", "visibleForRoles": "string[]", "lockedForRoles": "string[]" },
     "ExecutiveSummary": { "period": "string", "deliveriesCompleted": "number", "fleetActive": "number", "driversAvailable": "number", "customerSatisfaction": "number" },
     "ActivityItem": { "id": "string", "type": "string", "title": "string", "detail": "string", "occurredAt": "ISO-8601" },
     "ModuleCollection": { "items": "unknown[]", "total": "number", "status": "mock" },
@@ -40,6 +44,39 @@
     "No endpoint is implemented in this work package.",
     "All displayed values are deterministic local fixtures.",
     "Future authorization must be enforced by APIs, never inferred from UI visibility.",
+    "Role-based navigation in 02A.02 controls only interface visibility.",
     "No operational integration is authorized."
+  ],
+  "roles": [
+    {
+      "id": "administration",
+      "label": "Administration",
+      "interfaceOnlyPermissions": ["view", "create", "edit", "approve-mock", "manage-users-interface"],
+      "visibleModules": ["Resumen ejecutivo", "Recursos Humanos", "Conductores", "Flota", "Clientes", "Proveedores", "Documentos", "Reportes", "Administración", "Configuración", "Notificaciones"]
+    },
+    {
+      "id": "operations",
+      "label": "Operations",
+      "interfaceOnlyPermissions": ["view", "create", "edit", "dispatch-interface"],
+      "visibleModules": ["Resumen ejecutivo", "Conductores", "Flota", "Clientes", "Proveedores", "Documentos", "Reportes", "Notificaciones"]
+    },
+    {
+      "id": "human-resources",
+      "label": "Human Resources",
+      "interfaceOnlyPermissions": ["view", "create", "edit", "hr-interface"],
+      "visibleModules": ["Resumen ejecutivo", "Recursos Humanos", "Conductores", "Documentos", "Reportes", "Notificaciones"]
+    },
+    {
+      "id": "drivers",
+      "label": "Drivers",
+      "interfaceOnlyPermissions": ["view-self", "submit-mock", "acknowledge"],
+      "visibleModules": ["Resumen ejecutivo", "Conductores", "Documentos", "Notificaciones", "Configuración"]
+    },
+    {
+      "id": "executive",
+      "label": "Executive read-only",
+      "interfaceOnlyPermissions": ["view", "export-mock"],
+      "visibleModules": ["Resumen ejecutivo", "Clientes", "Reportes", "Notificaciones"]
+    }
   ]
 }

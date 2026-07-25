@@ -1,0 +1,50 @@
+{
+  "workPackage": "02A.02",
+  "title": "Design System and Role-Based Navigation Hardening",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "authorizationState": "AUTHORIZED_VISUAL_STRUCTURAL_MOCK_ONLY",
+  "deliverables": [
+    "02A.02_Design_System_v1.0.md",
+    "02A.02_Role_Navigation_Matrix_v1.0.csv",
+    "contracts/mock-api.v1.json",
+    "evidence/02A.02_Public_Portal_Desktop_v1.0.png",
+    "evidence/02A.02_Admin_Navigation_Desktop_v1.0.png",
+    "evidence/02A.02_Executive_ReadOnly_Navigation_Desktop_v1.0.png",
+    "evidence/02A.02_Mobile_Role_Navigation_v1.0.png",
+    "02A.02_SHA-256_Manifest_v1.0.txt"
+  ],
+  "roles": [
+    "Administration",
+    "Operations",
+    "Human Resources",
+    "Drivers",
+    "Executive read-only"
+  ],
+  "validation": [
+    "Production build completed",
+    "Server-render test completed",
+    "Role/navigation source and mock contract alignment test completed",
+    "Desktop public portal screenshot captured",
+    "Desktop administration navigation screenshot captured",
+    "Desktop executive read-only navigation screenshot captured",
+    "Mobile role navigation screenshot captured"
+  ],
+  "prohibitedConnectionsVerifiedAbsent": [
+    "Azure SQL",
+    "Microsoft Graph",
+    "Email",
+    "Operational SharePoint",
+    "Document intake pipeline",
+    "Payments",
+    "Gusto",
+    "PNC",
+    "OneRail",
+    "Frayt",
+    "ELD"
+  ],
+  "businessAutomationImplemented": false,
+  "azureWorkPackagesModified": false,
+  "operationalUseAuthorized": false,
+  "readiness": "READY_FOR_ARCHITECTURE_REVIEW_NOT_AUTHORIZED_FOR_OPERATIONAL_USE"
+}
