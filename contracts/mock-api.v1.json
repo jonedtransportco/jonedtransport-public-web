@@ -1,16 +1,69 @@
 {
   "contract": "JONED Portal Mock API",
-  "version": "1.1.0-02A.02",
+  "version": "1.5.0-02A.06",
   "basePath": "/api/v1",
   "mode": "local-fixtures-only",
   "authentication": {
     "current": "simulated-microsoft-entra-ui",
     "future": "bearer-token-from-approved-entra-flow"
   },
-  "envelope": {
-    "success": { "data": "T", "meta": { "requestId": "string", "generatedAt": "ISO-8601" } },
-    "error": { "error": { "code": "string", "message": "string", "correlationId": "string" } }
+  "integrationMode": {
+    "active": "mock",
+    "allowed": ["mock"],
+    "futureModes": ["api-real"],
+    "switchStrategy": "env-flag-plus-adapter-registry-plus-contract-parity-checks",
+    "fixturesOnlyConfirmed": true,
+    "zeroRealConnectionsConfirmed": true
   },
+  "envelope": {
+    "success": {
+      "data": "T",
+      "meta": {
+        "requestId": "string",
+        "generatedAt": "ISO-8601",
+        "source": "local-fixture",
+        "state": "ready|loading|empty|error|partial",
+        "partial": "boolean",
+        "refreshable": "boolean",
+        "retryable": "boolean"
+      }
+    },
+    "error": {
+      "error": {
+        "code": "string",
+        "message": "string",
+        "correlationId": "string",
+        "state": "ready|loading|empty|error|partial",
+        "retryable": "boolean",
+        "details": "ErrorDetail[]"
+      }
+    }
+  },
+  "sharedUiPatterns": [
+    "listado",
+    "detalle",
+    "filtros-persistentes",
+    "busqueda",
+    "tabs-con-estado",
+    "paneles-resumen",
+    "acciones-por-rol",
+    "subflujos-internos",
+    "adapter-boundary",
+    "formulario-base",
+    "estado-empty",
+    "estado-loading",
+    "estado-error-mock",
+    "estado-partial-data",
+    "refresh",
+    "retry",
+    "paginacion",
+    "ordenamiento",
+    "seleccion-de-filas",
+    "detalle-expandible",
+    "list-payload-normalizado",
+    "detail-payload-normalizado",
+    "integration-switch-ready"
+  ],
   "endpoints": [
     { "method": "GET", "path": "/me", "response": "UserProfile" },
     { "method": "GET", "path": "/me/permissions", "response": "PermissionSet" },
@@ -18,33 +71,199 @@
     { "method": "GET", "path": "/navigation", "response": "NavigationModule[]" },
     { "method": "GET", "path": "/dashboard/summary", "response": "ExecutiveSummary" },
     { "method": "GET", "path": "/dashboard/activity", "response": "ActivityItem[]" },
-    { "method": "GET", "path": "/human-resources", "response": "ModuleCollection" },
-    { "method": "GET", "path": "/drivers", "response": "ModuleCollection" },
-    { "method": "GET", "path": "/fleet", "response": "ModuleCollection" },
-    { "method": "GET", "path": "/clients", "response": "ModuleCollection" },
-    { "method": "GET", "path": "/vendors", "response": "ModuleCollection" },
-    { "method": "GET", "path": "/documents", "response": "ModuleCollection" },
-    { "method": "GET", "path": "/reports", "response": "ModuleCollection" },
-    { "method": "GET", "path": "/administration", "response": "ModuleCollection" },
-    { "method": "GET", "path": "/company-settings", "response": "CompanySettings" },
-    { "method": "GET", "path": "/notifications", "response": "Notification[]" }
+    { "method": "GET", "path": "/human-resources", "response": "DomainWorkspaceContract" },
+    { "method": "GET", "path": "/drivers", "response": "DomainWorkspaceContract" },
+    { "method": "GET", "path": "/fleet", "response": "DomainWorkspaceContract" },
+    { "method": "GET", "path": "/clients", "response": "DomainWorkspaceContract" },
+    { "method": "GET", "path": "/vendors", "response": "DomainWorkspaceContract" },
+    { "method": "GET", "path": "/documents", "response": "DomainWorkspaceContract" },
+    { "method": "GET", "path": "/reports", "response": "DomainWorkspaceContract" },
+    { "method": "GET", "path": "/administration", "response": "DomainWorkspaceContract" },
+    { "method": "GET", "path": "/company-settings", "response": "DomainWorkspaceContract" },
+    { "method": "GET", "path": "/notifications", "response": "DomainWorkspaceContract" }
   ],
   "schemas": {
-    "UserProfile": { "id": "string", "displayName": "string", "role": "string", "organization": "string" },
-    "PermissionSet": { "role": "administration|operations|human-resources|drivers|executive", "modules": "string[]", "capabilities": "string[]" },
-    "RoleDefinition": { "id": "string", "label": "string", "interfaceOnlyPermissions": "string[]", "visibleModules": "string[]" },
-    "NavigationModule": { "id": "string", "label": "string", "icon": "string", "visibleForRoles": "string[]", "lockedForRoles": "string[]" },
-    "ExecutiveSummary": { "period": "string", "deliveriesCompleted": "number", "fleetActive": "number", "driversAvailable": "number", "customerSatisfaction": "number" },
-    "ActivityItem": { "id": "string", "type": "string", "title": "string", "detail": "string", "occurredAt": "ISO-8601" },
-    "ModuleCollection": { "items": "unknown[]", "total": "number", "status": "mock" },
-    "CompanySettings": { "companyName": "string", "region": "string", "preferences": "object" },
-    "Notification": { "id": "string", "severity": "info|attention|critical", "title": "string", "read": "boolean" }
+    "UserProfile": {
+      "id": "string",
+      "displayName": "string",
+      "role": "string",
+      "organization": "string"
+    },
+    "PermissionSet": {
+      "role": "administration|operations|human-resources|drivers|executive",
+      "modules": "string[]",
+      "capabilities": "string[]"
+    },
+    "RoleDefinition": {
+      "id": "string",
+      "label": "string",
+      "interfaceOnlyPermissions": "string[]",
+      "visibleModules": "string[]"
+    },
+    "NavigationModule": {
+      "id": "string",
+      "label": "string",
+      "icon": "string",
+      "visibleForRoles": "string[]",
+      "lockedForRoles": "string[]"
+    },
+    "ExecutiveSummary": {
+      "period": "string",
+      "deliveriesCompleted": "number",
+      "fleetActive": "number",
+      "driversAvailable": "number",
+      "customerSatisfaction": "number",
+      "refreshable": "boolean"
+    },
+    "ActivityItem": {
+      "id": "string",
+      "type": "string",
+      "title": "string",
+      "detail": "string",
+      "occurredAt": "ISO-8601"
+    },
+    "ModuleRecord": {
+      "id": "string",
+      "name": "string",
+      "subtitle": "string",
+      "status": "string",
+      "updatedAt": "string",
+      "metric": "string",
+      "owner": "string",
+      "route": "string",
+      "expandable": "boolean",
+      "selectable": "boolean"
+    },
+    "RoleAction": {
+      "label": "string",
+      "permission": "string",
+      "tone": "primary|ghost|warning",
+      "when": "always|ready|partial|error"
+    },
+    "AdapterBoundary": {
+      "endpoint": "string",
+      "fixtureSet": "string",
+      "requestShape": "string",
+      "responseShape": "string",
+      "futureSource": "string",
+      "cacheKey": "string",
+      "integrationMode": "mock",
+      "futureSwitchFlag": "string",
+      "parityChecks": "string[]"
+    },
+    "PaginationMeta": {
+      "page": "number",
+      "pageSize": "number",
+      "total": "number",
+      "hasNext": "boolean",
+      "hasPrevious": "boolean"
+    },
+    "FilterDefinition": {
+      "id": "string",
+      "label": "string",
+      "type": "single-select|multi-select|date-range|search",
+      "options": "string[]",
+      "defaultValue": "string|string[]|null"
+    },
+    "SortDefinition": {
+      "field": "string",
+      "label": "string",
+      "defaultDirection": "asc|desc"
+    },
+    "QueryState": {
+      "search": "string",
+      "filters": "Record<string,string>",
+      "sortField": "name|status|updatedAt",
+      "sortDirection": "asc|desc",
+      "selectedIds": "string[]",
+      "activeTab": "string",
+      "internalTab": "string"
+    },
+    "ErrorDetail": {
+      "field": "string",
+      "reason": "string"
+    },
+    "ErrorResponseContract": {
+      "code": "string",
+      "message": "string",
+      "correlationId": "string",
+      "retryable": "boolean",
+      "details": "ErrorDetail[]"
+    },
+    "EmptyStateContract": {
+      "title": "string",
+      "message": "string",
+      "recommendedAction": "string"
+    },
+    "PartialResponseContract": {
+      "availableSections": "string[]",
+      "pendingSections": "string[]",
+      "reason": "string"
+    },
+    "ListPayloadContract": {
+      "items": "ModuleRecord[]",
+      "pagination": "PaginationMeta",
+      "filters": "FilterDefinition[]",
+      "sorting": "SortDefinition[]",
+      "queryState": "QueryState"
+    },
+    "DetailPayloadContract": {
+      "record": "ModuleRecord",
+      "sections": "Record<string,string[]>",
+      "actions": "RoleAction[]",
+      "partialResponse": "PartialResponseContract|null"
+    },
+    "IntegrationBoundaryDocumented": {
+      "module": "string",
+      "listPayload": "ListPayloadContract",
+      "detailPayload": "DetailPayloadContract",
+      "errorResponse": "ErrorResponseContract",
+      "emptyState": "EmptyStateContract",
+      "adapter": "AdapterBoundary"
+    },
+    "DomainWorkspaceContract": {
+      "module": "string",
+      "state": "ready|loading|empty|error|partial",
+      "tabs": "string[]",
+      "internalTabs": "string[]",
+      "filters": "string[]",
+      "searchEnabled": "boolean",
+      "summaryPanels": "string[]",
+      "roleActions": "RoleAction[]",
+      "adapter": "AdapterBoundary",
+      "queryState": "QueryState",
+      "pagination": "PaginationMeta",
+      "listPayload": "ListPayloadContract",
+      "detailPayload": "DetailPayloadContract",
+      "emptyState": "EmptyStateContract",
+      "errorResponse": "ErrorResponseContract",
+      "partialResponse": "PartialResponseContract|null",
+      "refreshable": "boolean",
+      "retryable": "boolean",
+      "formMode": "mock-only",
+      "records": "ModuleRecord[]"
+    }
   },
+  "integrationBoundaries": [
+    { "module": "Recursos Humanos", "endpoint": "/api/v1/human-resources", "futureSource": "HR domain API", "fixtureSet": "people-core.v2" },
+    { "module": "Conductores", "endpoint": "/api/v1/drivers", "futureSource": "Driver operations API", "fixtureSet": "drivers-liveboard.v2" },
+    { "module": "Flota", "endpoint": "/api/v1/fleet", "futureSource": "Fleet operations API", "fixtureSet": "fleet-control.v2" },
+    { "module": "Clientes", "endpoint": "/api/v1/clients", "futureSource": "Client operations API", "fixtureSet": "clients-pipeline.v2" },
+    { "module": "Proveedores", "endpoint": "/api/v1/vendors", "futureSource": "Vendor operations API", "fixtureSet": "vendors-control.v2" },
+    { "module": "Documentos", "endpoint": "/api/v1/documents", "futureSource": "Document operations API", "fixtureSet": "documents-review.v2" },
+    { "module": "Reportes", "endpoint": "/api/v1/reports", "futureSource": "Reporting API", "fixtureSet": "reports-executive.v2" },
+    { "module": "Administración", "endpoint": "/api/v1/administration", "futureSource": "Administration API", "fixtureSet": "administration-control.v2" },
+    { "module": "Configuración", "endpoint": "/api/v1/company-settings", "futureSource": "Company settings API", "fixtureSet": "settings-company.v2" },
+    { "module": "Notificaciones", "endpoint": "/api/v1/notifications", "futureSource": "Notifications API", "fixtureSet": "notifications-center.v2" }
+  ],
   "constraints": [
     "No endpoint is implemented in this work package.",
     "All displayed values are deterministic local fixtures.",
     "Future authorization must be enforced by APIs, never inferred from UI visibility.",
     "Role-based navigation in 02A.02 controls only interface visibility.",
+    "02A.05 extends 02A.04 with stateful UX, pagination, persistent filters, sorting, selection and expandable detail.",
+    "02A.06 aligns list and detail payloads, filters, search, sorting, pagination, errors, empty states and partial responses for future API replacement.",
+    "No Azure SQL real, Graph, email, document intake, SharePoint operational, payments, Gusto, PNC, OneRail, Frayt or ELD connections are authorized.",
     "No operational integration is authorized."
   ],
   "roles": [
@@ -78,5 +297,11 @@
       "interfaceOnlyPermissions": ["view", "export-mock"],
       "visibleModules": ["Resumen ejecutivo", "Clientes", "Reportes", "Notificaciones"]
     }
-  ]
+  ],
+  "guards": {
+    "currentDataSource": "fixtures-locales-exclusivamente",
+    "realConnections": false,
+    "realAutomation": false,
+    "approvedIntegrationsTouched": []
+  }
 }
