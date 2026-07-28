@@ -368,12 +368,12 @@ const moduleCopy: Record<WorkspaceModule, DomainConfig> = {
     accent: "chart",
     formTitle: "Solicitud mock de reporte",
     metrics: [{ label: "Reportes publicados", value: "14" }, { label: "Widgets", value: "28" }, { label: "Cortes", value: "Diario" }],
-    filters: [{ label: "Audiencia", values: ["Todas", "Operaciones", "HR", "Executives"] }, { label: "Periodicidad", values: ["Todas", "Diario", "Semanal", "Mensual"] }, { label: "Dominio", values: ["Todos", "Operaciones", "People", "Customer"] }],
-    summary: ["Tablero y catálogo mock desacoplados", "Exportación visual no operativa", "Sin mezcla con lógica financiera real"],
+    filters: [{ label: "Audiencia", values: ["Todas", "Operaciones", "HR", "Executive"] }, { label: "Periodicidad", values: ["Todas", "Diario", "Semanal", "Mensual"] }, { label: "Dominio", values: ["Todos", "Operaciones", "People", "Customer"] }],
+    summary: ["Tablero y catálogo mock desacoplados", "Exportación visual no operativa", "Sin mezcla con lógica financiera real", "Frontera preparada para api-real con fallback"],
     records: [
       { id: "REP-01", name: "Pulse operativo", subtitle: "Operaciones · Diario", status: "Activo", updatedAt: "Hoy, 06:00", metric: "7 widgets", owner: "BI Mock", route: "Catálogo > Diario", health: "Operativo" },
       { id: "REP-08", name: "People snapshot", subtitle: "HR · Semanal", status: "Activo", updatedAt: "Lun, 08:00", metric: "5 widgets", owner: "People Analytics", route: "Catálogo > Semanal", health: "Operativo" },
-      { id: "REP-12", name: "Customer health", subtitle: "Executives · Mensual", status: "Pendiente", updatedAt: "01 Ago mock", metric: "Borrador", owner: "Executive Insights", route: "Borradores > Aprobación", health: "En revisión" },
+      { id: "REP-12", name: "Customer health", subtitle: "Executive · Mensual", status: "Pendiente", updatedAt: "01 Ago mock", metric: "Borrador", owner: "Executive Insights", route: "Borradores > Aprobación", health: "En revisión" },
       { id: "REP-18", name: "Alerts digest", subtitle: "Cross-domain · Diario", status: "Parcial", updatedAt: "Hoy, 07:25", metric: "3/5 widgets", owner: "Portal Analytics", route: "Widgets > Coverage", health: "Atención" },
     ],
     detailSections: [{ title: "Catálogo", items: ["Periodicidad", "Audiencia", "Origen fixture"] }, { title: "Consumo", items: ["Widgets visibles", "Estados de carga", "Exportación no operativa"] }],
@@ -832,6 +832,21 @@ function ModuleWorkspace({
     .filter((action) => roleActionAccess[action.permission]?.includes(roleId) && (action.when === "always" || action.when === resolvedData.state))
     .filter((action) => !(name === "Reportes" && integrationStatus.mode === "api-real" && (action.label === "Solicitar reporte" || action.label === "Exportar vista")));
   const hasSelection = state.selectedIds.length > 0;
+  const isReports = name === "Reportes";
+  const activeFilterSummary = resolvedData.filters
+    .map((filterGroup) => `${filterGroup.label}: ${activeFilters[filterGroup.label] ?? filterGroup.values[0]}`)
+    .join(" · ");
+  const reportsCoverageSummary = isReports
+    ? `${filteredRecords.filter((record) => record.status === "Activo").length} listos · ${filteredRecords.filter((record) => record.status === "Parcial").length} parciales · ${filteredRecords.filter((record) => record.status === "Pendiente").length} en preparación`
+    : null;
+  const reportsLeadRecord = isReports ? filteredRecords[0] ?? resolvedData.records[0] : null;
+  const reportsBoundary = isReports
+    ? [
+        { label: "Modo", value: integrationStatus.mode === "api-real" ? "api-real controlado" : "mock local" },
+        { label: "Frontera", value: resolvedData.adapter.endpoint },
+        { label: "Fallback", value: integrationStatus.mode === "api-real" ? "mock activado si falla paridad" : "mock nativo" },
+      ]
+    : [];
 
   function updateState(patch: Partial<PersistedModuleState>) {
     startTransition(() => onStateChange({ ...state, ...patch }));
@@ -866,6 +881,43 @@ function ModuleWorkspace({
       <div className="module-kpis">
         {resolvedData.metrics.map((item) => <article key={item.label}><span>{item.label}</span><strong>{item.value}</strong><small>{integrationStatus.source === "reports-api" ? "API real controlada" : "Fixture local"}</small></article>)}
       </div>
+
+      {isReports && reportsLeadRecord && (
+        <section className="reports-intel-strip" aria-label="Contexto de Reportes">
+          <article className="reports-intel-card primary">
+            <span>ENFOQUE ACTUAL</span>
+            <b>{reportsLeadRecord.name}</b>
+            <p>{reportsLeadRecord.subtitle} · {reportsLeadRecord.metric} · {reportsLeadRecord.owner}</p>
+          </article>
+          <article className="reports-intel-card">
+            <span>LECTURA DE COBERTURA</span>
+            <b>{reportsCoverageSummary}</b>
+            <p>El estado parcial se mantiene visible para validar consumo analítico sin ocultar gaps del fixture.</p>
+          </article>
+          <article className="reports-intel-card">
+            <span>FILTROS ACTIVOS</span>
+            <b>{filteredRecords.length} visibles</b>
+            <p>{activeFilterSummary}</p>
+          </article>
+        </section>
+      )}
+
+      {isReports && (
+        <section className="reports-boundary-band" aria-label="Frontera de Reportes">
+          <div className="reports-boundary-title">
+            <span>Frontera de integración</span>
+            <b>Reportes es el único dominio con conmutación mock ↔ api-real</b>
+          </div>
+          <div className="reports-boundary-cards">
+            {reportsBoundary.map((item) => (
+              <article key={item.label} className="reports-boundary-card">
+                <span>{item.label}</span>
+                <b>{item.value}</b>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="workspace-grid">
         <section className="workspace-main">
@@ -907,6 +959,12 @@ function ModuleWorkspace({
                   <button className="toolbar-btn compact" type="button"><Icon name="refresh" size={14} /> {isRefreshing ? "Refreshing..." : "Refresh"}</button>
                 </div>
               </div>
+              {isReports && (
+                <div className="reports-callout">
+                  <b>Lectura rápida de Reportes</b>
+                  <p>Usa filtros para acotar audiencia y periodicidad; el detalle conserva la interpretación por secciones y la programación sigue en estado no operativo.</p>
+                </div>
+              )}
               {reportsLoading && name === "Reportes" && globalIntegrationMode === "api-real"
                 ? <LoadingBlock />
                 : resolvedData.state === "loading"
@@ -953,6 +1011,12 @@ function ModuleWorkspace({
                     {resolvedData.detailSections.map((section) => <li key={section.title}>{section.title}</li>)}
                   </ul>
                 </div>
+                {isReports && (
+                  <div className="detail-panel reportes-context">
+                    <span>LECTURA ANALÍTICA</span>
+                    <p>Este detalle sigue una ruta de consumo mock: catálogo legible, widgets parcialmente visibles y exportación solo visual hasta autorización futura.</p>
+                  </div>
+                )}
                 <div className="detail-panel full">
                   <span>SECCIONES</span>
                   <div className="section-grid">
