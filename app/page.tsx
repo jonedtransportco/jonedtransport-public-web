@@ -512,7 +512,6 @@ function normalizePersistedState(value: unknown): PersistedModuleState {
 }
 
 export default function Home() {
-  const [signedIn, setSignedIn] = useState(false);
   const [active, setActive] = useState<ModuleName>("Resumen ejecutivo");
   const [menuOpen, setMenuOpen] = useState(false);
   const [role, setRole] = useState<RoleId>("administration");
@@ -554,47 +553,6 @@ export default function Home() {
     window.setTimeout(() => setIsRefreshing(false), 900);
   }
 
-  if (!signedIn) {
-    return (
-      <main className="public-shell">
-        <header className="public-nav">
-          <Brand light />
-          <nav aria-label="Navegación pública">
-            <a href="#capabilities">Capacidades</a><a href="#platform">Plataforma</a><a href="#about">Nosotros</a>
-          </nav>
-          <button className="nav-login" onClick={() => setSignedIn(true)}>Acceso al portal <Icon name="arrow" size={16} /></button>
-        </header>
-        <section className="hero">
-          <div className="hero-copy">
-            <span className="kicker"><i /> Logística que conecta posibilidades</span>
-            <h1>Movemos tu negocio.<br /><em>Impulsamos tu futuro.</em></h1>
-            <p>Una plataforma empresarial diseñada para dar claridad a cada operación, conectar a cada equipo y mantener el crecimiento en movimiento.</p>
-            <div className="hero-actions">
-              <button className="primary-cta" onClick={() => setSignedIn(true)}>Entrar con Microsoft <Icon name="arrow" size={18} /></button>
-              <a href="#capabilities">Conocer la plataforma</a>
-            </div>
-            <div className="trust-row"><span><Icon name="shield" size={17} /> Acceso empresarial</span><span><Icon name="check" size={17} /> Datos protegidos</span><span><Icon name="clock" size={17} /> Visibilidad continua</span></div>
-          </div>
-          <div className="hero-visual" aria-label="Vista previa del portal JONED">
-            <div className="route-orbit orbit-one"><span>DEN</span></div>
-            <div className="route-orbit orbit-two"><span>AUS</span></div>
-            <div className="portal-preview">
-              <div className="preview-top"><span className="preview-mark">J</span><small>JONED PORTAL</small><div className="preview-avatar">AM</div></div>
-              <div className="preview-body">
-                <div className="mini-sidebar">{[1, 2, 3, 4, 5].map((n) => <i key={n} className={n === 1 ? "on" : ""} />)}</div>
-                <div className="mini-main"><small>BUENOS DÍAS, ALEX</small><strong>El negocio está en movimiento.</strong><div className="mini-stats"><i /><i /><i /></div><div className="mini-chart"><span /><span /><span /><span /><span /><span /><span /></div></div>
-              </div>
-              <div className="floating-card"><Icon name="route" /><div><b>47 unidades activas</b><small>94% de disponibilidad</small></div></div>
-            </div>
-          </div>
-        </section>
-        <section className="capability-strip" id="capabilities">
-          <span>Una sola plataforma</span><b>Personas</b><b>Flota</b><b>Clientes</b><b>Documentos</b><b>Decisiones</b>
-        </section>
-      </main>
-    );
-  }
-
   return (
     <main className="app-shell">
       <aside className={menuOpen ? "sidebar open" : "sidebar"}>
@@ -621,7 +579,7 @@ export default function Home() {
           {visibleModules.map(([label, icon]) => <button key={label} className={active === label ? "active" : ""} onClick={() => { setActive(label); setTab("listado"); setMenuOpen(false); }}><Icon name={icon} /><span>{label}</span>{label === "Notificaciones" && <i>3</i>}</button>)}
           {modules.filter(([label]) => !currentRole.modules.includes(label)).map(([label, icon]) => <button key={label} className="locked" aria-disabled="true" title="No visible para este rol simulado"><Icon name={icon} /><span>{label}</span><Icon name="lock" size={13} /></button>)}
         </nav>
-        <div className="user-card"><div className="avatar">AM</div><div><b>Alex Morgan</b><span>{currentRole.label}</span></div><button onClick={() => setSignedIn(false)} title="Cerrar sesión">↗</button></div>
+        <div className="user-card"><div className="avatar">AM</div><div><b>Alex Morgan</b><span>{currentRole.label}</span></div><button type="button" title="Sesión protegida por el sitio"><Icon name="lock" size={14} /></button></div>
       </aside>
       {menuOpen && <button className="scrim" onClick={() => setMenuOpen(false)} aria-label="Cerrar menú" />}
       <section className="main-panel">

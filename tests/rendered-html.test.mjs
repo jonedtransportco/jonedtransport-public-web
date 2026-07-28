@@ -31,8 +31,8 @@ test("server-renders the governed portal foundation", async () => {
 
   const html = await response.text();
   assert.match(html, /JONED/);
-  assert.match(html, /Movemos tu negocio/);
-  assert.match(html, /Acceso al portal/);
+  assert.match(html, /Buenos días, Alex\./);
+  assert.match(html, /Resumen ejecutivo/);
   assert.doesNotMatch(html, /Azure SQL|Gusto|PNC|OneRail|Frayt|ELD/);
 });
 
