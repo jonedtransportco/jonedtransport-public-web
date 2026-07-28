@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
 const profileCards = [
   {
@@ -41,7 +43,20 @@ const faqItems = [
   ],
 ];
 
-export default function OwnerOperatorsPage() {
+function isPortalHost(value: string | null): boolean {
+  if (!value) return false;
+  const host = value.split(":")[0]?.toLowerCase() ?? "";
+  return host === "portal.jonedtransport.com";
+}
+
+export default async function OwnerOperatorsPage() {
+  const requestHeaders = await headers();
+  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
+
+  if (isPortalHost(host)) {
+    redirect("/");
+  }
+
   return (
     <main className="owner-page">
       <header className="site-header owner">

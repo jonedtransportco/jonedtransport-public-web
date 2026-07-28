@@ -8,6 +8,32 @@ Scope: GREENFIELD frontend foundation using local simulated data only.
 
 The portal uses a presentation-first React/Next.js foundation compiled with Vinext for a Cloudflare Worker-compatible runtime. The public corporate experience, simulated Microsoft sign-in, authenticated shell, executive dashboard, module views, role indicators and responsive behavior are contained in the frontend surface.
 
+## Mandatory domain separation
+
+This project must preserve a hard separation between the public website and the internal portal.
+
+Target domain architecture:
+
+- `jonedtransport.com`
+  - public corporate website
+  - marketing, services, recruiting entry points, contact, public `Owner Operators` path and future public `Drivers` path
+- `portal.jonedtransport.com`
+  - internal or controlled portal only
+  - operational modules, report views, document-oriented internal review surfaces and authenticated role-based workspace behavior
+
+Non-negotiable rule:
+
+- the public website must not be published as the final public experience under `portal.jonedtransport.com`
+- the internal portal must not become the root public website under `jonedtransport.com`
+- future builds, routes, deployments and content decisions must preserve this domain split unless an explicit Architecture Office directive replaces it
+
+Current implementation note as of July 28, 2026:
+
+- this repository currently contains both public-site and portal frontend code paths for design and implementation work
+- that does not authorize mixed production-domain publishing
+- route-level coexistence inside one codebase is acceptable during implementation
+- final domain publishing must still separate `jonedtransport.com` from `portal.jonedtransport.com`
+
 The current data flow is deliberately local:
 
 `UI components → typed view model → mock adapter → local fixtures`

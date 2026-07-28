@@ -1,4 +1,50 @@
-# vinext-starter
+# JONED Portal Web Frontend Foundation
+
+This workspace contains frontend work for two related but distinct web surfaces:
+
+- the public corporate website for `jonedtransport.com`
+- the internal or controlled portal for `portal.jonedtransport.com`
+
+## Mandatory publishing rule
+
+Do not merge these two final domain targets conceptually or operationally.
+
+Required final domain split:
+
+- `jonedtransport.com`
+  - public website only
+  - company presentation, services, contact, recruiting-facing pages, `Owner Operators`, future `Drivers`
+- `portal.jonedtransport.com`
+  - portal only
+  - internal or controlled operational experience
+
+This rule is mandatory for future implementation and publishing decisions.
+
+Temporary coexistence of public and portal routes inside one codebase is allowed during buildout, but:
+
+- public-site publication must end at `jonedtransport.com`
+- portal publication must end at `portal.jonedtransport.com`
+- no future deployment should treat the portal domain as the final public corporate homepage
+
+## Current hosting note
+
+The current `.openai/hosting.json` points to the existing portal-linked Sites project:
+
+```json
+{
+  "project_id": "appgprj_6a64ce95216c819190c806d74cde8a91",
+  "d1": null,
+  "r2": null
+}
+```
+
+Interpretation:
+
+- this project reference is tied to the current portal-linked publishing surface
+- it must not be assumed to be the final production target for `jonedtransport.com`
+- before final public-site publication, Architecture must confirm the correct public website project/domain target separately
+
+## Technical base
 
 A clean full-stack starter running on
 [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and

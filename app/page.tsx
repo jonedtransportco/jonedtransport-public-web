@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { headers } from "next/headers";
+import PortalPage from "./portal/page";
 
 const services = [
   {
@@ -33,7 +35,20 @@ const ownerOperatorHighlights = [
   "Checklist dinámico según tu caso",
 ];
 
-export default function Home() {
+function isPortalHost(value: string | null): boolean {
+  if (!value) return false;
+  const host = value.split(":")[0]?.toLowerCase() ?? "";
+  return host === "portal.jonedtransport.com";
+}
+
+export default async function Home() {
+  const requestHeaders = await headers();
+  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
+
+  if (isPortalHost(host)) {
+    return <PortalPage />;
+  }
+
   return (
     <main className="public-site">
       <header className="site-header">
