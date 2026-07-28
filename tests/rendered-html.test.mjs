@@ -24,21 +24,22 @@ async function render() {
   );
 }
 
-test("server-renders the governed portal foundation", async () => {
+test("server-renders the public corporate site", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
   assert.match(html, /JONED/);
-  assert.match(html, /Buenos días, Alex\./);
-  assert.match(html, /Resumen ejecutivo/);
+  assert.match(html, /Operación confiable para mover carga, personas y decisiones/);
+  assert.match(html, /Owner Operators/);
+  assert.match(html, /Acceso al portal/);
   assert.doesNotMatch(html, /Azure SQL|Gusto|PNC|OneRail|Frayt|ELD/);
 });
 
 test("02A.02 source includes interface-only role navigation", async () => {
   const [page, contract, reportsAdapter, reportsRoute] = await Promise.all([
-    readFile(new URL("app/page.tsx", root), "utf8"),
+    readFile(new URL("app/portal/page.tsx", root), "utf8"),
     readFile(new URL("contracts/mock-api.v1.json", root), "utf8"),
     readFile(new URL("app/reports-api.ts", root), "utf8"),
     readFile(new URL("app/api/v1/reports/route.ts", root), "utf8"),
@@ -104,7 +105,7 @@ test("02A.02 source includes interface-only role navigation", async () => {
 
 test("role matrix keeps the approved Reportes visibility boundary", async () => {
   const [page, contract] = await Promise.all([
-    readFile(new URL("app/page.tsx", root), "utf8"),
+    readFile(new URL("app/portal/page.tsx", root), "utf8"),
     readFile(new URL("contracts/mock-api.v1.json", root), "utf8"),
   ]);
 
@@ -133,7 +134,7 @@ test("role matrix keeps the approved Reportes visibility boundary", async () => 
 });
 
 test("Reportes keeps the approved mock-only action and state guardrails", async () => {
-  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  const page = await readFile(new URL("app/portal/page.tsx", root), "utf8");
 
   assert.match(page, /Reportes:\s*\{[\s\S]*title:\s*"Decisiones con perspectiva"/);
   assert.match(page, /Reportes:\s*\{[\s\S]*state:\s*"partial"/);
@@ -149,7 +150,7 @@ test("Reportes keeps the approved mock-only action and state guardrails", async 
 
 test("frontend source preserves api-real rollback and non-operational filtering for Reportes", async () => {
   const [page, reportsAdapter, reportsRoute] = await Promise.all([
-    readFile(new URL("app/page.tsx", root), "utf8"),
+    readFile(new URL("app/portal/page.tsx", root), "utf8"),
     readFile(new URL("app/reports-api.ts", root), "utf8"),
     readFile(new URL("app/api/v1/reports/route.ts", root), "utf8"),
   ]);
@@ -172,4 +173,15 @@ test("frontend source preserves api-real rollback and non-operational filtering 
   assert.match(reportsRoute, /REPORTS_API_URL_MISSING/);
   assert.match(reportsRoute, /REPORTS_UPSTREAM_UNREACHABLE/);
   assert.match(reportsRoute, /cache-control": "no-store"/);
+});
+
+test("owner operators page keeps the public intake framing", async () => {
+  const ownerPage = await readFile(new URL("app/owner-operators/page.tsx", root), "utf8");
+
+  assert.match(ownerPage, /Apply through the path that fits your operation/);
+  assert.match(ownerPage, /Persona con vehículo/);
+  assert.match(ownerPage, /Empresa con vehículo/);
+  assert.match(ownerPage, /Persona sin vehículo/);
+  assert.match(ownerPage, /CDL and Non-CDL routes/);
+  assert.match(ownerPage, /The application is designed to adapt to your route/);
 });
