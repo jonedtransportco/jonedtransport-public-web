@@ -442,7 +442,13 @@ export default function PortalPage({
       <main className="joned-entra-page">
         <section className="joned-entra-story">
           <div className="joned-logo-shell joned-logo-shell--portal">
-            <img src="/joned-logo-color.png" alt="Joned Transpor Co" className="joned-logo-image" />
+            <img
+              src="/joned-logo-wordmark.png"
+              alt="Joned Transpor Co"
+              className="joned-logo-image joned-logo-image--brand"
+              loading="eager"
+              decoding="async"
+            />
           </div>
           <div className="joned-language-switcher auth">
             <button
@@ -470,7 +476,13 @@ export default function PortalPage({
         <section className="joned-entra-panel">
           <div className="joned-entra-card">
             <div className="joned-logo-shell joned-logo-shell--portal">
-              <img src="/joned-logo-color.png" alt="Joned Transpor Co" className="joned-logo-image" />
+              <img
+                src="/joned-logo-wordmark.png"
+                alt="Joned Transpor Co"
+                className="joned-logo-image joned-logo-image--brand"
+                loading="eager"
+                decoding="async"
+              />
             </div>
             <span className="joned-eyebrow">{portalCopy.auth.panelEyebrow}</span>
             <h2>{portalCopy.auth.panelTitle}</h2>
@@ -506,7 +518,13 @@ export default function PortalPage({
     <main className="joned-portal">
       <aside className="joned-portal-sidebar">
         <div className="joned-logo-shell joned-logo-shell--portal">
-          <img src="/joned-logo-color.png" alt="Joned Transpor Co" className="joned-logo-image" />
+          <img
+            src="/joned-logo-wordmark.png"
+            alt="Joned Transpor Co"
+            className="joned-logo-image joned-logo-image--brand"
+            loading="eager"
+            decoding="async"
+          />
         </div>
         <div className="joned-portal-note">
           <strong>{portalCopy.sidebar.accessTitle}</strong>
@@ -567,7 +585,13 @@ export default function PortalPage({
           <div className="joned-portal-topbar-copy">
             <div className="joned-portal-brand">
               <div className="joned-logo-shell joned-logo-shell--portal joned-logo-shell--portal-dark">
-                <img src="/joned-logo-color.png" alt="Joned Transpor Co" className="joned-logo-image" />
+                <img
+                  src="/joned-logo-wordmark.png"
+                  alt="Joned Transpor Co"
+                  className="joned-logo-image joned-logo-image--brand"
+                  loading="eager"
+                  decoding="async"
+                />
               </div>
             </div>
             <span className="joned-eyebrow">{portalCopy.roles[role].label}</span>

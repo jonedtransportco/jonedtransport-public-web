@@ -15,7 +15,13 @@ export function PublicHeader({
   return (
     <header className="joned-public-nav">
       <a href="/" className="joned-logo-shell" aria-label="Joned Transpor Co home">
-        <img src="/joned-logo-color.png" alt="Joned Transpor Co" className="joned-logo-image" />
+        <img
+          src="/joned-logo-wordmark.png"
+          alt="Joned Transpor Co"
+          className="joned-logo-image joned-logo-image--brand"
+          loading="eager"
+          decoding="async"
+        />
       </a>
       <nav className="joned-public-links" aria-label="Primary">
         <a href="/">Home</a>
@@ -50,7 +56,13 @@ export function PublicFooter() {
   return (
     <footer className="joned-public-footer">
       <div className="joned-logo-shell">
-        <img src="/joned-logo-color.png" alt="Joned Transpor Co" className="joned-logo-image" />
+        <img
+          src="/joned-logo-wordmark.png"
+          alt="Joned Transpor Co"
+          className="joned-logo-image joned-logo-image--footer"
+          loading="eager"
+          decoding="async"
+        />
       </div>
       <p>Reliable transportation. Protected enterprise access. Responsive support.</p>
       <div>

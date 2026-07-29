@@ -189,6 +189,8 @@ button{cursor:pointer}
 .joned-logo-shell{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:5px 10px;border-radius:16px;background:rgba(255,255,255,.96);border:1px solid rgba(13,26,39,.08);box-shadow:0 12px 30px rgba(3,17,33,.14)}
 .joned-logo-shell:hover{transform:translateY(-1px)}
 .joned-logo-image{display:block;height:24px;width:auto;max-width:min(220px,38vw);object-fit:contain}
+.joned-logo-image--brand{height:32px;max-width:min(260px,44vw)}
+.joned-logo-image--footer{height:24px;max-width:min(220px,36vw)}
 .joned-logo-shell--portal{min-height:34px;padding:4px 8px;align-self:flex-start}
 .joned-logo-shell--portal-dark{background:rgba(255,255,255,.96);border-color:rgba(12,28,45,.08);box-shadow:0 10px 24px rgba(3,17,33,.08)}
 .joned-public-links{display:flex;align-items:center;gap:24px}
@@ -278,7 +280,7 @@ button{cursor:pointer}
 .joned-portal-topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:28px 30px 0}
 .joned-portal-topbar-copy{display:grid;gap:10px;min-width:0}
 .joned-portal-brand{display:flex;align-items:center;gap:12px}
-.joned-portal-topbar .joned-logo-image{height:20px;max-width:min(180px,30vw)}
+.joned-portal-topbar .joned-logo-image{height:32px;max-width:min(260px,44vw)}
 .joned-portal-topbar h1{margin:6px 0 4px;font-size:clamp(28px,3vw,40px);letter-spacing:-.04em;color:var(--navy)}
 .joned-portal-topbar p{margin:0;color:var(--muted);max-width:640px}
 .portal-metrics{padding:20px 30px 0}
@@ -303,7 +305,7 @@ button{cursor:pointer}
 .joned-timeline-item strong,.joned-timeline-item small{display:block}
 .joned-timeline-item small{color:var(--muted);margin-top:4px}
 @media(max-width:1100px){.joned-public-nav{height:auto;flex-wrap:wrap;padding:18px 20px}.joned-public-links,.joned-public-actions{width:100%;justify-content:flex-start;flex-wrap:wrap}.joned-hero,.joned-grid.four,.joned-grid.tracking,.joned-trust-strip,.portal-layout{grid-template-columns:1fr 1fr}.joned-portal{grid-template-columns:220px minmax(0,1fr)}}
-@media(max-width:760px){.joned-public-nav,.joned-portal-topbar{padding:18px 16px}.joned-public-links{display:none}.joned-public-actions{width:auto}.joned-hero{padding:46px 20px;grid-template-columns:1fr;min-height:auto}.joned-hero-copy h1{max-width:none;font-size:46px}.joned-trust-strip,.joned-grid.four,.joned-grid.two,.joned-grid.tracking,.joned-grid.form,.portal-metrics,.portal-layout{grid-template-columns:1fr}.joned-section{padding:54px 20px}.joned-search-shell,.joned-button-row,.joned-form-actions{flex-direction:column}.joned-primary-btn,.joned-secondary-btn,.joned-yellow-btn,.joned-outline-btn{width:100%}.joned-shipment-card{position:relative;right:auto;top:auto;width:100%}.joned-floating-card{position:static;margin-top:12px}.joned-portal{grid-template-columns:1fr}.joned-portal-sidebar{padding:18px 16px}.joned-portal-topbar{padding-top:20px;flex-direction:column;align-items:flex-start}.joned-portal-topbar .joned-logo-image{height:18px;max-width:150px}.portal-metrics{padding:18px 16px 0}.portal-layout{padding:18px 16px 30px}.joned-trust-inline{gap:12px}.joned-trust-strip article{padding:10px 0}}
+@media(max-width:760px){.joned-public-nav,.joned-portal-topbar{padding:18px 16px}.joned-public-links{display:none}.joned-public-actions{width:auto}.joned-hero{padding:46px 20px;grid-template-columns:1fr;min-height:auto}.joned-hero-copy h1{max-width:none;font-size:46px}.joned-trust-strip,.joned-grid.four,.joned-grid.two,.joned-grid.tracking,.joned-grid.form,.portal-metrics,.portal-layout{grid-template-columns:1fr}.joned-section{padding:54px 20px}.joned-search-shell,.joned-button-row,.joned-form-actions{flex-direction:column}.joned-primary-btn,.joned-secondary-btn,.joned-yellow-btn,.joned-outline-btn{width:100%}.joned-shipment-card{position:relative;right:auto;top:auto;width:100%}.joned-floating-card{position:static;margin-top:12px}.joned-portal{grid-template-columns:1fr}.joned-portal-sidebar{padding:18px 16px}.joned-portal-topbar{padding-top:20px;flex-direction:column;align-items:flex-start}.joned-portal-topbar .joned-logo-image{height:28px;max-width:210px}.portal-metrics{padding:18px 16px 0}.portal-layout{padding:18px 16px 30px}.joned-trust-inline{gap:12px}.joned-trust-strip article{padding:10px 0}}
 
 /* 02A visual baseline: proposal-aligned public experience and Entra-only portal gate. */
 .joned-hero{
