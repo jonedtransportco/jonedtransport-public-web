@@ -1,0 +1,10 @@
+JONED Enterprise Platform - 02A.28 SHA-256 Manifest v1.0
+
+Generated: 2026-07-28 UTC
+
+ed3080454a90d3654a88faf2a7af6837b6e7cee668ce200d9a5ee5d0873806ac  azure.yaml  152
+a97e3e79a854be918cc4a4203beaea80d2a2b3913eb91139dabe0bc871f6cb47  staticwebapp.config.json  1128
+53b88ebe04d576ccb9c591fdeadbec0a8ffc55f18571a8bd68a2e31d64dce7a5  infra/main.bicep  1659
+c97009b035c9c9dd68a5a41da32f926c3517793db5d9fb1215ac75ae226d8219  infra/main.parameters.json  537
+2c2db9dce65380c0b577a550849d3fb50805b6bc56c64192c4c97d9b76a5bf16  02A.28_Private_Portal_Azure_Migration_Execution_Pack_v1.0.md  2111
+f2f1e32717c5711d4feeb89833e97a6d0618b0d3ae685fce62ffb15f6e748bcb  02A.28_Evidence_v1.0.json  839

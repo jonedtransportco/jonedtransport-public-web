@@ -1,0 +1,7 @@
+JONED Enterprise Platform - 02A.08 SHA-256 Manifest v1.0
+Generated: 2026-07-25T20:12:00Z
+Work package: 02A.08
+Scope: first-domain API readiness pack for future controlled transition from mock mode to real API consumption
+
+637e4621361181532e20bf02350f61345f4122483ad669f8d6db110d6cb8f286  02A.08_First_Domain_API_Readiness_Pack_Reportes_v1.0.md  15590
+3a2aa7310708dbdc2a7959da223db7d732c0c6cb3845e5dd6a6c66a1d1f399ae  02A.08_Evidence_v1.0.json  3242

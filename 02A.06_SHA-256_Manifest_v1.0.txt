@@ -1,0 +1,19 @@
+02A.06 — Real API Contract Alignment and Integration Switch Readiness
+SHA-256 Manifest v1.0
+Lifecycle: Under_Review
+Generated UTC: 2026-07-25T18:23:00Z
+
+83fe77cce19dca351ff5fe23a5253177f07afb4ed06dcf2dcbd14a2c7d335f30  02A.06_Mock_API_Contract_v1.0.json  11531 bytes
+50b9f7ebfb6af2cad4f3ffd1f78891fe05e569562ed00a4dfd2f2394b3f1a952  02A.06_Contract_Alignment_and_Future_Integration_Boundary_v1.0.md  3682 bytes
+fc473228ae9afdbf2a7fdb0906ccb74f718ea285f517a0f9227befbe4cca04c1  02A.06_Technical_Evidence_v1.0.md  1818 bytes
+20b5f6f642ea93d32a3d150cc249bf7ac82650ed7255aa345c46dd2a62ed52d0  02A.06_Evidence_v1.0.json  1282 bytes
+d74d29902f83fc691076f51adce142c14a91b138ad10a535bf0cb9d9ce249d03  evidence/02A.06_visual_evidence_v1.0.html  17191 bytes
+
+Validation:
+- Production build completed successfully from local fixtures only.
+- Automated tests passed against rendered output and updated mock contract.
+- Lint passed after persistence hydration was moved into the state initializer.
+- Desktop and mobile continuity remained aligned with the approved 02A visual language.
+- Zero real connections and zero operational integrations were confirmed.
+
+Readiness: READY_FOR_ARCHITECTURE_REVIEW_NOT_AUTHORIZED_FOR_OPERATIONAL_USE

@@ -1,19 +1,39 @@
 import Link from "next/link";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import OwnerOperatorPrequalificationForm from "./prequalification-form";
 
 const profileCards = [
   {
-    title: "Persona con vehículo",
-    body: "Para quienes aplican como persona y entran con vehículo propio o asociado.",
+    title: "Person with vehicle",
+    body: "For applicants entering as individuals with their own vehicle or an associated operating unit.",
   },
   {
-    title: "Empresa con vehículo",
-    body: "Para negocios que aplican con estructura comercial y unidad operativa.",
+    title: "Business with vehicle",
+    body: "For business applicants entering with commercial structure and vehicle-based operational support.",
   },
   {
-    title: "Persona sin vehículo",
-    body: "Para rutas tipo driver o similares, cuando la aplicación no empieza con unidad propia.",
+    title: "Person without vehicle",
+    body: "For driver-style or similar routes where the application does not begin with a self-provided unit.",
+  },
+];
+
+const valueCards = [
+  {
+    title: "Structured process",
+    body: "A clearer intake and review path from the beginning, without forcing every applicant into one universal checklist.",
+  },
+  {
+    title: "Professional communication",
+    body: "A more organized experience for applicants and operating partners before the internal review phase begins.",
+  },
+  {
+    title: "Profile-based requirements",
+    body: "The route should reveal the requirements that match the profile instead of assuming CDL, company formation, or one vehicle type.",
+  },
+  {
+    title: "Operational continuity",
+    body: "Built to support a real working relationship, not only a one-time document drop.",
   },
 ];
 
@@ -22,6 +42,13 @@ const prepGroups = [
   ["License and compliance", "CDL or Non-CDL information, plus medical card only when it applies."],
   ["Vehicle and authority", "Vehicle type, registration, DOT, MC, or authority documents only when needed."],
   ["Insurance and payment", "COI, coverage details, W-9, and voided check only when the route requires them."],
+];
+
+const routeNotes = [
+  "Applying as an individual or as a business",
+  "Applying with a vehicle or without a vehicle",
+  "CDL and Non-CDL paths",
+  "Requirements shown according to your profile",
 ];
 
 const faqItems = [
@@ -69,13 +96,14 @@ export default async function OwnerOperatorsPage() {
         </Link>
         <nav className="site-nav" aria-label="Owner Operators">
           <a href="#fit">Who this is for</a>
+          <a href="#why-joned">Why JONED</a>
           <a href="#prepare">What to prepare</a>
           <a href="#process">How it works</a>
           <a href="#faq">FAQ</a>
         </nav>
         <div className="site-actions">
-          <Link href="/" className="ghost-link">Volver al sitio</Link>
-          <Link href="/portal" className="nav-login dark">Acceso al portal</Link>
+          <Link href="/" className="ghost-link">Back to main site</Link>
+          <Link href="/portal" className="nav-login dark">Portal access</Link>
         </div>
       </header>
 
@@ -120,9 +148,37 @@ export default async function OwnerOperatorsPage() {
             </article>
           ))}
         </div>
+        <div className="owner-route-note">
+          <b>If you are not sure which category fits you, you can still start the application.</b>
+          <p>The form should guide you instead of blocking you at the first decision.</p>
+        </div>
+        <div className="owner-route-list">
+          {routeNotes.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
       </section>
 
-      <section className="site-section muted" id="prepare">
+      <section className="site-section muted" id="why-joned">
+        <div className="section-head">
+          <span>WHY WORK WITH JONED</span>
+          <h2>A more practical entry path for long-term operating relationships.</h2>
+          <p>
+            This page should feel serious, clear, and useful. It should help applicants understand
+            that JONED is building a more organized process from the first step.
+          </p>
+        </div>
+        <div className="service-grid">
+          {valueCards.map((card) => (
+            <article key={card.title} className="service-card">
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="site-section" id="prepare">
         <div className="section-head">
           <span>WHAT TO PREPARE</span>
           <h2>You do not need every document unless it applies to your route.</h2>
@@ -139,12 +195,20 @@ export default async function OwnerOperatorsPage() {
             </article>
           ))}
         </div>
+        <div className="owner-route-note compact">
+          <b>Only the items that apply to your route should be requested.</b>
+          <p>Some business, authority, insurance, and payment items may appear only when your route requires them.</p>
+        </div>
       </section>
 
-      <section className="site-section" id="process">
+      <section className="site-section muted" id="process">
         <div className="section-head">
           <span>HOW THE PROCESS WORKS</span>
           <h2>A guided route from first questions to intake submission.</h2>
+          <p>
+            The goal is to make the intake feel understandable and finite without implying instant
+            approval, real-time onboarding, or operational activation.
+          </p>
         </div>
         <div className="process-grid owner-flow">
           <article className="process-card">
@@ -183,7 +247,13 @@ export default async function OwnerOperatorsPage() {
           <a className="primary-cta compact" href="mailto:commercialmanager@jonedtransport.com?subject=Owner%20Operators%20Application%20Start">Start application</a>
           <Link className="ghost-link large" href="/">Back to main site</Link>
         </div>
+        <p className="owner-cta-note">
+          If you are not sure whether your path is CDL, Non-CDL, with vehicle, or without vehicle,
+          you can still continue.
+        </p>
       </section>
+
+      <OwnerOperatorPrequalificationForm />
 
       <section className="site-section muted" id="faq">
         <div className="section-head">
@@ -197,6 +267,21 @@ export default async function OwnerOperatorsPage() {
               <p>{answer}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="site-section owner-footer-cta">
+        <div className="owner-footer-box">
+          <span>STILL INTERESTED?</span>
+          <h2>Start your application and we will guide you to the right path.</h2>
+          <p>
+            This public page is the beginning of the route. Internal status handling and operational
+            review remain on the portal side after submission.
+          </p>
+          <div className="contact-actions">
+            <a className="primary-cta compact" href="mailto:commercialmanager@jonedtransport.com?subject=Owner%20Operators%20Application%20Start">Start application</a>
+            <Link className="ghost-link large" href="/">Return to jonedtransport.com</Link>
+          </div>
         </div>
       </section>
     </main>

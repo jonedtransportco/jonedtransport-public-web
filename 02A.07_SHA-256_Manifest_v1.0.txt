@@ -1,0 +1,7 @@
+JONED Enterprise Platform - 02A.07 SHA-256 Manifest v1.0
+Lifecycle: Under_Review
+Work package: 02A.07
+Scope: non-operational readiness mapping and future API transition planning artifacts
+
+8c91aaf22ea610df9dbb063caaba11e0652d1b4d6a40dd5b9ea9c050bb2d560f  02A.07_Backend_Integration_Readiness_Mapping_and_API_Consumption_Transition_Plan_v1.0.md
+1dbfb4f1ecaefac461f39e091def1542db13cb536bb93ba6249547097190ea08  02A.07_Evidence_v1.0.json

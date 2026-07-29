@@ -1,0 +1,7 @@
+JONED Enterprise Platform - 02A.25 SHA-256 Manifest v1.0
+
+Generated: 2026-07-28 UTC
+
+bbff1cf45d29a5e547af84ea2a27dddd9138a6ef4428ad972cdcb213ac7532db  02A.25_Public_Web_Handoff_Pack_v1.0.md  3237
+820341fb7fbc0029b2fa81c47a75fd0ac4c5ed0c98263d7ed612ad495ed5651f  02A.25_Evidence_v1.0.json  986
+5449a323a4ba561094de55f5959a67a4b7125252cd21f15dbc8bc379ece88c2b  joned-public-web.tar.gz  2251631

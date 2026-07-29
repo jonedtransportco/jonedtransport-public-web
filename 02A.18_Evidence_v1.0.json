@@ -1,0 +1,52 @@
+{
+  "packageId": "02A.18",
+  "title": "Drivers Mock Prequalification Evidence",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "authorizationState": "AUTHORIZED TO CLOSE DRIVER PUBLIC MOCK PREQUALIFICATION STRUCTURE ONLY",
+  "sourceSharePointFolder": "02_Delivery_Workstreams/02A_Portal_Web_Frontend_Foundation/Under_Review",
+  "implementedAreas": [
+    "public-drivers-mock-prequalification",
+    "driver-no-vehicle-route-resolution",
+    "frontend-validation-refresh"
+  ],
+  "filesCovered": [
+    "app/drivers/page.tsx",
+    "app/drivers/prequalification-form.tsx",
+    "tests/rendered-html.test.mjs",
+    "02A.18_Drivers_Mock_Prequalification_Evidence_v1.0.md",
+    "02A.18_Evidence_v1.0.json",
+    "02A.18_SHA-256_Manifest_v1.0.txt"
+  ],
+  "validation": {
+    "build": "passed",
+    "tests": "passed",
+    "executedTests": 7
+  },
+  "publicRoutesConfirmed": [
+    "/",
+    "/drivers",
+    "/owner-operators",
+    "/portal",
+    "/api/v1/reports"
+  ],
+  "driverRoutesResolved": [
+    "P3",
+    "P4",
+    "B3",
+    "B4"
+  ],
+  "zeroRealConnectionsConfirmed": true,
+  "nonAuthorizedActionsNotExecuted": [
+    "real-intake-activation",
+    "real-document-upload-storage",
+    "public-applicant-record-creation",
+    "portal-review-workflow-activation",
+    "backend-api-switch",
+    "azure-sql-real-connection",
+    "graph-operational-connection",
+    "sharepoint-operational-runtime-connection",
+    "business-automation"
+  ],
+  "stopCondition": "After SharePoint publication and direct reread verification, stop and return control to 00.2."
+}

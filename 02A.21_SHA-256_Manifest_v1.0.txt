@@ -1,0 +1,7 @@
+JONED Enterprise Platform - 02A.21 SHA-256 Manifest v1.0
+Lifecycle: Under_Review
+
+311107c1b51d8b7f15f0986b677709d6ea8f21fea68860c023876af4ea1b6f21  02A.21_First_Public_Intake_Review_Transition_Plan_Drivers_v1.0.md  6840
+f6802b541e846c0e8b009a347e832ea7fa55ccab3c33799cba387d475fdb5abd  02A.21_Evidence_v1.0.json  1849
+c8026ffa5f5e5927951920f1aeee0a4ade4e46e9a8d1f37843a66326fce6f3b2  app/public-intake-transition.ts  1554
+240bdc42e42150e35f04ccb673b2b7aca6218afe205b9097cd30bf03156963cd  tests/rendered-html.test.mjs  12319

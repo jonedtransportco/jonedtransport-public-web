@@ -1,0 +1,44 @@
+{
+  "packageId": "02A.23",
+  "title": "Public Owner Operators API Readiness Pack",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "status": "ready-for-architecture-review",
+  "traceability": ["02A.07", "02A.09", "02A.15", "02A.15A", "02A.15B", "02A.15C", "02A.16", "02A.21", "02A.22"],
+  "artifacts": [
+    "contracts/public-intake-owner-operators.v1.json",
+    "app/public-intake-transition.ts",
+    "tests/rendered-html.test.mjs",
+    "02A.23_Public_Owner_Operators_API_Readiness_Pack_v1.0.md",
+    "02A.23_Evidence_v1.0.json",
+    "02A.23_SHA-256_Manifest_v1.0.txt"
+  ],
+  "publicRoute": "/owner-operators",
+  "domain": "Owner Operators",
+  "flags": {
+    "globalMode": "PUBLIC_INTAKE_API_MODE",
+    "domainMode": "PUBLIC_INTAKE_OWNER_OPERATORS_SOURCE",
+    "firstDomainMode": "PUBLIC_INTAKE_DRIVERS_SOURCE",
+    "endpoint": "PUBLIC_INTAKE_OWNER_OPERATORS_API_URL"
+  },
+  "constraints": [
+    "owner-operators-remains-mock",
+    "drivers-remains-first-review-domain",
+    "review-environment-only",
+    "no-production-activation",
+    "no-real-backend-connection",
+    "no-document-runtime-activation",
+    "no-portal-operational-workflow-trigger"
+  ],
+  "validation": {
+    "tests": "rendered-html.test.mjs",
+    "build": "next build",
+    "contractConsistency": true,
+    "zeroRealConnectionsConfirmed": true
+  },
+  "publishedObjects": [
+    "02A.23_Public_Owner_Operators_API_Readiness_Pack_v1.0.md",
+    "02A.23_Evidence_v1.0.json",
+    "02A.23_SHA-256_Manifest_v1.0.txt"
+  ]
+}

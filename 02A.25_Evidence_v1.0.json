@@ -1,0 +1,32 @@
+{
+  "packageId": "02A.25",
+  "title": "Public Web Handoff Pack",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "status": "ready-for-architecture-review",
+  "traceability": ["02A.16", "02A.17", "02A.18", "02A.19", "02A.20", "02A.22", "02A.23", "02A.24"],
+  "artifact": {
+    "fileName": "joned-public-web.tar.gz",
+    "bytes": 2251631,
+    "sha256": "5449a323a4ba561094de55f5959a67a4b7125252cd21f15dbc8bc379ece88c2b",
+    "sourcePackage": "work/02a-public-web"
+  },
+  "publicScope": [
+    "homepage",
+    "owner-operators",
+    "drivers",
+    "company-services-recruiting-contact"
+  ],
+  "privateScopeExcluded": [
+    "portal.jonedtransport.com",
+    "internal-operational-workflows",
+    "real-backend-integrations"
+  ],
+  "recommendedExecutionPath": [
+    "publish-artifact-to-public-capable-hosting",
+    "bind-root-domain-to-public-site-only",
+    "preserve-portal-private-hosting",
+    "verify-root-public-and-portal-restricted"
+  ],
+  "zeroRealConnectionsConfirmed": true
+}

@@ -31,9 +31,12 @@ test("server-renders the public corporate site", async () => {
 
   const html = await response.text();
   assert.match(html, /JONED/);
-  assert.match(html, /Operación confiable para mover carga, personas y decisiones/);
+  assert.match(html, /Reliable freight movement backed by clearer operations/);
+  assert.match(html, /A public company site for services, recruiting, and contact/);
+  assert.match(html, /ABOUT JONED/);
+  assert.match(html, /Work with JONED/);
   assert.match(html, /Owner Operators/);
-  assert.match(html, /Acceso al portal/);
+  assert.match(html, /Portal access/);
   assert.doesNotMatch(html, /Azure SQL|Gusto|PNC|OneRail|Frayt|ELD/);
 });
 
@@ -179,9 +182,77 @@ test("owner operators page keeps the public intake framing", async () => {
   const ownerPage = await readFile(new URL("app/owner-operators/page.tsx", root), "utf8");
 
   assert.match(ownerPage, /Apply through the path that fits your operation/);
-  assert.match(ownerPage, /Persona con vehículo/);
-  assert.match(ownerPage, /Empresa con vehículo/);
-  assert.match(ownerPage, /Persona sin vehículo/);
+  assert.match(ownerPage, /Person with vehicle/);
+  assert.match(ownerPage, /Business with vehicle/);
+  assert.match(ownerPage, /Person without vehicle/);
+  assert.match(ownerPage, /WHY WORK WITH JONED|why-joned/);
+  assert.match(ownerPage, /Start your application and we will guide you to the right path/);
   assert.match(ownerPage, /CDL and Non-CDL routes/);
   assert.match(ownerPage, /The application is designed to adapt to your route/);
+});
+
+test("drivers page keeps the public driver intake framing", async () => {
+  const driversPage = await readFile(new URL("app/drivers/page.tsx", root), "utf8");
+  const driversForm = await readFile(new URL("app/drivers/prequalification-form.tsx", root), "utf8");
+
+  assert.match(driversPage, /Apply through the driver path that fits your role/);
+  assert.match(driversPage, /CDL drivers/);
+  assert.match(driversPage, /Non-CDL drivers/);
+  assert.match(driversPage, /Personal or business route/);
+  assert.match(driversPage, /WHY WORK WITH JONED|why-joned/);
+  assert.match(driversPage, /This page is intended mainly for driver paths that do not begin with a self-provided vehicle/);
+  assert.match(driversPage, /public recruiting entry point/i);
+  assert.match(driversPage, /personal or business applicant context/i);
+  assert.match(driversPage, /The form should adapt to your profile instead of rejecting you too early/);
+  assert.match(driversPage, /DriversPrequalificationForm/);
+  assert.match(driversForm, /Drivers prequalification/);
+  assert.match(driversForm, /P3/);
+  assert.match(driversForm, /P4/);
+  assert.match(driversForm, /No-vehicle route only/);
+  assert.match(driversForm, /Personal or business is allowed/);
+  assert.match(driversForm, /Not every driver route requires CDL/);
+  assert.match(driversForm, /This is a mock step-based intake only/);
+});
+
+test("public intake transition boundary reserves Drivers as the first review-only api-real candidate", async () => {
+  const transition = await readFile(new URL("app/public-intake-transition.ts", root), "utf8");
+
+  assert.match(transition, /type PublicIntakeDomain = "drivers" \| "owner-operators"/);
+  assert.match(transition, /const reviewEligibleDomains: PublicIntakeDomain\[] = \["drivers"\]/);
+  assert.match(transition, /PUBLIC_INTAKE_API_MODE/);
+  assert.match(transition, /PUBLIC_INTAKE_DRIVERS_SOURCE/);
+  assert.match(transition, /PUBLIC_INTAKE_OWNER_OPERATORS_SOURCE/);
+  assert.match(transition, /PUBLIC_INTAKE_DRIVERS_API_URL/);
+  assert.match(transition, /PUBLIC_INTAKE_OWNER_OPERATORS_API_URL/);
+  assert.match(transition, /env-flag-plus-domain-allowlist-plus-contract-parity-checks-plus-mock-fallback/);
+  assert.match(transition, /Domain is not approved for review-environment api-real preparation/);
+});
+
+test("public Drivers readiness pack keeps the approved route codes, flags, and parity boundary", async () => {
+  const contract = await readFile(new URL("contracts/public-intake-drivers.v1.json", root), "utf8");
+
+  assert.match(contract, /"domain": "drivers-public-intake"/);
+  assert.match(contract, /"selectedFirstReviewDomain": true/);
+  assert.match(contract, /"allowedRouteCodes": \["P3", "P4", "B3", "B4"\]/);
+  assert.match(contract, /PUBLIC_INTAKE_API_MODE/);
+  assert.match(contract, /PUBLIC_INTAKE_DRIVERS_SOURCE/);
+  assert.match(contract, /PUBLIC_INTAKE_OWNER_OPERATORS_SOURCE/);
+  assert.match(contract, /PUBLIC_INTAKE_DRIVERS_API_URL/);
+  assert.match(contract, /PUBLIC_INTAKE_DRIVERS_CONTRACT_PARITY_FAILED/);
+  assert.match(contract, /owner-operators-stays-mock/);
+});
+
+test("public Owner Operators readiness pack keeps the approved route matrix and remains outside review eligibility", async () => {
+  const contract = await readFile(new URL("contracts/public-intake-owner-operators.v1.json", root), "utf8");
+
+  assert.match(contract, /"domain": "owner-operators-public-intake"/);
+  assert.match(contract, /"selectedFirstReviewDomain": false/);
+  assert.match(contract, /"reviewEligibleNow": false/);
+  assert.match(contract, /"allowedRouteCodes": \["P1", "P2", "P3", "P4", "B1", "B2", "B3", "B4"\]/);
+  assert.match(contract, /PUBLIC_INTAKE_API_MODE/);
+  assert.match(contract, /PUBLIC_INTAKE_OWNER_OPERATORS_SOURCE/);
+  assert.match(contract, /PUBLIC_INTAKE_DRIVERS_SOURCE/);
+  assert.match(contract, /PUBLIC_INTAKE_OWNER_OPERATORS_API_URL/);
+  assert.match(contract, /PUBLIC_INTAKE_OWNER_OPERATORS_CONTRACT_PARITY_FAILED/);
+  assert.match(contract, /drivers-remains-first-domain/);
 });

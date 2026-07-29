@@ -1,0 +1,41 @@
+{
+  "workPackage": "02A.05",
+  "version": "1.0",
+  "dateUtc": "2026-07-25T18:15:00Z",
+  "portalPath": "work/02a-portal-web",
+  "mode": "mock-only",
+  "artifacts": [
+    "app/page.tsx",
+    "app/globals.css",
+    "contracts/mock-api.v1.json",
+    "tests/rendered-html.test.mjs",
+    "package.json",
+    "02A.05_Technical_Evidence_v1.0.md",
+    "evidence/02A.05_visual_evidence_v1.0.html",
+    "02A.05_SHA-256_Manifest_v1.0.txt"
+  ],
+  "validation": {
+    "build": "passed-via-test-pipeline",
+    "tests": "passed",
+    "desktopEvidence": "captured-in-html-pack",
+    "mobileEvidence": "captured-in-html-pack",
+    "navigationConsistency": "validated",
+    "roleActionCoherence": "validated",
+    "statefulUxConsistency": "validated",
+    "fixturesOnlyConfirmed": true,
+    "zeroRealConnectionsConfirmed": true
+  },
+  "guardrails": [
+    "Simulated data and local fixtures only.",
+    "Zero real backend connections.",
+    "No business automations.",
+    "Role navigation preserved from 02A.02.",
+    "Adapters remain decoupled from real backend services.",
+    "No Azure work package was modified."
+  ],
+  "explicitConfirmations": {
+    "fixturesOnly": true,
+    "zeroRealConnections": true,
+    "zeroOperationalIntegrations": true
+  }
+}

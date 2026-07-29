@@ -1,0 +1,7 @@
+JONED Enterprise Platform - 02A.09 SHA-256 Manifest v1.0
+Generated: 2026-07-26T00:20:00Z
+Work package: 02A.09
+Scope: controlled-stop evidence for Reportes real API review activation
+
+4e98acdc7eb27204614b1b9f5d2e7cee8e6153689ee21c50fa82060401978365  02A.09_Reportes_Real_API_Review_Activation_Controlled_Stop_Report_v1.0.md  2955
+ae671a340a3d57358e0b6dc8c9995bfb9b2ff23d2d74a8a115b27a4e60b32e93  02A.09_Evidence_v1.0.json  1664

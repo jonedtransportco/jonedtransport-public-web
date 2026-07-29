@@ -1,0 +1,57 @@
+{
+  "workPackage": "02A.10",
+  "title": "Reportes Role-Based Visual and Functional Evidence",
+  "version": "1.0",
+  "dateUtc": "2026-07-27T23:40:00Z",
+  "portalPath": "work/02a-portal-web",
+  "mode": "mock-review-publication",
+  "reviewSite": {
+    "projectId": "appgprj_6a64ce95216c819190c806d74cde8a91",
+    "versionNumber": 3,
+    "deployedUrl": "https://joned-portal-02a.joned-transp-6255.chatgpt.site",
+    "deploymentStatus": "succeeded",
+    "deployedCommitSha": "1be96cade255385a22ec24e9f36a7c5b66cca523"
+  },
+  "selectedDomain": "Reportes",
+  "reportesState": {
+    "integrationMode": "mock",
+    "domainState": "partial",
+    "endpoint": "/api/v1/reports",
+    "fixtureSet": "insights-catalog.v2",
+    "requestShape": "ReportWorkspaceQuery",
+    "responseShape": "ReportWorkspace"
+  },
+  "roleEvidence": {
+    "administration": { "visible": true, "actionsInCurrentState": ["Solicitar reporte"] },
+    "operations": { "visible": true, "actionsInCurrentState": ["Solicitar reporte"] },
+    "human-resources": { "visible": true, "actionsInCurrentState": ["Solicitar reporte"] },
+    "executive": { "visible": true, "actionsInCurrentState": ["Exportar vista"] },
+    "drivers": { "visible": false, "actionsInCurrentState": [] }
+  },
+  "artifacts": [
+    "02A.10_Reportes_Role_Based_Visual_and_Functional_Evidence_v1.0.md",
+    "02A.10_Reportes_Role_Based_Visual_Evidence_v1.0.html",
+    "02A.10_Evidence_v1.0.json",
+    "02A.10_SHA-256_Manifest_v1.0.txt"
+  ],
+  "validation": {
+    "reviewDeploymentSucceeded": true,
+    "lintPassed": true,
+    "testPassed": true,
+    "roleVisibilityValidatedAgainstFrontendSource": true,
+    "reportesActionGatingValidatedAgainstFrontendSource": true,
+    "realBackendStillDisabled": true
+  },
+  "nonAuthorizedActionsNotExecuted": [
+    "Production opening",
+    "Reportes api-real activation",
+    "Activation of any other domain",
+    "Azure SQL real connection",
+    "Microsoft Graph operational connection",
+    "Operational SharePoint runtime connection",
+    "Real report export generation",
+    "Report scheduling activation",
+    "Financial runtime integration",
+    "Business automation"
+  ]
+}

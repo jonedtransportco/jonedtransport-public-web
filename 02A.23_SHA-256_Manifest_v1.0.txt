@@ -1,0 +1,9 @@
+JONED Enterprise Platform - 02A.23 SHA-256 Manifest v1.0
+
+Generated: 2026-07-28 UTC
+
+7c6b7b3f5415a79a92fb0cb170274d662aff96504bbc782cfb044ddfd254092d  contracts/public-intake-owner-operators.v1.json  5858
+67af77aaf8a775dda703af71a47d8f242e84cff6b72b81c060460d512846404d  app/public-intake-transition.ts  1621
+c69d3489ec4d4bbd3ca131e6ed114c8d0beb907542a018de927719029e64b482  tests/rendered-html.test.mjs  14095
+ebdbb8cada6d8750966ce82dbe2460e0d997b5660fbe46d16af0049049af1ce1  02A.23_Public_Owner_Operators_API_Readiness_Pack_v1.0.md  9754
+ff5f9f5ae62afba44cfab34f07215455876da15bf2f6542a1352d9204ccdd06f  02A.23_Evidence_v1.0.json  1491

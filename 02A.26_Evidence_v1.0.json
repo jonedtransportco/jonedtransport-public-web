@@ -1,0 +1,30 @@
+{
+  "packageId": "02A.26",
+  "title": "Public Web Production Publish Controlled Stop",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "status": "controlled-stop",
+  "artifactPrerequisitesPresent": true,
+  "publicArtifact": {
+    "fileName": "joned-public-web.tar.gz",
+    "sha256": "5449a323a4ba561094de55f5959a67a4b7125252cd21f15dbc8bc379ece88c2b",
+    "bytes": 2251631
+  },
+  "executionAttempt": {
+    "targetHostname": "jonedtransport.com",
+    "portalHostname": "portal.jonedtransport.com",
+    "goal": "public-root-live-launch-with-private-portal-preserved"
+  },
+  "blocker": {
+    "code": "sites_publish_disabled",
+    "scope": "current-hosting-workspace",
+    "effect": "public-production-launch-blocked"
+  },
+  "nonAuthorizedActionsNotExecuted": [
+    "force-public-publish-through-disabled-workspace",
+    "expose-private-portal",
+    "activate-real-backend",
+    "activate-real-operational-integrations"
+  ],
+  "zeroRealConnectionsConfirmed": true
+}

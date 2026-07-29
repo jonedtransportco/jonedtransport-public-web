@@ -1,0 +1,41 @@
+{
+  "packageId": "02A.22",
+  "title": "Public Drivers API Readiness Pack",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "authorizationState": "AUTHORIZED FOR PUBLIC DRIVERS API READINESS PREPARATION ONLY",
+  "sourceSharePointFolder": "02_Delivery_Workstreams/02A_Portal_Web_Frontend_Foundation/Under_Review",
+  "selectedDomain": "Drivers",
+  "filesCovered": [
+    "contracts/public-intake-drivers.v1.json",
+    "app/public-intake-transition.ts",
+    "02A.22_Public_Drivers_API_Readiness_Pack_v1.0.md",
+    "02A.22_Evidence_v1.0.json",
+    "02A.22_SHA-256_Manifest_v1.0.txt"
+  ],
+  "preparedElements": [
+    "current-mock-contract",
+    "future-target-contract",
+    "field-by-field-mapping",
+    "frontend-adapter-boundary",
+    "error-taxonomy",
+    "feature-flags",
+    "first-switch-acceptance-criteria"
+  ],
+  "selectedRouteCodes": [
+    "P3",
+    "P4",
+    "B3",
+    "B4"
+  ],
+  "zeroRealConnectionsConfirmed": true,
+  "nonAuthorizedActionsNotExecuted": [
+    "real-backend-connection",
+    "production-activation",
+    "owner-operators-api-real-activation",
+    "portal-workflow-activation",
+    "document-runtime-activation",
+    "business-automation"
+  ],
+  "stopCondition": "After SharePoint publication and direct reread verification, stop and return control to 00.2."
+}

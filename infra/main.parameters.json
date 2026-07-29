@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourcePrefix": {
+      "value": "joned-portal"
+    },
+    "location": {
+      "value": "eastus2"
+    },
+    "staticWebAppSku": {
+      "value": "Standard"
+    },
+    "portalHostname": {
+      "value": "portal.jonedtransport.com"
+    },
+    "enableCustomDomain": {
+      "value": false
+    },
+    "aadClientId": {
+      "value": "__SET_IN_AZURE__"
+    },
+    "aadClientSecret": {
+      "value": "__SET_IN_AZURE_SECRET_STORE__"
+    }
+  }
+}

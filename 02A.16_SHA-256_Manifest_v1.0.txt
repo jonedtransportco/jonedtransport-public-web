@@ -1,0 +1,13 @@
+JONED Enterprise Platform - 02A.16 SHA-256 Manifest v1.0
+Lifecycle: Under_Review
+
+800b3ac334cbd6af2a511e3aff82e58e62b7ddc3593f8ce40925211a2fa8af35  02A.16_Public_Web_Regularization_Evidence_v1.0.md  5173
+df92efaff681451d99204f9edb6ae508f2761b20e26031845447118cd12b1f7a  02A.16_Evidence_v1.0.json  1609
+9425cde46649b9cdd546ddb71d1d9cb7a6e1f7787e8d6f35a108a14581805194  app/page.tsx  11043
+b8d0ab1f4b5869a16107629f1917d8dccc10075cae03aed747d734d9fb189d70  app/owner-operators/page.tsx  11384
+c9423dd3c119326615b4f0f88f2adad4be908bb79bfa7c4f12e2e2ee7560d1e7  app/globals.css  37012
+c25757a0fece133786a3493128f06c5c0d2c84109fe7f7e4f7ec3c692ad68781  tests/rendered-html.test.mjs  10017
+2b55ef684f933e7eb309e6f37efc1a8f980683ca5a67eff16462f557b06c986f  README.md  4993
+5f76a07a586f55287e2fd4f0b903301b7e531921676ac0e05615f4b254d48aed  ARCHITECTURE.md  4559
+f3c6f4463c1b3ddfc4a97edc241806e1d2558a62eea1acc1e6bec1f15140c20f  jonedtransport.com-root-and-portal-godaddy-import.txt  2048
+674c0d819db324f72132760286742104337cc40a6d5c0d8aba7b95bd0a658339  02A.15C_Owner_Operators_Public_Page_Blueprint_v1.0.md  8690

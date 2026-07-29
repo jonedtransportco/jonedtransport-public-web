@@ -1,0 +1,35 @@
+{
+  "workPackage": "02A.30",
+  "generatedAtUtc": "2026-07-28T23:41:23Z",
+  "status": "controlled_stop",
+  "reviewResource": {
+    "name": "joned-portal-swa-hqqtucymsacz4",
+    "hostname": "icy-sky-0eaccda0f.7.azurestaticapps.net",
+    "resourceGroup": "rg-joned-platform"
+  },
+  "frontendValidation": {
+    "buildSucceeded": true,
+    "testsPassed": true,
+    "deploymentAttempted": true
+  },
+  "deploymentTooling": {
+    "tool": "@azure/static-web-apps-cli",
+    "version": "2.0.10",
+    "deploymentTokenRetrieved": true
+  },
+  "blocker": {
+    "type": "artifact_packaging_mismatch",
+    "message": "Failed to find a default file in the app artifacts folder (dist/client). Valid default files: index.html, Index.html.",
+    "currentBuildShape": [
+      "dist/server/*",
+      "dist/client/*"
+    ],
+    "indexHtmlPresent": false
+  },
+  "controls": {
+    "productionOpened": false,
+    "dnsCutoverExecuted": false,
+    "customDomainBound": false,
+    "realBackendConnections": false
+  }
+}

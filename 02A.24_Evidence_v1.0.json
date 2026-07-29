@@ -1,0 +1,36 @@
+{
+  "packageId": "02A.24",
+  "title": "Public Web Hosting Separation Plan",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "status": "ready-for-architecture-review",
+  "traceability": ["02A.16", "02A.17", "02A.18", "02A.19", "02A.20", "02A.22", "02A.23"],
+  "validatedState": {
+    "dateUtc": "2026-07-28",
+    "rootDomainResolves": true,
+    "portalDomainResolves": true,
+    "wwwAliasesRoot": true,
+    "rootDomainPublicAccessOpen": false,
+    "portalDomainRestricted": true
+  },
+  "rootCause": [
+    "root-and-portal-shared-one-restricted-site",
+    "public-root-inherited-private-gating"
+  ],
+  "recommendedOption": "B",
+  "recommendedModel": {
+    "jonedtransport.com": "separate-public-hosting",
+    "portal.jonedtransport.com": "private-restricted-hosting"
+  },
+  "blockingCondition": {
+    "workspacePublicPublishingEnabled": false,
+    "source": "current-hosting-workspace",
+    "reason": "sites_publish_disabled"
+  },
+  "artifacts": [
+    "02A.24_Public_Web_Hosting_Separation_Plan_v1.0.md",
+    "02A.24_Evidence_v1.0.json",
+    "02A.24_SHA-256_Manifest_v1.0.txt"
+  ],
+  "zeroRealConnectionsConfirmed": true
+}

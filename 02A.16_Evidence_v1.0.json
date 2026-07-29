@@ -1,0 +1,46 @@
+{
+  "packageId": "02A.16",
+  "title": "Public Web Regularization Evidence",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "authorizationState": "AUTHORIZED TO REGULARIZE COMPLETED PUBLIC-WEB AND DOMAIN-SPLIT WORK ONLY",
+  "sourceSharePointFolder": "02_Delivery_Workstreams/02A_Portal_Web_Frontend_Foundation/Under_Review",
+  "regularizedAreas": [
+    "public-domain-split",
+    "homepage-public-content-finalization",
+    "owner-operators-public-page-finalization",
+    "dns-review-artifact-preservation",
+    "frontend-validation-refresh"
+  ],
+  "filesCovered": [
+    "app/page.tsx",
+    "app/owner-operators/page.tsx",
+    "app/globals.css",
+    "tests/rendered-html.test.mjs",
+    "README.md",
+    "ARCHITECTURE.md",
+    "jonedtransport.com-root-and-portal-godaddy-import.txt",
+    "02A.15C_Owner_Operators_Public_Page_Blueprint_v1.0.md",
+    "02A.16_Public_Web_Regularization_Evidence_v1.0.md",
+    "02A.16_Evidence_v1.0.json",
+    "02A.16_SHA-256_Manifest_v1.0.txt"
+  ],
+  "validation": {
+    "build": "passed",
+    "tests": "passed",
+    "executedTests": 6
+  },
+  "zeroRealConnectionsConfirmed": true,
+  "nonAuthorizedActionsNotExecuted": [
+    "production-opening-of-new-domains",
+    "real-backend-activation",
+    "public-driver-flow-activation",
+    "dynamic-owner-operator-intake-activation",
+    "azure-sql-real-connection",
+    "graph-operational-connection",
+    "sharepoint-operational-runtime-connection",
+    "email-runtime-activation",
+    "business-automation"
+  ],
+  "stopCondition": "After SharePoint publication and direct reread verification, stop and return control to 00.2."
+}

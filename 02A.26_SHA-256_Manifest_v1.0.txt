@@ -1,0 +1,6 @@
+JONED Enterprise Platform - 02A.26 SHA-256 Manifest v1.0
+
+Generated: 2026-07-28 UTC
+
+bcb698f8d57f58ce2f0a99da6245debb4af51aa4048632aaea8d62df3c2b1d72  02A.26_Public_Web_Production_Publish_Controlled_Stop_v1.0.md  2890
+d4205c53fde44ba56c4f18df2738858aa8edaa4e648f8f0ad2a1cbe021accea5  02A.26_Evidence_v1.0.json  966

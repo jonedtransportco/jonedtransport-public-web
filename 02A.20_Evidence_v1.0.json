@@ -1,0 +1,53 @@
+{
+  "packageId": "02A.20",
+  "title": "Public Homepage Finalization Evidence",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "authorizationState": "AUTHORIZED TO CLOSE PUBLIC HOMEPAGE FINALIZATION ONLY",
+  "sourceSharePointFolder": "02_Delivery_Workstreams/02A_Portal_Web_Frontend_Foundation/Under_Review",
+  "implementedAreas": [
+    "public-homepage-refinement",
+    "public-navigation-refinement",
+    "public-recruiting-entry-refinement",
+    "public-vs-portal-separation-reinforcement",
+    "frontend-validation-refresh"
+  ],
+  "filesCovered": [
+    "app/page.tsx",
+    "tests/rendered-html.test.mjs",
+    "02A.20_Public_Homepage_Finalization_Evidence_v1.0.md",
+    "02A.20_Evidence_v1.0.json",
+    "02A.20_SHA-256_Manifest_v1.0.txt"
+  ],
+  "validation": {
+    "build": "passed",
+    "tests": "passed",
+    "executedTests": 7
+  },
+  "publicRoutesConfirmed": [
+    "/",
+    "/drivers",
+    "/owner-operators",
+    "/portal",
+    "/api/v1/reports"
+  ],
+  "homepageRefinements": [
+    "about-section-added",
+    "public-navigation-expanded",
+    "recruiting-entry-section-clarified",
+    "public-vs-portal-separation-reinforced"
+  ],
+  "zeroRealConnectionsConfirmed": true,
+  "nonAuthorizedActionsNotExecuted": [
+    "real-intake-activation",
+    "real-document-upload-storage",
+    "public-applicant-record-creation",
+    "portal-review-workflow-activation",
+    "backend-api-switch",
+    "azure-sql-real-connection",
+    "graph-operational-connection",
+    "sharepoint-operational-runtime-connection",
+    "business-automation"
+  ],
+  "stopCondition": "After SharePoint publication and direct reread verification, stop and return control to 00.2."
+}

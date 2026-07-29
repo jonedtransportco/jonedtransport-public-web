@@ -1,0 +1,7 @@
+JONED Enterprise Platform - 02A.20 SHA-256 Manifest v1.0
+Lifecycle: Under_Review
+
+7e6169c8d00722eacff50e4a4c83aba11210a1288a03574398253bf667f4e0a2  02A.20_Public_Homepage_Finalization_Evidence_v1.0.md  3994
+dbf43fcf45513282abfe2014883b54d3734d07515d838a2d35c13a3ff13eb03f  02A.20_Evidence_v1.0.json  1661
+ff39a39f037e1cf910bb2d31b1493633e7108261ca238f27b2b97c6992ad0fca  app/page.tsx  12718
+eac6c04a1ff5fcfb5779b5f6509ad97c69d6469b2da477fe1701551b434cd044  tests/rendered-html.test.mjs  11465

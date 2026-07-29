@@ -1,0 +1,6 @@
+JONED Enterprise Platform - 02A.27 SHA-256 Manifest v1.0
+
+Generated: 2026-07-28 UTC
+
+ab9e9c5446d252c2f10b0ef099fc092cd7cf9b54a691cc05471c4fe8d68e3296  02A.27_Private_Portal_Azure_Migration_Plan_v1.0.md  3621
+5b5c9d3953c09fcc9651cadfff675b7fbb39399afcde44b789c97abfd9b0f409  02A.27_Evidence_v1.0.json  716

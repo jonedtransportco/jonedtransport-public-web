@@ -1,0 +1,160 @@
+{
+  "version": "1.0.0-02A.23",
+  "domain": "owner-operators-public-intake",
+  "lifecycle": "Under_Review",
+  "currentMode": "mock",
+  "futureModes": ["api-real"],
+  "selectedFirstReviewDomain": false,
+  "reviewEligibleNow": false,
+  "switchStrategy": "env-flag-plus-domain-allowlist-plus-contract-parity-checks-plus-mock-fallback",
+  "allowedRouteCodes": ["P1", "P2", "P3", "P4", "B1", "B2", "B3", "B4"],
+  "integrationFlags": {
+    "globalModeFlag": "PUBLIC_INTAKE_API_MODE",
+    "domainModeFlag": "PUBLIC_INTAKE_OWNER_OPERATORS_SOURCE",
+    "firstDomainModeFlag": "PUBLIC_INTAKE_DRIVERS_SOURCE",
+    "endpointFlag": "PUBLIC_INTAKE_OWNER_OPERATORS_API_URL"
+  },
+  "currentMockContract": {
+    "routeQuestions": {
+      "applicantForm": ["Person", "Business", "Not sure yet"],
+      "vehiclePath": ["Yes", "No", "Not sure yet"],
+      "licensePath": ["CDL", "Non-CDL", "Not sure yet"]
+    },
+    "resolvedRoutes": [
+      { "applicantForm": "Person", "vehiclePath": "Yes", "licensePath": "CDL", "routeCode": "P1" },
+      { "applicantForm": "Person", "vehiclePath": "Yes", "licensePath": "Non-CDL", "routeCode": "P2" },
+      { "applicantForm": "Person", "vehiclePath": "No", "licensePath": "CDL", "routeCode": "P3" },
+      { "applicantForm": "Person", "vehiclePath": "No", "licensePath": "Non-CDL", "routeCode": "P4" },
+      { "applicantForm": "Business", "vehiclePath": "Yes", "licensePath": "CDL", "routeCode": "B1" },
+      { "applicantForm": "Business", "vehiclePath": "Yes", "licensePath": "Non-CDL", "routeCode": "B2" },
+      { "applicantForm": "Business", "vehiclePath": "No", "licensePath": "CDL", "routeCode": "B3" },
+      { "applicantForm": "Business", "vehiclePath": "No", "licensePath": "Non-CDL", "routeCode": "B4" }
+    ],
+    "fields": [
+      "applicantForm",
+      "vehiclePath",
+      "licensePath",
+      "legalName",
+      "businessName",
+      "phoneNumber",
+      "email",
+      "city",
+      "stateRegion",
+      "preferredLanguage",
+      "licenseType",
+      "licenseNumber",
+      "licenseState",
+      "licenseExpirationDate",
+      "cdlClass",
+      "cdlEndorsements",
+      "medicalCardStatus",
+      "medicalCardExpirationDate",
+      "nonCdlLicenseCategory",
+      "vehicleType",
+      "vehicleYear",
+      "vehicleMake",
+      "vehicleModel",
+      "vehicleRegistrationAvailable",
+      "eldApplicable",
+      "hasCommercialAuthority",
+      "dotNumber",
+      "mcNumber",
+      "carrierAuthorityDocumentAvailable",
+      "hasCoiAvailable",
+      "generalLiabilityAmount",
+      "generalAggregateAmount",
+      "autoLiabilityAmount",
+      "cargoCoverageAmount",
+      "trailerInterchangeCoverageAmount",
+      "w9Available",
+      "voidedCheckAvailable",
+      "confirmInformationTrue",
+      "confirmContactPermission"
+    ],
+    "uploadExpectations": [
+      "profile-agreement",
+      "license-document",
+      "medical-card-conditional",
+      "vehicle-registration-vehicle-routes-only",
+      "authority-document-conditional",
+      "coi-vehicle-routes-conditional",
+      "w9-business-or-vehicle-conditional",
+      "voided-check-business-or-vehicle-conditional"
+    ]
+  },
+  "futureTargetContract": {
+    "requestShape": {
+      "routeContext": {
+        "applicantForm": "person|business",
+        "vehiclePath": "with-vehicle|without-vehicle",
+        "licensePath": "cdl|non-cdl",
+        "routeCode": "P1|P2|P3|P4|B1|B2|B3|B4"
+      },
+      "applicantProfile": {
+        "legalName": "string",
+        "businessName": "string|null",
+        "phoneNumber": "string",
+        "email": "string",
+        "city": "string",
+        "stateRegion": "string",
+        "preferredLanguage": "en|es"
+      },
+      "licenseAndCompliance": {
+        "licenseType": "cdl|non-cdl|not-sure",
+        "licenseNumber": "string",
+        "licenseState": "string",
+        "licenseExpirationDate": "YYYY-MM-DD",
+        "cdlClass": "string|null",
+        "cdlEndorsements": "string|null",
+        "medicalCardStatus": "yes|no|not-sure|null",
+        "medicalCardExpirationDate": "YYYY-MM-DD|null",
+        "nonCdlLicenseCategory": "string|null"
+      },
+      "operationalProfile": {
+        "vehicleType": "string|null",
+        "vehicleYear": "string|null",
+        "vehicleMake": "string|null",
+        "vehicleModel": "string|null",
+        "vehicleRegistrationAvailable": "yes|no|null",
+        "eldApplicable": "yes|no|not-sure|null",
+        "hasCommercialAuthority": "yes|no|not-sure|null",
+        "dotNumber": "string|null",
+        "mcNumber": "string|null",
+        "carrierAuthorityDocumentAvailable": "yes|no|null",
+        "hasCoiAvailable": "yes|no|null",
+        "generalLiabilityAmount": "string|null",
+        "generalAggregateAmount": "string|null",
+        "autoLiabilityAmount": "string|null",
+        "cargoCoverageAmount": "string|null",
+        "trailerInterchangeCoverageAmount": "string|null",
+        "w9Available": "yes|no|null",
+        "voidedCheckAvailable": "yes|no|null"
+      }
+    },
+    "responseShape": {
+      "submissionId": "string",
+      "status": "accepted-for-review|needs-clarification|rejected-validation",
+      "routeCode": "P1|P2|P3|P4|B1|B2|B3|B4",
+      "reviewState": "review-only",
+      "messages": ["string"],
+      "missingItems": ["string"]
+    }
+  },
+  "errorTaxonomy": [
+    "PUBLIC_INTAKE_OWNER_OPERATORS_API_MODE_DISABLED",
+    "PUBLIC_INTAKE_OWNER_OPERATORS_API_URL_MISSING",
+    "PUBLIC_INTAKE_OWNER_OPERATORS_UPSTREAM_UNREACHABLE",
+    "PUBLIC_INTAKE_OWNER_OPERATORS_CONTRACT_PARITY_FAILED",
+    "PUBLIC_INTAKE_OWNER_OPERATORS_VALIDATION_REJECTED",
+    "PUBLIC_INTAKE_OWNER_OPERATORS_EMPTY_RESPONSE"
+  ],
+  "guardrails": [
+    "mock-default",
+    "not-first-review-domain",
+    "review-environment-only",
+    "drivers-remains-first-domain",
+    "no-production-activation",
+    "no-document-runtime-activation",
+    "no-portal-operational-workflow-trigger"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "packageId": "02A.28",
+  "title": "Private Portal Azure Migration Execution Pack",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "status": "ready-for-architecture-review",
+  "traceability": ["02A.16", "02A.24", "02A.27"],
+  "azureContext": {
+    "subscriptionName": "JONED Platform Production",
+    "subscriptionId": "6faa4be5-3e6a-4269-8bcd-0fc828b82ec6",
+    "resourceGroup": "rg-joned-platform",
+    "location": "eastus"
+  },
+  "artifacts": [
+    "azure.yaml",
+    "staticwebapp.config.json",
+    "infra/main.bicep",
+    "infra/main.parameters.json",
+    "02A.28_Private_Portal_Azure_Migration_Execution_Pack_v1.0.md",
+    "02A.28_Evidence_v1.0.json",
+    "02A.28_SHA-256_Manifest_v1.0.txt"
+  ],
+  "identityProvider": "Microsoft Entra ID",
+  "hostingTarget": "Azure Static Web Apps",
+  "zeroRealConnectionsConfirmed": true
+}

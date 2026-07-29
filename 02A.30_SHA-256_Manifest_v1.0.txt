@@ -1,0 +1,6 @@
+JONED Enterprise Platform - 02A.30 SHA-256 Manifest v1.0
+
+Generated: 2026-07-28 UTC
+
+6e26d394dbbfe49868075e17845be31365438dddd2c7bdb99c4d1e5868817d62  02A.30_Private_Portal_Azure_Review_Frontend_Deploy_Controlled_Stop_v1.0.md  2061
+10eb2167a11075157206d2f328deebbfcf88cd631039523f1b4952e79b5e969b  02A.30_Evidence_v1.0.json  989

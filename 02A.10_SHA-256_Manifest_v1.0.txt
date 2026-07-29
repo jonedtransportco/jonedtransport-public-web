@@ -1,0 +1,3 @@
+17dc350f4c1dc4c9a988b4dc14732e00b1c01b6d6e35b575772d5906f877fec4  02A.10_Reportes_Role_Based_Visual_and_Functional_Evidence_v1.0.md  4662
+d624d5c7abd22fe4b956f69fd763b30abddb8642065d7939f8df7b977392e59b  02A.10_Reportes_Role_Based_Visual_Evidence_v1.0.html  11180
+da9eaa15315915ffa6d86578d8ee98c34b1dad738a4191ab2434cc9b0db3f96d  02A.10_Evidence_v1.0.json  2144

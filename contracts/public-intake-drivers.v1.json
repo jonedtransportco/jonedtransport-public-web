@@ -1,0 +1,119 @@
+{
+  "version": "1.0.0-02A.22",
+  "domain": "drivers-public-intake",
+  "lifecycle": "Under_Review",
+  "currentMode": "mock",
+  "futureModes": ["api-real"],
+  "selectedFirstReviewDomain": true,
+  "switchStrategy": "env-flag-plus-domain-allowlist-plus-contract-parity-checks-plus-mock-fallback",
+  "allowedRouteCodes": ["P3", "P4", "B3", "B4"],
+  "integrationFlags": {
+    "globalModeFlag": "PUBLIC_INTAKE_API_MODE",
+    "domainModeFlag": "PUBLIC_INTAKE_DRIVERS_SOURCE",
+    "otherDomainModeFlag": "PUBLIC_INTAKE_OWNER_OPERATORS_SOURCE",
+    "endpointFlag": "PUBLIC_INTAKE_DRIVERS_API_URL"
+  },
+  "currentMockContract": {
+    "routeQuestions": {
+      "applicantKind": ["Personal", "Business", "Not sure yet"],
+      "licensePath": ["CDL", "Non-CDL", "Not sure yet"]
+    },
+    "resolvedRoutes": [
+      { "applicantKind": "Personal", "licensePath": "CDL", "routeCode": "P3" },
+      { "applicantKind": "Personal", "licensePath": "Non-CDL", "routeCode": "P4" },
+      { "applicantKind": "Business", "licensePath": "CDL", "routeCode": "B3" },
+      { "applicantKind": "Business", "licensePath": "Non-CDL", "routeCode": "B4" }
+    ],
+    "fields": [
+      "applicantKind",
+      "licensePath",
+      "legalName",
+      "businessName",
+      "phoneNumber",
+      "email",
+      "city",
+      "stateRegion",
+      "preferredLanguage",
+      "roleInterest",
+      "licenseNumber",
+      "licenseState",
+      "licenseExpirationDate",
+      "cdlClass",
+      "endorsements",
+      "medicalCardStatus",
+      "medicalCardExpirationDate",
+      "nonCdlLicenseCategory",
+      "experienceSummary",
+      "availability",
+      "canDriveManual",
+      "needsTrainingReview",
+      "confirmInformationTrue",
+      "confirmContactPermission"
+    ],
+    "uploadExpectations": [
+      "profile-agreement",
+      "license-document",
+      "medical-card-conditional",
+      "commercial-authority-conditional",
+      "w9-business-conditional"
+    ]
+  },
+  "futureTargetContract": {
+    "requestShape": {
+      "routeContext": {
+        "applicantKind": "personal|business",
+        "licensePath": "cdl|non-cdl",
+        "routeCode": "P3|P4|B3|B4"
+      },
+      "applicantProfile": {
+        "legalName": "string",
+        "businessName": "string|null",
+        "phoneNumber": "string",
+        "email": "string",
+        "city": "string",
+        "stateRegion": "string",
+        "preferredLanguage": "en|es",
+        "roleInterest": "string"
+      },
+      "licenseAndReadiness": {
+        "licenseNumber": "string",
+        "licenseState": "string",
+        "licenseExpirationDate": "YYYY-MM-DD",
+        "cdlClass": "string|null",
+        "endorsements": "string|null",
+        "medicalCardStatus": "yes|no|not-sure|null",
+        "medicalCardExpirationDate": "YYYY-MM-DD|null",
+        "nonCdlLicenseCategory": "string|null",
+        "experienceSummary": "string|null",
+        "availability": "string|null",
+        "canDriveManual": "yes|no|not-sure|null",
+        "needsTrainingReview": "yes|no|not-sure|null"
+      }
+    },
+    "responseShape": {
+      "submissionId": "string",
+      "status": "accepted-for-review|needs-clarification|rejected-validation",
+      "routeCode": "P3|P4|B3|B4",
+      "reviewState": "review-only",
+      "messages": ["string"],
+      "missingItems": ["string"]
+    }
+  },
+  "errorTaxonomy": [
+    "PUBLIC_INTAKE_DRIVERS_API_MODE_DISABLED",
+    "PUBLIC_INTAKE_DRIVERS_API_URL_MISSING",
+    "PUBLIC_INTAKE_DRIVERS_UPSTREAM_UNREACHABLE",
+    "PUBLIC_INTAKE_DRIVERS_CONTRACT_PARITY_FAILED",
+    "PUBLIC_INTAKE_DRIVERS_VALIDATION_REJECTED",
+    "PUBLIC_INTAKE_DRIVERS_EMPTY_RESPONSE"
+  ],
+  "guardrails": [
+    "mock-default",
+    "drivers-only-first-domain",
+    "review-environment-only",
+    "owner-operators-stays-mock",
+    "no-production-activation",
+    "no-document-runtime-activation",
+    "no-portal-operational-workflow-trigger"
+  ]
+}

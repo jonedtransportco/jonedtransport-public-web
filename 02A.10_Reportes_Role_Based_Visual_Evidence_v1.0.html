@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>02A.10 Reportes Role Evidence</title>
+  <style>
+    :root {
+      --navy: #0b1f31;
+      --navy-2: #173750;
+      --ink: #173042;
+      --muted: #657985;
+      --line: #dce5e9;
+      --bg: #eef3f5;
+      --panel: #ffffff;
+      --orange: #e86d34;
+      --mint: #e8f5f0;
+      --amber: #fff3e8;
+      --blue: #edf2fb;
+      --danger: #fff0f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #f4f7f8 0%, #eaf0f2 100%);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+    }
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px;
+      display: grid;
+      gap: 22px;
+    }
+    .hero, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 20px 55px rgba(11, 31, 49, 0.08);
+    }
+    .hero {
+      overflow: hidden;
+    }
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+      padding: 28px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: #fff;
+    }
+    .kicker, .eyebrow {
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #efc2a4;
+      font-weight: 700;
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1 { margin-top: 10px; font-size: 42px; line-height: 1.05; }
+    .hero-top p { margin-top: 12px; color: #c0d1d9; line-height: 1.6; }
+    .badge-row, .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .badge, .pill {
+      display: inline-flex;
+      align-items: center;
+      height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+    }
+    .preview {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 18px;
+      color: var(--ink);
+    }
+    .preview-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mark {
+      width: 28px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      background: var(--orange);
+      color: white;
+      font-weight: 800;
+    }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fbfcfc;
+    }
+    .metric b {
+      display: block;
+      margin-top: 4px;
+      font-size: 22px;
+      color: var(--navy);
+    }
+    .hero-note {
+      padding: 16px 22px;
+      background: #f9fbfb;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      border-top: 1px solid #e6ecef;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+    }
+    .panel {
+      padding: 20px;
+      display: grid;
+      gap: 16px;
+    }
+    .meta-grid, .status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .box {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fbfcfc;
+    }
+    .box small {
+      display: block;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #7b8d97;
+      margin-bottom: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      font-size: 12px;
+    }
+    thead th {
+      text-align: left;
+      background: #f7f9fa;
+      color: #738792;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 9px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    tbody td {
+      padding: 14px;
+      border-bottom: 1px solid #edf1f2;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    tbody tr:last-child td { border-bottom: 0; }
+    .yes { background: var(--mint); }
+    .limited { background: var(--amber); }
+    .none { background: var(--danger); }
+    .state-chip {
+      display: inline-flex;
+      align-items: center;
+      height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border: 1px solid #d8e0e4;
+      background: var(--blue);
+      color: #5d66b3;
+    }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    @media (max-width: 980px) {
+      .hero-top, .grid, .meta-grid, .status-grid, .preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div class="hero-top">
+        <div>
+          <div class="kicker">02A.10 role evidence</div>
+          <h1>Reportes por rol<br />en revisión mock</h1>
+          <p>Evidence sheet for the published review portal, focused on Reportes domain visibility, role-conditioned actions, partial-data handling, and unchanged operational guardrails.</p>
+          <div class="badge-row">
+            <span class="badge">Review site published</span>
+            <span class="badge">Mock mode only</span>
+            <span class="badge">Reportes partial state</span>
+            <span class="badge">No real backend</span>
+          </div>
+        </div>
+        <div class="preview">
+          <div class="preview-head">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div class="mark">J</div>
+              <div><b>JONED Portal</b><br /><small>Reportes domain</small></div>
+            </div>
+            <span class="state-chip">Partial data</span>
+          </div>
+          <div class="preview-grid">
+            <div class="metric"><small>Reportes publicados</small><b>14</b></div>
+            <div class="metric"><small>Widgets</small><b>28</b></div>
+            <div class="metric"><small>Cortes</small><b>Diario</b></div>
+          </div>
+          <div class="pill-row">
+            <span class="pill" style="background:#e8f5f0;color:#2f7b63;border-color:#d6eadf">Catálogo mock</span>
+            <span class="pill" style="background:#eef1fb;color:#5d66b3;border-color:#dde2fa">Widgets parciales</span>
+            <span class="pill" style="background:#fff4ea;color:#b35b2d;border-color:#f0d6c5">Export no operativo</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-note">
+        Review URL: <b>https://joned-portal-02a.joned-transp-6255.chatgpt.site</b>. The published portal remains private and mock-only. Reportes backend activation remains out of scope for this evidence package.
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <div class="eyebrow">Role matrix</div>
+        <h2>Role visibility and current actions</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Reportes visible</th>
+              <th>Current action(s)</th>
+              <th>Functional evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="yes">
+              <td><b>Administración</b></td>
+              <td>Yes</td>
+              <td>Solicitar reporte</td>
+              <td>Full domain visibility, list/detail/summary/form available, no export action in current partial state.</td>
+            </tr>
+            <tr class="yes">
+              <td><b>Operaciones</b></td>
+              <td>Yes</td>
+              <td>Solicitar reporte</td>
+              <td>Operational read path and request action visible; no real generation or delivery.</td>
+            </tr>
+            <tr class="yes">
+              <td><b>Human Resources</b></td>
+              <td>Yes</td>
+              <td>Solicitar reporte</td>
+              <td>Read path preserved with the same partial-data UX and no backend dependency.</td>
+            </tr>
+            <tr class="limited">
+              <td><b>Executive read-only</b></td>
+              <td>Yes</td>
+              <td>Exportar vista</td>
+              <td>Read-oriented access plus mock export affordance only; no real file generation.</td>
+            </tr>
+            <tr class="none">
+              <td><b>Drivers</b></td>
+              <td>No</td>
+              <td>None</td>
+              <td>Domain intentionally absent from navigation for this role.</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="panel">
+        <div class="eyebrow">Contract boundary</div>
+        <h2>Reportes mock contract</h2>
+        <div class="meta-grid">
+          <div class="box"><small>Endpoint</small><b>/api/v1/reports</b></div>
+          <div class="box"><small>Fixture set</small><b>insights-catalog.v2</b></div>
+          <div class="box"><small>Request shape</small><b>ReportWorkspaceQuery</b></div>
+          <div class="box"><small>Response shape</small><b>ReportWorkspace</b></div>
+        </div>
+        <div class="box">
+          <small>Visible tabs</small>
+          <ul>
+            <li>Catálogo</li>
+            <li>Widgets</li>
+            <li>Programación (non-operational)</li>
+          </ul>
+        </div>
+        <div class="box">
+          <small>Visible filters</small>
+          <ul>
+            <li>Audiencia</li>
+            <li>Periodicidad</li>
+            <li>Dominio</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="eyebrow">Functional checks</div>
+      <h2>What remains validated in review</h2>
+      <div class="status-grid">
+        <div class="box">
+          <small>State handling</small>
+          <ul>
+            <li>Partial data explanation remains visible.</li>
+            <li>Refresh keeps filters in place.</li>
+            <li>No real backend dependency is introduced.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <small>Guardrails</small>
+          <ul>
+            <li>No production opening.</li>
+            <li>No Reportes api-real activation.</li>
+            <li>No export or scheduling activation.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <small>Sample reports</small>
+          <ul>
+            <li>REP-01 Pulse operativo</li>
+            <li>REP-08 People snapshot</li>
+            <li>REP-12 Customer health</li>
+            <li>REP-18 Alerts digest</li>
+          </ul>
+        </div>
+        <div class="box">
+          <small>Future switch path</small>
+          <ul>
+            <li>Env flag + adapter registry + contract parity checks</li>
+            <li>Reportes only</li>
+            <li>Rollback remains domain-scoped</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

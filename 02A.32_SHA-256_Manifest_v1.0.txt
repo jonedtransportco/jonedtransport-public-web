@@ -1,0 +1,6 @@
+JONED Enterprise Platform - 02A.32 SHA-256 Manifest v1.0
+
+Generated: 2026-07-28 UTC
+
+f3adde42996b515760d0ad6dbb6b3adbc92f6657b2943d5519c3d9007bb559df  02A.32_Portal_Domain_Cutover_Controlled_Stop_v1.0.md  1365
+bf28915a3487ed01779b9f7fdbbbaf4f3c61cde98ed4a32e22a4a7fb78946792  02A.32_Evidence_v1.0.json  672

@@ -1,0 +1,35 @@
+{
+  "packageId": "02A.11",
+  "title": "Reportes Functional Contract Closure",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "authorizationState": "AUTHORIZED FOR FUNCTIONAL CONTRACT CLOSURE ONLY",
+  "domain": "Reportes",
+  "closureStatus": "CLOSED_FOR_MOCK_REVIEW_BASELINE",
+  "traceability": [
+    "02A.06",
+    "02A.07",
+    "02A.08",
+    "02A.09",
+    "02A.10"
+  ],
+  "contractBoundary": {
+    "endpoint": "/api/v1/reports",
+    "fixtureSet": "insights-catalog.v2",
+    "requestShape": "ReportWorkspaceQuery",
+    "responseShape": "ReportWorkspace",
+    "futureSource": "Reporting API",
+    "cacheKey": "reports-workspace",
+    "currentMode": "mock"
+  },
+  "roleClosure": {
+    "administration": "visible-request-mock-only",
+    "operations": "visible-request-mock-only",
+    "human-resources": "visible-request-mock-only",
+    "executive": "visible-export-visual-only",
+    "drivers": "not-visible"
+  },
+  "realIntegrationStatus": "not-authorized-by-this-closure",
+  "productionStatus": "not-authorized",
+  "zeroRealConnectionsConfirmed": true
+}

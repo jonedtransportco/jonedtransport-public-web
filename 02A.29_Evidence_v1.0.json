@@ -1,0 +1,33 @@
+{
+  "workPackage": "02A.29",
+  "generatedAtUtc": "2026-07-28T23:40:31Z",
+  "status": "provisioned_review_foundation",
+  "subscriptionName": "JONED Platform Production",
+  "subscriptionId": "6faa4be5-3e6a-4269-8bcd-0fc828b82ec6",
+  "resourceGroup": "rg-joned-platform",
+  "azureRegion": "East US 2",
+  "staticWebApp": {
+    "name": "joned-portal-swa-hqqtucymsacz4",
+    "defaultHostname": "icy-sky-0eaccda0f.7.azurestaticapps.net",
+    "sku": "Standard",
+    "provisioningState": "Succeeded",
+    "stableInboundIp": "40.67.153.174",
+    "identityType": "SystemAssigned",
+    "customDomainBound": false
+  },
+  "entraReviewApp": {
+    "displayName": "joned-portal-review-app",
+    "clientId": "a2e63a03-ea73-41cc-acb7-62b5c069be2f",
+    "objectId": "67b929ce-482b-4c8a-8f88-69a92c63ce3d"
+  },
+  "controls": {
+    "dnsCutoverExecuted": false,
+    "productionOpened": false,
+    "realBackendConnections": false,
+    "portalDomainBound": false
+  },
+  "notes": [
+    "Azure Static Web Apps was unavailable in eastus for this resource type.",
+    "Provisioning completed in eastus2 without custom domain binding."
+  ]
+}

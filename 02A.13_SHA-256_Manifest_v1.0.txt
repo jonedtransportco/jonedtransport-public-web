@@ -1,0 +1,3 @@
+44317588c02e02969a901f08cd110184fb4be87567f23e0e61537acface7a490  02A.13_Frontend_Test_Hardening_Evidence_v1.0.md  2680
+f9a2fed505bce87c6afd2c77620c043d111b2bf89de67c3eec378063133b5b46  02A.13_Evidence_v1.0.json  512
+ca13ecf05d9e76bc750b47d813d25e9ecdb4acc2646229220a2074c73d1e2c7d  tests/rendered-html.test.mjs  9143

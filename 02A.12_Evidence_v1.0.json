@@ -1,0 +1,38 @@
+{
+  "packageId": "02A.12",
+  "title": "Role-Based Visual Evidence Pack",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "authorizationState": "AUTHORIZED FOR MOCK ROLE-BASED VISUAL EVIDENCE ONLY",
+  "captureDate": "2026-07-27",
+  "runtimeMode": "mock",
+  "realBackendActive": false,
+  "roles": [
+    "Admin",
+    "Ops",
+    "HR",
+    "Driver",
+    "Executive"
+  ],
+  "viewports": {
+    "desktop": "1440x1600",
+    "mobile": "iphone-class"
+  },
+  "artifacts": [
+    "02A.12_Role_Based_Visual_Evidence_Pack_v1.0.md",
+    "02A.12_Evidence_v1.0.json",
+    "evidence/02A.12_visual_evidence_v1.0.html",
+    "evidence/02A.12_Admin_Desktop_v1.0.png",
+    "evidence/02A.12_Admin_Mobile_v1.0.png",
+    "evidence/02A.12_Ops_Desktop_v1.0.png",
+    "evidence/02A.12_Ops_Mobile_v1.0.png",
+    "evidence/02A.12_HR_Desktop_v1.0.png",
+    "evidence/02A.12_HR_Mobile_v1.0.png",
+    "evidence/02A.12_Driver_Desktop_v1.0.png",
+    "evidence/02A.12_Driver_Mobile_v1.0.png",
+    "evidence/02A.12_Executive_Desktop_v1.0.png",
+    "evidence/02A.12_Executive_Mobile_v1.0.png",
+    "evidence/02A.12_capture_manifest_v1.0.json"
+  ],
+  "zeroRealConnectionsConfirmed": true
+}

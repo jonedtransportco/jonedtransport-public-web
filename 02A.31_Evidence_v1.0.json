@@ -1,0 +1,32 @@
+{
+  "workPackage": "02A.31",
+  "generatedAtUtc": "2026-07-28T23:58:25Z",
+  "status": "live_validated",
+  "reviewHostname": "https://icy-sky-0eaccda0f.7.azurestaticapps.net",
+  "resourceName": "joned-portal-swa-hqqtucymsacz4",
+  "resourceGroup": "rg-joned-platform",
+  "resolution": {
+    "azureCompatibleExportAdded": true,
+    "exportOutputRoot": "dist/azure-static",
+    "exportedRoutes": [
+      "/",
+      "/portal",
+      "/drivers",
+      "/owner-operators"
+    ]
+  },
+  "validation": {
+    "buildSucceeded": true,
+    "testsPassed": true,
+    "rootStatusCode": 200,
+    "ownerOperatorsStatusCode": 200,
+    "portalStatusCode": 302,
+    "portalRedirectLocation": "/.auth/login/aad"
+  },
+  "controls": {
+    "productionOpened": false,
+    "dnsCutoverExecuted": false,
+    "customDomainBound": false,
+    "realBackendConnections": false
+  }
+}

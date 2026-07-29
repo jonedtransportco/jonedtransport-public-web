@@ -1,0 +1,8 @@
+JONED Enterprise Platform - 02A.18 SHA-256 Manifest v1.0
+Lifecycle: Under_Review
+
+42bb44246ca5d8cce30787259d1f06b37ecd77bacad630f5fd4188d90691511b  02A.18_Drivers_Mock_Prequalification_Evidence_v1.0.md  4043
+ecc802bbcbae65a01d28eb83f9c11c4d06de6ad5ebc82d57125c381ca733f9d4  02A.18_Evidence_v1.0.json  1550
+53f9734da9122ab9af3a08d51d2e80aad7723022f39a8ade81fa006c57a99660  app/drivers/page.tsx  9760
+886e89b268579b5b464284398026d7e62328701576a2fba690c64b59221cff41  app/drivers/prequalification-form.tsx  15884
+ad075eb0021dab54eb0c599becb5b8527de687acf2aa3097635e89f6eb211c53  tests/rendered-html.test.mjs  11067

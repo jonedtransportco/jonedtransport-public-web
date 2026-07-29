@@ -1,0 +1,8 @@
+name: joned-private-portal
+metadata:
+  template: joned.private.portal.azure
+services:
+  portal:
+    project: ./
+    language: js
+    host: staticwebapp

@@ -1,0 +1,6 @@
+JONED Enterprise Platform - 02A.24 SHA-256 Manifest v1.0
+
+Generated: 2026-07-28 UTC
+
+81ac6c93b219dbb8a55fd90514dbfb5798e715558036a486d1a426e42efe4335  02A.24_Public_Web_Hosting_Separation_Plan_v1.0.md  5428
+eae0ca503f6cee12c724e75265e5028ab6e13d76f45f8421459bb2db374170f8  02A.24_Evidence_v1.0.json  1126

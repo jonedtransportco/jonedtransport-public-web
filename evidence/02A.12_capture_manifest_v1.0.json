@@ -1,0 +1,57 @@
+{
+  "packageId": "02A.12",
+  "baseUrl": "http://127.0.0.1:3100",
+  "generatedAt": "2026-07-27T23:53:06.384Z",
+  "roles": [
+    {
+      "id": "Admin",
+      "roleButton": "Admin",
+      "desktopFile": "02A.12_Admin_Desktop_v1.0.png",
+      "mobileFile": "02A.12_Admin_Mobile_v1.0.png",
+      "module": "Reportes",
+      "search": "REP",
+      "tab": "detalle",
+      "note": "Admin with full mock visibility on Reportes."
+    },
+    {
+      "id": "Ops",
+      "roleButton": "Ops",
+      "desktopFile": "02A.12_Ops_Desktop_v1.0.png",
+      "mobileFile": "02A.12_Ops_Mobile_v1.0.png",
+      "module": "Reportes",
+      "search": "widgets",
+      "tab": "resumen",
+      "note": "Operations with Reportes visible and request affordance only."
+    },
+    {
+      "id": "HR",
+      "roleButton": "HR",
+      "desktopFile": "02A.12_HR_Desktop_v1.0.png",
+      "mobileFile": "02A.12_HR_Mobile_v1.0.png",
+      "module": "Reportes",
+      "search": "People",
+      "tab": "listado",
+      "note": "HR with Reportes visible and read-oriented partial state."
+    },
+    {
+      "id": "Driver",
+      "roleButton": "Driver",
+      "desktopFile": "02A.12_Driver_Desktop_v1.0.png",
+      "mobileFile": "02A.12_Driver_Mobile_v1.0.png",
+      "module": "Conductores",
+      "search": "driver",
+      "tab": "resumen",
+      "note": "Driver role with Reportes absent from navigation."
+    },
+    {
+      "id": "Executive",
+      "roleButton": "Exec",
+      "desktopFile": "02A.12_Executive_Desktop_v1.0.png",
+      "mobileFile": "02A.12_Executive_Mobile_v1.0.png",
+      "module": "Reportes",
+      "search": "REP",
+      "tab": "listado",
+      "note": "Executive read-only with visual export affordance in Reportes."
+    }
+  ]
+}

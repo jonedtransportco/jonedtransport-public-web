@@ -1,0 +1,39 @@
+{
+  "workPackage": "02A.06",
+  "title": "Real API Contract Alignment and Integration Switch Readiness",
+  "version": "1.0",
+  "dateUtc": "2026-07-25T18:23:00Z",
+  "portalPath": "work/02a-portal-web",
+  "mode": "mock-only",
+  "artifacts": [
+    "02A.06_Mock_API_Contract_v1.0.json",
+    "02A.06_Contract_Alignment_and_Future_Integration_Boundary_v1.0.md",
+    "02A.06_Technical_Evidence_v1.0.md",
+    "evidence/02A.06_visual_evidence_v1.0.html",
+    "02A.06_SHA-256_Manifest_v1.0.txt"
+  ],
+  "validation": {
+    "build": "passed-via-test-pipeline",
+    "tests": "passed",
+    "lint": "passed",
+    "desktopMobileContinuity": "validated",
+    "contractAdapterConsistency": "validated",
+    "roleVisibilityPreserved": "validated",
+    "fixturesOnlyConfirmed": true,
+    "zeroRealConnectionsConfirmed": true,
+    "visualCoherenceWith02Ato02A05": "validated"
+  },
+  "guardrails": [
+    "Simulated data and local fixtures only.",
+    "Zero real backend connections.",
+    "No business automations.",
+    "Role navigation preserved from 02A.02.",
+    "Adapters remain decoupled from real backend services.",
+    "No Azure work package was modified."
+  ],
+  "explicitConfirmations": {
+    "fixturesOnly": true,
+    "zeroRealConnections": true,
+    "zeroOperationalIntegrations": true
+  }
+}

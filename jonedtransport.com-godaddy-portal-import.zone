@@ -1,0 +1,43 @@
+$ORIGIN jonedtransport.com.
+
+; Domain: jonedtransport.com
+; Prepared: 2026-07-28
+; Purpose: add portal.jonedtransport.com for JONED Portal review site
+; Note: review before import. This file preserves existing Microsoft and web records
+; from the exported zone snapshot and adds only the portal custom-domain records.
+
+@	3600	IN	SOA	ns05.domaincontrol.com. dns.jomax.net. (
+			2026072801
+			28800
+			7200
+			604800
+			3600
+)
+
+@	3600	IN	NS	ns05.domaincontrol.com.
+@	3600	IN	NS	ns06.domaincontrol.com.
+
+@	3600	IN	A	WebsiteBuilder Site
+
+@	3600	IN	TXT	"v=spf1 include:spf.em.secureserver.net include:spf.protection.outlook.com -all"
+@	3600	IN	TXT	"v=verifydomain MS=1126514"
+_dmarc	600	IN	TXT	"v=DMARC1; p=none; rua=mailto:report@dmarc.em.secureserver.net"
+
+autodiscover	3600	IN	CNAME	autodiscover.outlook.com.
+bounces.em	600	IN	CNAME	cbounces.em.secureserver.net.
+enterpriseenrollment	3600	IN	CNAME	enterpriseenrollment.manage.microsoft.com.
+enterpriseregistration	3600	IN	CNAME	enterpriseregistration.windows.net.
+lyncdiscover	3600	IN	CNAME	webdir.online.lync.com.
+sable._domainkey	600	IN	CNAME	dkim.em.secureserver.net.
+sip	3600	IN	CNAME	sipdir.online.lync.com.
+www	3600	IN	CNAME	@
+_domainconnect	3600	IN	CNAME	_domainconnect.gd.domaincontrol.com.
+
+portal	3600	IN	CNAME	custom-domains.chatgpt.site.
+_openai-site-verification.portal	3600	IN	TXT	"openai-site-verification=WaL-k6VgEfGuEOOUrJOKmfPslMpSjHqK_tDvOwOZ5Wk"
+_cf-custom-hostname.portal	3600	IN	TXT	"64b7e6f9-b90d-4f0d-9b42-ebd85c358f97"
+
+_sip._tls	3600	IN	SRV	100 1 443 sipdir.online.lync.com.
+_sipfederationtls._tcp	3600	IN	SRV	100 1 5061 sipfed.online.lync.com.
+
+@	3600	IN	MX	0 jonedtransport-com.mail.protection.outlook.com.

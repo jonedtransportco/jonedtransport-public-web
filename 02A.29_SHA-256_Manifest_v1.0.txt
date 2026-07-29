@@ -1,0 +1,8 @@
+JONED Enterprise Platform - 02A.29 SHA-256 Manifest v1.0
+
+Generated: 2026-07-28 UTC
+
+29723433f9c3cabc03feb1b9b7dd4091d7f33c9c5cb2de3ef11747bcc880d8a7  infra/main.bicep  1811
+5b3d116f43fdd5c70e6e879e93324c610df5404abbdd9ec640cc0f36151625b7  infra/main.parameters.json  594
+72c488f71de481bbaf71f928eabbc1d109dcc3f5366393d3c60a6274b540dcd2  02A.29_Private_Portal_Azure_Review_Provisioning_v1.0.md  1733
+c0f7df278d35265aa9564f18e87c4e72fab0ac47ab3f7d2fb43640bab00b57d3  02A.29_Evidence_v1.0.json  1112

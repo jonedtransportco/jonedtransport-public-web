@@ -1,0 +1,4 @@
+1d5acf24d3494ee932ebbab4c2bc5b53d95dcd5551f7c605d1918f7affa72b8e  02A.14_Reportes_UX_Debug_Evidence_v1.0.md  1826
+b3239ee65d7670e929a6aab87baa00e97bad09036fccfc4345f89a06dfad653b  02A.14_Evidence_v1.0.json  546
+7f0e170e8f2c35d95e6078fd5352d8bba7e1b4ea89a2870b848fc1facb78416d  app/page.tsx  80149
+272e7324c6a6fa5f346ec320db4a35fc8f0aa88eb1e68f91539fc42a6f8d2130  app/globals.css  28850

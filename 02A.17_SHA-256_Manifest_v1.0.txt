@@ -1,0 +1,11 @@
+JONED Enterprise Platform - 02A.17 SHA-256 Manifest v1.0
+Lifecycle: Under_Review
+
+577954c0259f4d4a201e6947b3d0ceedbb9cb2670e9dbd075c12795189ee432e  02A.17_Public_Recruiting_Flows_Evidence_v1.0.md  4417
+96df1119717da6f2dc7a8a189caf1384122cb9a96ab36762e36f5be40eaa8ae1  02A.17_Evidence_v1.0.json  1541
+88ea2c41c48c964cb663b8d68b8ddbab2c43e9ca26fd674babf6770f992b4fef  app/drivers/page.tsx  10469
+944aa8d99a01edf270c0930949df11121e657f1fe28b1d1f4f88aeb0cf7872a3  app/owner-operators/prequalification-form.tsx  22767
+6d3a26939dde23ff7e5a8daf7a20735540dd1e882d2e0a2531ef597b7768825e  app/owner-operators/page.tsx  11502
+d7fac1455a46cd58df0073819c0d2907c962c59ff648182e8a1a6adb9db50c6e  app/page.tsx  11043
+1a910dedb2caab47364eb2c18b5b5c16ebeedccb5181c7d647aeae083715b84c  app/globals.css  39289
+e42d0205ef4edfefea72737c1957e2500ffc785eeda921d13ba7d9a56a61c46e  tests/rendered-html.test.mjs  10654

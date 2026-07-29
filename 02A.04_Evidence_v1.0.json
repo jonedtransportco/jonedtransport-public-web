@@ -1,0 +1,40 @@
+{
+  "workPackage": "02A.04",
+  "version": "1.0",
+  "dateUtc": "2026-07-25T17:42:13Z",
+  "portalPath": "work/02a-portal-web",
+  "mode": "mock-only",
+  "artifacts": [
+    "app/page.tsx",
+    "app/globals.css",
+    "contracts/mock-api.v1.json",
+    "tests/rendered-html.test.mjs",
+    "package.json",
+    "02A.04_Technical_Evidence_v1.0.md",
+    "evidence/02A.04_visual_evidence_v1.0.html",
+    "evidence/02A.04_Public_Portal_Desktop_v1.0.png",
+    "evidence/02A.04_Domain_Workspace_Desktop_v1.0.png",
+    "evidence/02A.04_Notificaciones_Mobile_v1.0.png",
+    "02A.04_SHA-256_Manifest_v1.0.txt"
+  ],
+  "validation": {
+    "build": "passed",
+    "lint": "passed",
+    "tests": "passed",
+    "desktopEvidence": "captured",
+    "mobileEvidence": "captured",
+    "navigationConsistency": "validated",
+    "roleActionCoherence": "validated"
+  },
+  "guardrails": [
+    "Simulated data and local fixtures only.",
+    "Zero real backend connections.",
+    "No business automations.",
+    "Role navigation preserved from 02A.02.",
+    "Adapters remain decoupled from real backend services."
+  ],
+  "explicitConfirmations": {
+    "fixturesOnly": true,
+    "zeroRealConnections": true
+  }
+}

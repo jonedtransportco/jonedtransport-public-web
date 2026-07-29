@@ -1,0 +1,8 @@
+JONED Enterprise Platform - 02A.22 SHA-256 Manifest v1.0
+Lifecycle: Under_Review
+
+c04f5fee16bc5a6fc957774a768b672fc8f6db8e4138b10b4f04cb2d5af5e1b4  contracts/public-intake-drivers.v1.json  3859
+c8026ffa5f5e5927951920f1aeee0a4ade4e46e9a8d1f37843a66326fce6f3b2  app/public-intake-transition.ts  1554
+540358f71d6df1d2670f4da858c968c6f1ba270b2734c3ec12092617bf86825c  02A.22_Public_Drivers_API_Readiness_Pack_v1.0.md  7144
+668777dd1fe3a570303106e551bbf7c3c9c429abfa79c78d2da96308b2dc243a  02A.22_Evidence_v1.0.json  1289
+ec2ee70d51cbe93258078c8bfbfd8102715f6f1016896d493875f57da4e31819  tests/rendered-html.test.mjs  13105

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>02A.05 Visual Evidence</title>
+<style>
+:root{--navy:#0b1f31;--navy2:#143752;--ink:#172c3d;--muted:#6d7e89;--line:#dfe6ea;--orange:#e86d34;--orange2:#f59a5a;--mint:#48a988;--blue:#2f7096;--cream:#f6f7f6;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:#eaf0f2;color:var(--ink);font-family:Arial,sans-serif}.page{padding:24px;display:grid;gap:24px}
+.frame{background:#fff;border:1px solid #d5dde1;border-radius:16px;overflow:hidden;box-shadow:0 18px 60px rgba(11,31,49,.08)}
+.label{padding:14px 18px;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:.16em}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:34px;background:linear-gradient(130deg,var(--navy),#1b4b65);color:#fff}
+.hero h1,.hero h2{margin:10px 0 12px;line-height:1}.hero h1{font-size:56px}.hero h1 em{color:var(--orange2);font-style:normal}.hero p{margin:0;color:#bfd0d8;line-height:1.65}
+.hero small,.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#efc2a4;font-weight:700}
+.portal-card,.workspace-card,.mobile-card{background:#fff;color:var(--ink);border-radius:16px;border:1px solid #dfe6ea;box-shadow:0 18px 50px rgba(11,31,49,.1)}
+.portal-card{padding:18px}.portal-top{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid #e6ecef}.mark{width:28px;height:32px;background:var(--orange);display:grid;place-items:center;color:#fff;font-weight:800}.chip-row,.pill-row,.actions,.nav-row,.table-head,.table-row,.stats,.status-row,.toolbar{display:flex}
+.portal-body{padding-top:16px;display:grid;grid-template-columns:72px 1fr;gap:16px}.mini-nav{background:var(--navy);border-radius:12px;padding:16px 0;display:grid;place-items:center;gap:14px}.mini-nav i{width:18px;height:18px;border:2px solid #68808f;border-radius:4px}.mini-nav i.on{background:var(--orange);border-color:var(--orange)}
+.hero-preview{display:grid;gap:14px}.stats{gap:12px}.stats div,.chart,.list,.side-card,.mobile-section{border:1px solid var(--line);border-radius:12px;background:#fbfcfc}.stats div{flex:1;padding:14px}.stats b{display:block;font-size:24px;color:var(--navy)}.stats span,.side-card small,.list small,.table-row small{font-size:11px;color:var(--muted)}
+.chart{padding:18px;height:170px;display:flex;align-items:end;gap:10px}.chart i{flex:1;background:linear-gradient(#ef8d56,#e86d34);border-radius:8px 8px 0 0}.chart i:nth-child(1){height:45%}.chart i:nth-child(2){height:66%}.chart i:nth-child(3){height:56%}.chart i:nth-child(4){height:82%}.chart i:nth-child(5){height:68%}.chart i:nth-child(6){height:90%}
+.chip-row{gap:10px;flex-wrap:wrap;margin-top:14px}.chip{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:1px solid #d9e3e7;background:#f6f8f9;font-size:10px;font-weight:700;color:#58707d}.chip.partial{background:#eef1fb;color:#5d66b3}.chip.error{background:#fff0f0;color:#a44d4d}.chip.ok{background:#e8f5f0;color:#2c7a63}
+.workspace{display:grid;grid-template-columns:264px 1fr}.sidebar{background:var(--navy);color:#fff;padding:18px;display:grid;gap:14px}.brand{display:flex;align-items:center;gap:10px}.brand b{display:block;font-size:20px}.brand small{font-size:8px;letter-spacing:.28em;color:#93a7b3}.workspace-box,.side-card{padding:14px}.workspace-box{background:#ffffff10;border:1px solid #ffffff14;border-radius:12px}.workspace-box span{display:block;font-size:10px;letter-spacing:.16em;color:#91a3ad}.role-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.role-grid div{height:32px;border-radius:8px;border:1px solid #ffffff15;background:#ffffff10;color:#8fa3b0;display:grid;place-items:center;font-size:10px;font-weight:700}.role-grid .on{background:var(--orange);color:#fff;border-color:var(--orange)}
+.nav-row{flex-direction:column;gap:6px}.nav-row div{height:42px;border-radius:10px;padding:0 14px;display:flex;align-items:center;font-size:12px;color:#9aabb5;background:#ffffff08}.nav-row .active{background:#ffffff12;color:#fff}.user{display:flex;align-items:center;gap:10px;margin-top:6px}.avatar{width:34px;height:34px;border-radius:50%;background:#ead1bf;color:#824b31;display:grid;place-items:center;font-weight:800;font-size:10px}
+.main{padding:20px 24px 24px;background:var(--cream)}.toolbar{align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}.toolbar input{width:320px;max-width:100%;border:0;outline:0;font-size:13px}.status-row{gap:10px;flex-wrap:wrap;align-items:center}.state{padding:8px 12px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.state.loading{background:#eef3f6;color:#4e748b}.state.partial{background:#eef1fb;color:#5d66b3}.state.ready{background:#e8f5f0;color:#307760}
+.workspace-grid{display:grid;grid-template-columns:1.6fr .95fr;gap:16px;margin-top:16px}.module,.aside{display:grid;gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}.card h3{margin:8px 0 10px;color:var(--navy)}.pill-row{gap:8px;flex-wrap:wrap;margin-bottom:14px}.pill{height:30px;display:inline-flex;align-items:center;padding:0 10px;border:1px solid #dbe2e5;border-radius:999px;background:#f8faf9;font-size:10px;color:#546b78}.actions{gap:8px;flex-wrap:wrap;margin-bottom:14px}.btn{height:34px;padding:0 12px;border-radius:8px;border:1px solid #dbe2e5;background:#fff;font-size:11px;color:#536772;display:inline-flex;align-items:center}.btn.primary{background:var(--orange);border-color:var(--orange);color:#fff}.btn.warn{background:#fff4ed;border-color:#f0d3c1;color:#b35b2d}
+.table{border:1px solid var(--line);border-radius:12px;overflow:hidden}.table-head,.table-row{padding:12px 16px;align-items:center}.table-head{font-size:9px;letter-spacing:.15em;color:#8e9aa1;background:#fbfcfc;border-bottom:1px solid var(--line)}.table-row{display:grid;grid-template-columns:1.45fr .95fr .8fr 1fr;gap:10px;border-bottom:1px solid #edf0f1;font-size:11px}.table-row:last-child{border-bottom:0}.table-row b{font-size:12px;color:var(--ink)}.expanded{padding:12px 16px;background:#fafcfc;border-top:1px solid #edf0f1}.expanded p{margin:0;font-size:11px;color:#4f6673}.expanded small{display:block;margin-top:4px;color:#87969f}
+.stack{display:grid;gap:12px}.summary{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.summary article,.stages article{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcfc}.summary p,.stages span,.guardrails li{margin:0;font-size:11px;color:#62757f;line-height:1.6}.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stages b{display:block;color:var(--navy);margin-bottom:6px}.stages .current{background:#fff4ea;border-color:#f3dfcf}.stages .done{background:#edf8f3;border-color:#d6ebdf}
+.guardrails{margin:0;padding-left:18px}.guardrails li{margin-bottom:6px}.meta{font-size:11px;color:#62757f;display:grid;gap:6px}
+.mobile-shell{max-width:420px;margin:auto;background:#0b1f31;padding:10px;border-radius:24px}.mobile-card{overflow:hidden}.mobile-top{height:62px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:0 14px}.mobile-top input{flex:1;border:0;outline:0}.mobile-body{padding:14px;background:var(--cream)}.mobile-hero{padding:18px;border-radius:14px;background:linear-gradient(120deg,var(--navy),#1b4b65);color:#fff}.mobile-hero h2{margin:8px 0;font-size:28px}.mobile-hero p{margin:0;color:#bfd0d8;font-size:13px;line-height:1.6}.mobile-section{padding:14px;margin-top:14px}.mobile-section h3{margin:8px 0 10px;color:var(--navy)}
+.notes{padding:18px 22px;background:#f9fbfb;border-top:1px solid #e6ecef}.notes p{margin:0;font-size:12px;color:#5c717d;line-height:1.7}
+@media(max-width:1100px){.hero,.workspace,.workspace-grid{grid-template-columns:1fr}.summary,.stages{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+  <section class="frame">
+    <div class="label">02A.05 PUBLIC PORTAL DESKTOP</div>
+    <div class="hero">
+      <div>
+        <div class="kicker">FRONTERA FRONTEND-API ENDURECIDA</div>
+        <h1>Movemos tu negocio.<br><em>Impulsamos tu futuro.</em></h1>
+        <p>Experiencia pública preservada con base visual 02A y preparación explícita para futuros endpoints sin introducir ninguna conexión operativa real.</p>
+        <div class="chip-row">
+          <span class="chip ok">Fixtures locales</span>
+          <span class="chip partial">Partial data</span>
+          <span class="chip">Refresh / Retry</span>
+          <span class="chip">Responsive desktop/mobile</span>
+        </div>
+      </div>
+      <div class="portal-card">
+        <div class="portal-top"><div class="mark">J</div><div><b>JONED PORTAL</b><small>OPERACIÓN EN MOVIMIENTO</small></div></div>
+        <div class="portal-body">
+          <div class="mini-nav"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+          <div class="hero-preview">
+            <div class="stats">
+              <div><small>Entregas</small><b>1,284</b><span>+8.2%</span></div>
+              <div><small>Flota</small><b>47</b><span>94% activa</span></div>
+              <div><small>Drivers</small><b>32</b><span>+4 en turno</span></div>
+            </div>
+            <div class="chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="chip-row">
+              <span class="chip ok">Role navigation 02A.02</span>
+              <span class="chip">Search deferred</span>
+              <span class="chip">Adapter-ready UX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes"><p>Visual evidence regenerated for the hardened mock-only portal shell. Public experience remains non-operational and continues to expose no real backend connectivity.</p></div>
+  </section>
+
+  <section class="frame">
+    <div class="label">02A.05 DOMAIN WORKSPACE DESKTOP</div>
+    <div class="workspace">
+      <aside class="sidebar">
+        <div class="brand"><div class="mark">J</div><div><b>JONED</b><small>TRANSPORT CO.</small></div></div>
+        <div class="workspace-box"><span>ESPACIO DE TRABAJO</span><b>JONED Transport Co.</b><small>Denver, Colorado</small></div>
+        <div class="role-grid"><div>Admin</div><div class="on">Ops</div><div>HR</div><div>Driver</div><div>Exec</div></div>
+        <div class="nav-row">
+          <div>Resumen ejecutivo</div>
+          <div class="active">Conductores</div>
+          <div>Flota</div>
+          <div>Clientes</div>
+          <div>Documentos</div>
+          <div>Reportes</div>
+          <div>Notificaciones</div>
+        </div>
+        <div class="user"><div class="avatar">AM</div><div><b>Alex Morgan</b><small>Operaciones</small></div></div>
+      </aside>
+      <section class="main">
+        <div class="toolbar">
+          <input value="conductores" aria-label="search" />
+          <div class="status-row">
+            <span class="state loading">Loading mock</span>
+            <span class="chip">Filtros persistentes</span>
+            <span class="chip">Paginación</span>
+            <span class="chip">Selección</span>
+          </div>
+        </div>
+        <div class="workspace-grid">
+          <div class="module">
+            <article class="card">
+              <small>OPERACIÓN EN MOVIMIENTO</small>
+              <h3>Conductores listos para la ruta</h3>
+              <div class="pill-row">
+                <span class="pill">Terminal: Todas</span>
+                <span class="pill">Disponibilidad: Disponible</span>
+                <span class="pill">Vigencia CDL: Todas</span>
+              </div>
+              <div class="actions">
+                <span class="btn primary">Asignar turno mock</span>
+                <span class="btn">Ver autoservicio</span>
+                <span class="btn warn">Retry</span>
+              </div>
+              <div class="table">
+                <div class="table-head"><span>Elemento</span><span>Responsable</span><span>Estado</span><span>Última actualización</span></div>
+                <div class="table-row"><div><b>Alicia Moore</b><small>Terminal Denver · Clase A</small></div><small>Dispatch West</small><span>Disponible</span><span>Hace 12 min</span></div>
+                <div class="table-row"><div><b>Jorge Medina</b><small>Terminal Aurora · Sleeper</small></div><small>Linehaul</small><span>En ruta</span><span>Hace 4 min</span></div>
+                <div class="table-row"><div><b>Pam Fields</b><small>Terminal Pueblo · Local</small></div><small>Driver Care</small><span>Pendiente</span><span>Hace 1 h</span></div>
+                <div class="expanded"><p><b>Detalle expandible</b> · Credenciales, ETA, subflujo y ack quedan visibles desde fixtures locales.</p><small>Selección de filas y tabs internas persisten por módulo.</small></div>
+              </div>
+            </article>
+            <article class="card stack">
+              <div class="summary">
+                <article><p>Loading, empty, error y partial data quedan normalizados bajo un mismo patrón visual reutilizable.</p></article>
+                <article><p>Search, sorting, row selection y refresh son reproducibles sin depender de backend real.</p></article>
+              </div>
+              <div class="stages">
+                <article class="done"><b>Disponibilidad</b><span>Fixture consolidado</span></article>
+                <article class="current"><b>Ack de mensajes</b><span>UX stateful mock</span></article>
+                <article><b>API futura</b><span>Contrato desacoplado</span></article>
+              </div>
+            </article>
+          </div>
+          <div class="aside">
+            <article class="side-card">
+              <small>CONTRATO MOCK</small>
+              <h3>/api/v1/drivers</h3>
+              <div class="meta">
+                <span>Fixture: `drivers-liveboard.v2`</span>
+                <span>Response: `DriverWorkspace`</span>
+                <span>Cache key: `drivers-workspace`</span>
+                <span>Retryable: true · Refreshable: true</span>
+              </div>
+            </article>
+            <article class="side-card">
+              <small>GUARDRAILS</small>
+              <h3>Frontend mock / backend real</h3>
+              <ul class="guardrails">
+                <li>Solo fixtures locales.</li>
+                <li>Cero conexiones a Azure SQL, Graph, SharePoint operativo o integraciones reales.</li>
+                <li>Acciones condicionadas por rol visibles sin autorizar privilegios reales.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="notes"><p>Desktop workspace evidence reflects the stateful UX layer requested in 02A.05: persistent filters, sorting, pagination, expandable detail, row selection and role-conditioned actions.</p></div>
+  </section>
+
+  <section class="frame">
+    <div class="label">02A.05 NOTIFICACIONES MOBILE</div>
+    <div class="mobile-shell">
+      <div class="mobile-card">
+        <div class="mobile-top"><span>☰</span><input value="alertas" aria-label="mobile search" /><span>AM</span></div>
+        <div class="mobile-body">
+          <section class="mobile-hero">
+            <small>CENTRO DE ACTIVIDAD</small>
+            <h2>Lo importante, sin ruido</h2>
+            <p>Inbox móvil alineado con desktop, con partial data, reglas UI y acciones condicionadas por rol.</p>
+          </section>
+          <section class="mobile-section">
+            <div class="status-row">
+              <span class="state partial">Partial data</span>
+              <span class="chip">Refresh</span>
+              <span class="chip">Retry</span>
+            </div>
+            <h3>Listado priorizado</h3>
+            <div class="table">
+              <div class="table-head"><span>Elemento</span><span>Owner</span><span>Estado</span><span>Hora</span></div>
+              <div class="table-row"><div><b>Vencimiento documental</b><small>Documentos · FL-012</small></div><small>Activity Center</small><span>Alta</span><span>6 min</span></div>
+              <div class="table-row"><div><b>Turno confirmado</b><small>Conductores · DRV-101</small></div><small>Driver Comms</small><span>Media</span><span>18 min</span></div>
+            </div>
+          </section>
+          <section class="mobile-section">
+            <h3>Adapter boundary</h3>
+            <div class="meta">
+              <span>Endpoint: `/api/v1/notifications`</span>
+              <span>Search, tabs y selección conservan estado local.</span>
+              <span>Sin correo, Graph ni automatización real.</span>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="notes"><p>Mobile evidence confirms responsive continuity for notifications and stateful behavior without introducing operational integrations.</p></div>
+  </section>
+</div>
+</body>
+</html>

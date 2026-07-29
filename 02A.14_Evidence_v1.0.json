@@ -1,0 +1,23 @@
+{
+  "packageId": "02A.14",
+  "title": "Reportes UX Debug Evidence",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "authorizationState": "AUTHORIZED FOR REPORTES UX DEBUG ONLY",
+  "modifiedFiles": [
+    "app/page.tsx",
+    "app/globals.css"
+  ],
+  "uxAreas": [
+    "reportes-context-strip",
+    "reportes-list-callout",
+    "reportes-detail-analytical-context",
+    "responsive-reportes-context-layout"
+  ],
+  "validation": {
+    "lint": "passed",
+    "tests": "passed",
+    "executedTests": 5
+  },
+  "zeroRealConnectionsConfirmed": true
+}

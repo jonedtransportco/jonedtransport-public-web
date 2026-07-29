@@ -1,0 +1,48 @@
+{
+  "packageId": "02A.21",
+  "title": "First Public Intake Review Transition Plan - Drivers",
+  "version": "1.0",
+  "lifecycle": "Under_Review",
+  "authorizationState": "AUTHORIZED FOR PUBLIC INTAKE REVIEW-TRANSITION PREPARATION ONLY",
+  "sourceSharePointFolder": "02_Delivery_Workstreams/02A_Portal_Web_Frontend_Foundation/Under_Review",
+  "selectedFirstRoute": "Drivers",
+  "selectionRationale": [
+    "lower-risk-than-owner-operators",
+    "already-isolated-public-route",
+    "no-vehicle-driver-scope",
+    "fewer-operational-permutations",
+    "already-has-mock-step-flow"
+  ],
+  "filesCovered": [
+    "app/public-intake-transition.ts",
+    "02A.21_First_Public_Intake_Review_Transition_Plan_Drivers_v1.0.md",
+    "02A.21_Evidence_v1.0.json",
+    "02A.21_SHA-256_Manifest_v1.0.txt"
+  ],
+  "switchModel": {
+    "globalFlag": "PUBLIC_INTAKE_API_MODE",
+    "driversFlag": "PUBLIC_INTAKE_DRIVERS_SOURCE",
+    "ownerOperatorsFlag": "PUBLIC_INTAKE_OWNER_OPERATORS_SOURCE",
+    "driversEndpoint": "PUBLIC_INTAKE_DRIVERS_API_URL",
+    "strategy": "env-flag-plus-domain-allowlist-plus-contract-parity-checks-plus-mock-fallback"
+  },
+  "futureFirstSwitchCriteria": [
+    "approved-review-endpoint-url",
+    "approved-canonical-request-response-specimen",
+    "route-code-parity-for-P3-P4-B3-B4",
+    "review-only-environment-flags",
+    "drivers-only-api-real-confirmation",
+    "desktop-mobile-regression-validation",
+    "reversible-mock-fallback"
+  ],
+  "zeroRealConnectionsConfirmed": true,
+  "nonAuthorizedActionsNotExecuted": [
+    "real-backend-connection",
+    "production-activation",
+    "owner-operators-api-real-activation",
+    "portal-workflow-activation",
+    "document-runtime-activation",
+    "business-automation"
+  ],
+  "stopCondition": "After SharePoint publication and direct reread verification, stop and return control to 00.2."
+}

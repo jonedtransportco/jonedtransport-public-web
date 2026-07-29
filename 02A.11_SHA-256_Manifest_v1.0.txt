@@ -1,0 +1,2 @@
+e11df090882fe6506b1ee7cbb96cb3f2ba8eb72830ee79e116a96d76a697d144  02A.11_Reportes_Functional_Contract_Closure_v1.0.md  6440
+b463e6b913e11f4f45c137b883a9b56f50c46c62b8dd701f354f8dc508295710  02A.11_Evidence_v1.0.json  1057

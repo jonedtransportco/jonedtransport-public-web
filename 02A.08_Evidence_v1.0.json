@@ -1,0 +1,91 @@
+{
+  "workPackage": "02A.08",
+  "title": "First Domain API Readiness Pack - Reportes",
+  "version": "1.0",
+  "dateUtc": "2026-07-25T20:05:00Z",
+  "portalPath": "work/02a-portal-web",
+  "mode": "mock-only-analysis",
+  "selectedDomain": {
+    "name": "Reportes",
+    "selectionStateFrom02A07": "PARTIALLY_READY",
+    "selectionJustification": [
+      "Explicitly authorized as a low-risk candidate in the delegation",
+      "Read-oriented first switch with no required write-path activation",
+      "Lower dependency surface than Documentos and Administracion",
+      "Consistent with 02A.07 transition order and architectural gaps"
+    ]
+  },
+  "authorizedSources": [
+    "02A",
+    "02A.02",
+    "02A.03",
+    "02A.04",
+    "02A.05",
+    "02A.06",
+    "02A.07",
+    "contracts/mock-api.v1.json",
+    "app/page.tsx"
+  ],
+  "sourceSharePointFolder": "02_Delivery_Workstreams/02A_Portal_Web_Frontend_Foundation/Under_Review",
+  "artifacts": [
+    "02A.08_First_Domain_API_Readiness_Pack_Reportes_v1.0.md",
+    "02A.08_Evidence_v1.0.json",
+    "02A.08_SHA-256_Manifest_v1.0.txt"
+  ],
+  "traceability": {
+    "02A": "Frontend foundation and explicit separation from operational systems",
+    "02A.02": "Design system, role visibility and interface-only permissions",
+    "02A.03": "Module skeletons and shared interaction patterns",
+    "02A.04": "Per-domain adapter hardening and workflow structure",
+    "02A.05": "Normalized stateful UX behavior and query-state handling",
+    "02A.06": "Normalized envelope, payload structure and integration boundary",
+    "02A.07": "Portal-wide readiness classification and future transition strategy"
+  },
+  "domainContract": {
+    "endpoint": "/api/v1/reports",
+    "fixtureSet": "insights-catalog.v2",
+    "requestShape": "ReportWorkspaceQuery",
+    "responseShape": "ReportWorkspace",
+    "futureSource": "Reporting API",
+    "cacheKey": "reports-workspace",
+    "currentState": "partial"
+  },
+  "deliverablesConfirmed": {
+    "domainReadinessPack": "prepared",
+    "fieldMappingMatrix": "embedded-in-pack",
+    "technicalEvidenceNonSensitive": "captured",
+    "sha256Manifest": "prepared",
+    "sharePointPublication": "required",
+    "returnControlTo002": "required"
+  },
+  "validation": {
+    "selectedDomainExplicitlyJustified": "validated",
+    "traceabilityTo02A07": "validated",
+    "mockTargetAdapterConsistency": "validated",
+    "roleAndUxCoherence": "validated",
+    "zeroRealConnectionsConfirmed": true,
+    "zeroOperationalIntegrationsConfirmed": true,
+    "existingPortalTestsRequired": [
+      "npm run lint",
+      "npm test"
+    ]
+  },
+  "nonAuthorizedActionsNotExecuted": [
+    "Azure SQL real connection",
+    "Microsoft Graph operational connection",
+    "Operational SharePoint runtime connection",
+    "Email integration",
+    "Document intake integration",
+    "Payment integration",
+    "Gusto integration",
+    "PNC integration",
+    "OneRail integration",
+    "Frayt integration",
+    "ELD integration",
+    "Business automation enablement",
+    "Report export activation",
+    "Report scheduling activation",
+    "Approved Azure work package modification"
+  ],
+  "stopCondition": "After SharePoint publication and direct reread verification, stop and return control to 00.2."
+}
