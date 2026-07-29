@@ -4,6 +4,16 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Workspace | JONED Enterprise Platform",
   description: "Role-protected Joned Transpor Co enterprise workspace.",
+  openGraph: {
+    title: "Workspace | JONED Enterprise Platform",
+    description: "Role-protected Joned Transpor Co enterprise workspace.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Workspace | JONED Enterprise Platform",
+    description: "Role-protected Joned Transpor Co enterprise workspace.",
+  },
   robots: {
     index: false,
     follow: false,
