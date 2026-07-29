@@ -58,11 +58,11 @@ export default async function Home() {
   return (
     <main className="joned-public">
       <header className="joned-public-nav">
-        <Link href="/" className="joned-lockup" aria-label="JONED Transport home">
+        <Link href="/" className="joned-lockup" aria-label="Joned Transpor Co home">
           <span className="brand-mark">J</span>
           <span>
             <strong>JONED</strong>
-            <small>TRANSPORT &amp; LOGISTICS</small>
+            <small>TRANSPOR CO</small>
           </span>
         </Link>
         <nav className="joned-public-links" aria-label="Primary">
@@ -328,7 +328,7 @@ export default async function Home() {
           <span className="joned-eyebrow">About</span>
           <h2>Built for controlled growth and enterprise trust.</h2>
           <p>
-            JONED is shaping a logistics experience that separates public access,
+            Joned Transpor Co is shaping a logistics experience that separates public access,
             operational control, recruiting intake, and authenticated role-based
             collaboration.
           </p>
@@ -365,7 +365,7 @@ export default async function Home() {
             href="mailto:commercialmanager@jonedtransport.com?subject=JONED%20transport%20request"
             className="joned-yellow-btn"
           >
-            Contact JONED
+            Contact Joned Transpor Co
           </a>
           <Link href="/portal" className="joned-secondary-btn">
             Portal sign in
