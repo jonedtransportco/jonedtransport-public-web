@@ -190,7 +190,7 @@ const copy: Record<Language, PortalCopy> = {
       panelTitle: "Sign in",
       panelBody: "Use the account authorized by your organization to continue.",
       cta: "Continue with Microsoft Entra ID",
-      note: "This is a visual simulation only. Real authentication remains governed by approved Azure and Microsoft Entra ID configuration.",
+      note: "Authentication is handled by Microsoft Entra ID. Access is limited to accounts authorized by Joned Transpor Co.",
     },
     sidebar: {
       accessTitle: "Access through Microsoft Entra ID",
@@ -352,7 +352,7 @@ const copy: Record<Language, PortalCopy> = {
       panelTitle: "Iniciar sesión",
       panelBody: "Usa la cuenta autorizada por tu organización para continuar.",
       cta: "Continuar con Microsoft Entra ID",
-      note: "Esta es solo una simulación visual. La autenticación real sigue gobernada por la configuración aprobada de Azure y Microsoft Entra ID.",
+      note: "La autenticación es administrada por Microsoft Entra ID. El acceso está limitado a cuentas autorizadas por Joned Transpor Co.",
     },
     sidebar: {
       accessTitle: "Acceso mediante Microsoft Entra ID",
@@ -398,8 +398,12 @@ function statusClass(status: string) {
   return "transit";
 }
 
-export default function PortalPage() {
-  const [authenticatedPreview, setAuthenticatedPreview] = useState(false);
+export default function PortalPage({
+  initialAuthenticatedPreview = false,
+}: {
+  initialAuthenticatedPreview?: boolean;
+}) {
+  const [authenticatedPreview] = useState(initialAuthenticatedPreview);
   const [language, setLanguage] = useState<Language>("en");
   const [role, setRole] = useState<RoleId>("operations");
 
@@ -461,10 +465,9 @@ export default function PortalPage() {
             <span className="joned-eyebrow">{portalCopy.auth.panelEyebrow}</span>
             <h2>{portalCopy.auth.panelTitle}</h2>
             <p>{portalCopy.auth.panelBody}</p>
-            <button
+            <a
               className="joned-entra-button"
-              type="button"
-              onClick={() => setAuthenticatedPreview(true)}
+              href="/.auth/login/aad?post_login_redirect_uri=/workspace"
             >
               <span className="joned-ms-mark" aria-hidden="true">
                 <i />
@@ -473,7 +476,7 @@ export default function PortalPage() {
                 <i />
               </span>
               {portalCopy.auth.cta}
-            </button>
+            </a>
             <div className="joned-entra-note">{portalCopy.auth.note}</div>
           </div>
         </section>

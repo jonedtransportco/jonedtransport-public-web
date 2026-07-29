@@ -6,50 +6,57 @@ const root = process.cwd();
 const distRoot = resolve(root, "dist");
 const clientRoot = resolve(distRoot, "client");
 const serverEntry = resolve(distRoot, "server", "index.js");
-const outputRoot = resolve(distRoot, "azure-static");
+const outputRoot = resolve(distRoot, "public-static");
 const routes = [
-  { renderPath: "/portal", publicPath: "/", output: "index.html" },
-  { renderPath: "/workspace", publicPath: "/workspace", output: "workspace/index.html" },
+  { path: "/", output: "index.html" },
+  { path: "/services", output: "services/index.html" },
+  { path: "/coverage", output: "coverage/index.html" },
+  { path: "/about", output: "about/index.html" },
+  { path: "/resources", output: "resources/index.html" },
+  { path: "/contact", output: "contact/index.html" },
+  { path: "/quote", output: "quote/index.html" },
+  { path: "/tracking", output: "tracking/index.html" },
+  { path: "/drivers", output: "drivers/index.html" },
+  { path: "/owner-operators", output: "owner-operators/index.html" },
 ];
 
 async function main() {
   await rm(outputRoot, { recursive: true, force: true });
   await mkdir(outputRoot, { recursive: true });
   await cp(clientRoot, outputRoot, { recursive: true });
-  await cp(resolve(root, "staticwebapp.config.json"), resolve(outputRoot, "staticwebapp.config.json"));
 
   const workerUrl = pathToFileURL(serverEntry);
   workerUrl.searchParams.set("export", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   for (const route of routes) {
-    const html = await renderRoute(worker, route.renderPath);
+    const html = await renderRoute(worker, route.path);
     const outputPath = resolve(outputRoot, route.output);
     await mkdir(resolve(outputPath, ".."), { recursive: true });
     await writeFile(outputPath, html, "utf8");
   }
 
-  const manifest = {
-    exportedAtUtc: new Date().toISOString(),
-    deploymentType: "private-portal-only",
-    routes: routes.map((route) => route.publicPath),
-    sourceClientRoot: "dist/client",
-    outputRoot: "dist/azure-static",
-  };
+  await writeFile(resolve(outputRoot, ".nojekyll"), "", "utf8");
+  await writeFile(resolve(outputRoot, "CNAME"), "jonedtransport.com\n", "utf8");
   await writeFile(
     resolve(outputRoot, "export-manifest.json"),
-    `${JSON.stringify(manifest, null, 2)}\n`,
+    `${JSON.stringify({
+      exportedAtUtc: new Date().toISOString(),
+      deploymentType: "public-corporate-multipage",
+      routes: routes.map((route) => route.path),
+      outputRoot: "dist/public-static",
+    }, null, 2)}\n`,
     "utf8",
   );
 }
 
 async function renderRoute(worker, path) {
   const response = await worker.fetch(
-    new Request(`https://portal.jonedtransport.com${path}`, {
+    new Request(`https://jonedtransport.com${path}`, {
       headers: {
         accept: "text/html",
-        host: "portal.jonedtransport.com",
-        "x-forwarded-host": "portal.jonedtransport.com",
+        host: "jonedtransport.com",
+        "x-forwarded-host": "jonedtransport.com",
       },
     }),
     { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
@@ -65,7 +72,6 @@ async function renderRoute(worker, path) {
   if (!html.includes("<!DOCTYPE html>")) {
     throw new Error(`Rendered output for ${path} did not produce a full HTML document.`);
   }
-
   return html;
 }
 
