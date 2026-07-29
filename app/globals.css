@@ -514,3 +514,354 @@ button{cursor:pointer}
     padding-right: 16px;
   }
 }
+
+/* Reference composition: public hero + enterprise sign-in + product preview. */
+.joned-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(340px, .48fr);
+  gap: clamp(24px, 4vw, 68px);
+  padding-right: clamp(24px, 5vw, 72px);
+}
+
+.joned-hero-photo-space {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  min-height: 0;
+}
+
+.joned-hero-login {
+  position: relative;
+  z-index: 3;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
+  width: min(390px, 100%);
+  padding: 20px;
+  border-left: 1px solid rgba(255, 255, 255, .15);
+}
+
+.joned-hero-login-card {
+  padding: clamp(24px, 3vw, 38px);
+  border-radius: 15px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, .24);
+}
+
+.joned-login-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 34px;
+  color: var(--navy);
+}
+
+.joned-login-brand .brand-mark {
+  width: 42px;
+  height: 42px;
+}
+
+.joned-login-brand strong,
+.joned-login-brand small {
+  display: block;
+}
+
+.joned-login-brand strong {
+  font-size: 22px;
+  letter-spacing: .08em;
+  line-height: 1;
+}
+
+.joned-login-brand small {
+  margin-top: 4px;
+  color: #6d7d8d;
+  font-size: 8px;
+  letter-spacing: .15em;
+}
+
+.joned-hero-login-card h2 {
+  margin: 9px 0 8px;
+  color: var(--navy);
+  font-size: 32px;
+  letter-spacing: -.045em;
+}
+
+.joned-hero-login-card p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.joned-hero-login-card .joned-entra-button {
+  text-decoration: none;
+}
+
+.joned-login-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 12px;
+  color: #8491a0;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.joned-login-divider::before,
+.joned-login-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: #e0e6ec;
+}
+
+.joned-hero-login-card input {
+  width: 100%;
+  border: 1px solid #d6dfe8;
+  border-radius: 9px;
+  padding: 12px 13px;
+  color: var(--ink);
+  outline: 0;
+}
+
+.joned-login-submit {
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 14px;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 750;
+}
+
+.joned-login-note {
+  display: block;
+  margin-top: 18px;
+  color: #8491a0;
+  font-size: 10px;
+  text-align: center;
+}
+
+.joned-product-preview {
+  display: grid;
+  grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr);
+  gap: clamp(30px, 6vw, 90px);
+  align-items: center;
+  padding: clamp(54px, 7vw, 92px) clamp(20px, 7vw, 104px);
+  background: #eef3f7;
+}
+
+.joned-product-preview-copy h2 {
+  max-width: 9ch;
+  margin: 10px 0 14px;
+  color: var(--navy);
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+
+.joned-product-preview-copy p {
+  max-width: 440px;
+  margin: 0 0 24px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.joned-product-preview-window {
+  display: grid;
+  grid-template-columns: 138px minmax(0, 1fr);
+  min-height: 335px;
+  overflow: hidden;
+  border: 1px solid #d2dce6;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 24px 65px rgba(5, 24, 49, .14);
+}
+
+.joned-preview-sidebar {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 20px 14px;
+  color: #b9cbe0;
+  background: linear-gradient(165deg, #061a30, #0c2946);
+  font-size: 10px;
+}
+
+.joned-preview-sidebar strong {
+  margin-bottom: 16px;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: .14em;
+}
+
+.joned-preview-sidebar span:first-of-type {
+  padding: 8px 9px;
+  border-radius: 7px;
+  color: #fff;
+  background: #1767e8;
+}
+
+.joned-preview-main {
+  min-width: 0;
+  padding: 22px;
+  background: #f8fafc;
+}
+
+.joned-preview-topline,
+.joned-preview-metrics,
+.joned-preview-content {
+  display: flex;
+  gap: 12px;
+}
+
+.joned-preview-topline {
+  align-items: center;
+  justify-content: space-between;
+  color: var(--navy);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.joned-preview-topline i {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #d9e7f6;
+}
+
+.joned-preview-metrics {
+  margin: 18px 0;
+}
+
+.joned-preview-metrics span {
+  flex: 1;
+  padding: 13px;
+  border: 1px solid #e0e7ef;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.joned-preview-metrics small,
+.joned-preview-metrics strong {
+  display: block;
+}
+
+.joned-preview-metrics small {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.joned-preview-metrics strong {
+  margin-top: 8px;
+  color: var(--navy);
+  font-size: 22px;
+}
+
+.joned-preview-content {
+  align-items: stretch;
+}
+
+.joned-preview-table,
+.joned-preview-map {
+  flex: 1;
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #e0e7ef;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.joned-preview-table b,
+.joned-preview-table span {
+  display: block;
+}
+
+.joned-preview-table b {
+  margin-bottom: 13px;
+  color: var(--navy);
+  font-size: 11px;
+}
+
+.joned-preview-table span {
+  padding: 10px 0;
+  border-top: 1px solid #edf1f5;
+  color: #3a5067;
+  font-size: 10px;
+}
+
+.joned-preview-table i {
+  float: right;
+  color: #16845c;
+  font-style: normal;
+}
+
+.joned-preview-map {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(28deg, transparent 45%, #d9e4ea 46%, #d9e4ea 48%, transparent 49%) 0 0/70px 70px, #e8f0ea;
+}
+
+.joned-preview-map em {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #1767e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .16);
+}
+
+.joned-preview-map em:nth-child(1) { left: 19%; top: 65%; }
+.joned-preview-map em:nth-child(2) { left: 49%; top: 48%; background: #ffd24a; }
+.joned-preview-map em:nth-child(3) { left: 76%; top: 27%; background: #20a96b; }
+
+@media (max-width: 1000px) {
+  .joned-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, .55fr);
+  }
+
+  .joned-hero-login {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .joned-hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-right: 20px;
+  }
+
+  .joned-hero-login {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: stretch;
+    width: 100%;
+    padding: 0;
+    border-left: 0;
+  }
+
+  .joned-product-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .joned-product-preview-window {
+    grid-template-columns: 86px minmax(0, 1fr);
+  }
+
+  .joned-preview-sidebar {
+    padding: 16px 8px;
+    font-size: 8px;
+  }
+
+  .joned-preview-main {
+    padding: 14px;
+  }
+
+  .joned-preview-content {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

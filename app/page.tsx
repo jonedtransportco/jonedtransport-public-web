@@ -103,6 +103,33 @@ export default async function Home() {
           </div>
         </div>
         <div className="joned-hero-photo-space" aria-hidden="true" />
+        <aside className="joned-hero-login" aria-label="JONED Enterprise Platform sign in">
+          <div className="joned-hero-login-card">
+            <div className="joned-login-brand">
+              <span className="brand-mark">J</span>
+              <span>
+                <strong>JONED</strong>
+                <small>ENTERPRISE PLATFORM</small>
+              </span>
+            </div>
+            <span className="joned-eyebrow">Protected access</span>
+            <h2>Sign in</h2>
+            <p>Access your workspace and continue securely with Microsoft.</p>
+            <Link className="joned-entra-button" href="/portal">
+              <span className="joned-ms-mark" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+                <i />
+              </span>
+              Continue with Microsoft
+            </Link>
+            <span className="joned-login-divider">or use your work email</span>
+            <input aria-label="Work email" placeholder="Work email" type="email" />
+            <button className="joned-login-submit" type="button">Continue</button>
+            <small className="joned-login-note">Private portal access is role-based and protected.</small>
+          </div>
+        </aside>
       </section>
 
       <section className="joned-trust-strip" id="coverage" aria-label="Service commitments">
@@ -182,6 +209,40 @@ export default async function Home() {
               Access with Microsoft Entra ID
             </Link>
           </article>
+        </div>
+      </section>
+
+      <section className="joned-product-preview" aria-label="JONED platform preview">
+        <div className="joned-product-preview-copy">
+          <span className="joned-eyebrow">JONED Enterprise Platform</span>
+          <h2>One operating view for every move.</h2>
+          <p>
+            Customers track shipments, drivers complete their routes, and operations
+            teams work from the same role-protected workspace.
+          </p>
+          <Link href="/portal" className="joned-outline-btn">Open the private portal</Link>
+        </div>
+        <div className="joned-product-preview-window" aria-hidden="true">
+          <div className="joned-preview-sidebar">
+            <strong>JONED</strong>
+            <span>Dashboard</span>
+            <span>Operations</span>
+            <span>Shipments</span>
+            <span>Routes</span>
+            <span>Reports</span>
+          </div>
+          <div className="joned-preview-main">
+            <div className="joned-preview-topline"><span>Operations center</span><i /></div>
+            <div className="joned-preview-metrics">
+              <span><small>Active loads</small><strong>84</strong></span>
+              <span><small>On time</small><strong>98.7%</strong></span>
+              <span><small>At risk</small><strong>7</strong></span>
+            </div>
+            <div className="joned-preview-content">
+              <div className="joned-preview-table"><b>Active shipments</b><span>JNE-24891 <i>In transit</i></span><span>JNE-24887 <i>On time</i></span><span>JNE-24882 <i>Review</i></span></div>
+              <div className="joned-preview-map"><em /><em /><em /></div>
+            </div>
+          </div>
         </div>
       </section>
 
