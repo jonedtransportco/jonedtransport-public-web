@@ -1,0 +1,23 @@
+{
+  "exportedAtUtc": "2026-07-29T06:03:23.476Z",
+  "deploymentType": "public-corporate-multipage",
+  "routes": [
+    "/",
+    "/services",
+    "/coverage",
+    "/about",
+    "/resources",
+    "/contact",
+    "/quote",
+    "/tracking",
+    "/drivers",
+    "/drivers/es",
+    "/drivers/actions",
+    "/drivers/actions/es",
+    "/owner-operators",
+    "/owner-operators/es",
+    "/owner-operators/actions",
+    "/owner-operators/actions/es"
+  ],
+  "outputRoot": "dist/public-static"
+}
