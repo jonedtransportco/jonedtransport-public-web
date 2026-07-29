@@ -16,7 +16,7 @@ export function PublicHeader({
     <header className="joned-public-nav">
       <a href="/" className="joned-logo-shell" aria-label="Joned Transpor Co home">
         <img
-          src="/joned-logo-wordmark.png"
+          src="/joned-logo-color.png"
           alt="Joned Transpor Co"
           className="joned-logo-image joned-logo-image--brand"
           loading="eager"
@@ -57,7 +57,7 @@ export function PublicFooter() {
     <footer className="joned-public-footer">
       <div className="joned-logo-shell">
         <img
-          src="/joned-logo-wordmark.png"
+          src="/joned-logo-color.png"
           alt="Joned Transpor Co"
           className="joned-logo-image joned-logo-image--footer"
           loading="eager"

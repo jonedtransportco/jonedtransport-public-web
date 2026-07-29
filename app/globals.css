@@ -189,8 +189,8 @@ button{cursor:pointer}
 .joned-logo-shell{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:5px 10px;border-radius:16px;background:rgba(255,255,255,.96);border:1px solid rgba(13,26,39,.08);box-shadow:0 12px 30px rgba(3,17,33,.14)}
 .joned-logo-shell:hover{transform:translateY(-1px)}
 .joned-logo-image{display:block;height:24px;width:auto;max-width:min(220px,38vw);object-fit:contain}
-.joned-logo-image--brand{height:32px;max-width:min(260px,44vw)}
-.joned-logo-image--footer{height:24px;max-width:min(220px,36vw)}
+.joned-logo-image--brand{height:28px;max-width:min(220px,38vw)}
+.joned-logo-image--footer{height:22px;max-width:min(200px,34vw)}
 .joned-logo-shell--portal{min-height:34px;padding:4px 8px;align-self:flex-start}
 .joned-logo-shell--portal-dark{background:rgba(255,255,255,.96);border-color:rgba(12,28,45,.08);box-shadow:0 10px 24px rgba(3,17,33,.08)}
 .joned-public-links{display:flex;align-items:center;gap:24px}
