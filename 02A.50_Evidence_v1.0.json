@@ -1,0 +1,38 @@
+{
+  "workPackage": "02A.50",
+  "title": "Hosting Surface Separation Fixed Rule",
+  "version": "1.0",
+  "generatedAtUtc": "2026-07-29T06:56:59Z",
+  "portalPath": "work/02a-portal-web",
+  "mode": "policy-lock",
+  "officialTargets": {
+    "publicWebsite": {
+      "host": "jonedtransport.com",
+      "publisher": "GitHub"
+    },
+    "privatePortal": {
+      "host": "portal.jonedtransport.com",
+      "publisher": "Azure"
+    }
+  },
+  "disallowedReferences": [
+    "temporary preview hostnames",
+    "review-only hostnames"
+  ],
+  "validation": {
+    "projectWideReferenceScanPassed": true,
+    "matchesFound": 0,
+    "updatedNormativeDocs": [
+      "README.md",
+      "ARCHITECTURE.md"
+    ],
+    "evidenceDocumentCreated": true
+  },
+  "nonAuthorizedActionsNotExecuted": [
+    "DNS cutover",
+    "application routing change",
+    "identity change",
+    "backend change",
+    "production publish"
+  ]
+}

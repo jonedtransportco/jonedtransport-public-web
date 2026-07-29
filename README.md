@@ -9,6 +9,8 @@ This workspace contains frontend work for two related but distinct web surfaces:
 
 Do not merge these two final domain targets conceptually or operationally.
 
+Temporary preview hosts and internal review domains are non-normative. They must not be treated as official production targets, and they must not appear in future production-facing documentation, DNS instructions, or deployment decisions.
+
 Required final domain split:
 
 - `jonedtransport.com`
@@ -17,6 +19,12 @@ Required final domain split:
 - `portal.jonedtransport.com`
   - portal only
   - internal or controlled operational experience
+
+Fixed hosting rule:
+
+- public website publishes only through the official GitHub repository and `jonedtransport.com`
+- private portal publishes only through Azure and `portal.jonedtransport.com`
+- no future project work should introduce temporary review or preview domains as official targets
 
 This rule is mandatory for future implementation and publishing decisions.
 
@@ -28,21 +36,13 @@ Temporary coexistence of public and portal routes inside one codebase is allowed
 
 ## Current hosting note
 
-The current `.openai/hosting.json` points to the existing portal-linked Sites project:
-
-```json
-{
-  "project_id": "appgprj_6a64ce95216c819190c806d74cde8a91",
-  "d1": null,
-  "r2": null
-}
-```
+The current `.openai/hosting.json` is retained only as implementation history for this workspace starter. It is not an official production target and must not override the hosting rule above.
 
 Interpretation:
 
-- this project reference is tied to the current portal-linked publishing surface
-- it must not be assumed to be the final production target for `jonedtransport.com`
-- before final public-site publication, Architecture must confirm the correct public website project/domain target separately
+- only the GitHub public site and the Azure private portal are official targets for this project
+- any temporary review surface is non-normative and must not be reused as the final production host
+- Architecture must confirm the correct public website target separately from any portal review artifacts
 
 ## Technical base
 

@@ -12,6 +12,8 @@ The portal uses a presentation-first React/Next.js foundation compiled with Vine
 
 This project must preserve a hard separation between the public website and the internal portal.
 
+Temporary preview surfaces and review-only hostnames are non-normative. They must never become the canonical production host, DNS target, or documentation source for either surface.
+
 Target domain architecture:
 
 - `jonedtransport.com`
@@ -20,6 +22,12 @@ Target domain architecture:
 - `portal.jonedtransport.com`
   - internal or controlled portal only
   - operational modules, report views, document-oriented internal review surfaces and authenticated role-based workspace behavior
+
+Fixed operational rule:
+
+- public website deployment and documentation must refer only to GitHub-hosted public publishing and `jonedtransport.com`
+- private portal deployment and documentation must refer only to Azure-hosted portal publishing and `portal.jonedtransport.com`
+- temporary preview domains, including internal review hosts, are allowed only as transient implementation artifacts and must not be promoted into the architectural baseline
 
 Non-negotiable rule:
 
