@@ -564,7 +564,12 @@ export default function PortalPage({
 
       <section className="joned-portal-main">
         <header className="joned-portal-topbar">
-          <div>
+          <div className="joned-portal-topbar-copy">
+            <div className="joned-portal-brand">
+              <div className="joned-logo-shell joned-logo-shell--portal joned-logo-shell--portal-dark">
+                <img src="/joned-logo-color.png" alt="Joned Transpor Co" className="joned-logo-image" />
+              </div>
+            </div>
             <span className="joned-eyebrow">{portalCopy.roles[role].label}</span>
             <h1>{activeModule}</h1>
             <p>{portalCopy.roles[role].subtitle}</p>
