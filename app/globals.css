@@ -171,6 +171,10 @@ button{cursor:pointer}
 .joned-lockup.inverse small{color:#92a7bf}
 .joned-eyebrow{display:block;color:var(--orange);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
 .joned-button-row{display:flex;gap:12px;flex-wrap:wrap}
+.joned-action-row{margin-top:8px}
+.joned-inline-note{margin-top:14px}
+.joned-text-link{color:#1767e8;text-decoration:underline;font-weight:700;text-underline-offset:3px}
+.joned-text-link:hover{color:#0f56cf}
 .joned-primary-btn,.joned-secondary-btn,.joned-yellow-btn,.joned-outline-btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:12px 16px;font-weight:700;text-decoration:none;border:0;transition:.18s ease}
 .joned-primary-btn{background:var(--navy2);color:#fff}
 .joned-primary-btn:hover{transform:translateY(-1px);background:var(--navy3)}
@@ -182,10 +186,17 @@ button{cursor:pointer}
 .joned-outline-btn:hover{transform:translateY(-1px);border-color:#b7c7d5}
 .joned-public{background:#f4f7fb;color:var(--ink)}
 .joned-public-nav{height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,72px);background:var(--navy);color:#fff;position:sticky;top:0;z-index:30;border-bottom:1px solid #173149}
+.joned-logo-shell{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:5px 10px;border-radius:16px;background:rgba(255,255,255,.96);border:1px solid rgba(13,26,39,.08);box-shadow:0 12px 30px rgba(3,17,33,.14)}
+.joned-logo-shell:hover{transform:translateY(-1px)}
+.joned-logo-image{display:block;height:24px;width:auto;max-width:min(220px,38vw);object-fit:contain}
+.joned-logo-shell--portal{min-height:38px;padding:5px 9px;align-self:flex-start}
 .joned-public-links{display:flex;align-items:center;gap:24px}
 .joned-public-links a{color:#c1d0df;text-decoration:none;font-size:13px}
 .joned-public-links a:hover{color:#fff}
 .joned-public-actions{display:flex;align-items:center;gap:10px}
+.joned-lang-switch{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#f4f7fb;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.joned-lang-switch__current{color:#fff}
+.joned-lang-switch__next{color:#b9c9d9}
 .joned-hero{min-height:640px;padding:74px clamp(20px,7vw,104px);display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:32px;color:#fff;background:radial-gradient(circle at 72% 28%,rgba(47,125,244,.35),transparent 31%),radial-gradient(circle at 88% 78%,rgba(255,210,74,.18),transparent 26%),linear-gradient(125deg,#031121,#0b223b 56%,#14365b)}
 .joned-hero-copy h1{font-size:clamp(42px,5vw,74px);line-height:.98;letter-spacing:-.055em;margin:18px 0 20px;max-width:12ch}
 .joned-hero-copy h1 em{font-style:normal;color:#ffd24a}
@@ -613,6 +624,9 @@ button{cursor:pointer}
   font-size: 12px;
 }
 
+.joned-public-footer .joned-logo-shell{background:rgba(255,255,255,.94);padding:5px 9px;min-height:36px}
+.joned-public-footer .joned-logo-image{height:20px;max-width:min(200px,34vw)}
+
 .joned-public-footer > div:last-child {
   display: flex;
   gap: 18px;
@@ -910,6 +924,10 @@ button{cursor:pointer}
 
 .joned-page-grid.three {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.joned-page-grid.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .joned-page-card {
@@ -1478,6 +1496,10 @@ button{cursor:pointer}
   }
 
   .joned-intake-panel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .joned-page-grid.four {
     grid-template-columns: 1fr;
   }
 

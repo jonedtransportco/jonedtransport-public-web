@@ -82,18 +82,18 @@ const copy: Record<Language, PortalCopy> = {
       },
     },
     roleModules: {
-      client: ["Overview", "Shipments", "Documents", "Billing", "POD", "Support"],
-      driver: ["Today", "Routes", "Check-in", "Photos", "Signature", "Messages"],
-      operations: ["Dashboard", "Operations", "Shipments", "Routes", "Drivers", "Fleet", "Clients", "Documents", "Reports"],
-      executive: ["Executive dashboard", "Operations", "Clients", "Reports"],
-      admin: ["Dashboard", "Operations", "Shipments", "Routes", "Drivers", "Fleet", "Clients", "Billing", "Documents", "Reports", "Settings"],
+      client: ["Overview", "Shipments", "Documents", "POD"],
+      driver: ["Today", "Routes", "Check-in", "Photos", "Signature"],
+      operations: ["Dashboard", "Operations", "Shipments", "Routes", "Drivers", "Fleet", "Reports"],
+      executive: ["Executive dashboard", "KPI", "Clients", "Reports"],
+      admin: ["Dashboard", "Operations", "Shipments", "Routes", "Drivers", "Fleet", "Clients", "Billing", "Documents", "Reports", "Settings", "Integrations"],
     },
     futureModules: {
       client: ["Quotes"],
       driver: ["Vehicle inspection"],
-      operations: ["Advanced alerts"],
-      executive: ["Consolidated risk"],
-      admin: ["Integrations"],
+      operations: ["Clients", "Documents", "Advanced alerts"],
+      executive: ["Consolidated risk", "Profitability"],
+      admin: [],
     },
     metrics: {
       client: [
@@ -109,9 +109,9 @@ const copy: Record<Language, PortalCopy> = {
         { label: "Exceptions", value: "0", tone: "red" },
       ],
       operations: [
-        { label: "Active loads", value: "84", tone: "blue" },
-        { label: "Connected drivers", value: "46", tone: "green" },
-        { label: "At risk", value: "7", tone: "yellow" },
+        { label: "Company files", value: "28", tone: "blue" },
+        { label: "Linked drivers", value: "46", tone: "green" },
+        { label: "Pending review", value: "7", tone: "yellow" },
         { label: "Critical alerts", value: "2", tone: "red" },
       ],
       executive: [
@@ -139,9 +139,11 @@ const copy: Record<Language, PortalCopy> = {
         { id: "STOP-03", title: "Lakewood Transfer Point", detail: "Pending", status: "Pending", eta: "16:05" },
       ],
       operations: [
-        { id: "LOAD-771", title: "Window at risk", detail: "JNE-24882 · delay estimate 24 min", status: "Attention", eta: "17:20" },
-        { id: "LOAD-612", title: "Signal intermittent", detail: "JT-218 · last point 9 min ago", status: "Review", eta: "Now" },
-        { id: "LOAD-580", title: "POD received", detail: "JNE-24876 ready for validation", status: "Done", eta: "12:42" },
+        { id: "COMP-01", title: "Northstar Fleet LLC", detail: "Company parent record · 4 linked drivers · 6 vehicles", status: "Under Review", eta: "Now" },
+        { id: "DR-14", title: "Rafael M.", detail: "Linked driver · CDL · ready for assignment", status: "Approved", eta: "Updated now" },
+        { id: "DR-18", title: "Alex Chen", detail: "Linked driver · Non-CDL · documents missing", status: "Missing Documents", eta: "Updated 1 h ago" },
+        { id: "COMP-02", title: "Blue Ridge Transport LLC", detail: "Company parent record · new intake submitted", status: "Initiated", eta: "Today" },
+        { id: "COMP-03", title: "Summit Carrier LLC", detail: "Company parent record · final decision pending", status: "Rejected", eta: "Yesterday" },
       ],
       executive: [
         { id: "KPI-01", title: "Last-mile commercial growth", detail: "Denver Metro · +22%", status: "Strong", eta: "Monthly" },
@@ -166,9 +168,9 @@ const copy: Record<Language, PortalCopy> = {
         { title: "Signature", detail: "Capture final handoff", state: "muted" },
       ],
       operations: [
-        { title: "Exceptions first", detail: "Prioritize loads with customer impact" },
-        { title: "Fleet visibility", detail: "Live vehicle and driver context" },
-        { title: "Close with POD", detail: "Validate final proof and notes", state: "muted" },
+        { title: "Company first", detail: "Review the parent business record before the child drivers" },
+        { title: "Linked drivers", detail: "Compare each driver against the company-level intake" },
+        { title: "Operational handoff", detail: "Advance only the approved summary into dispatch and follow-up", state: "muted" },
       ],
       executive: [
         { title: "Revenue", detail: "MTD performance vs. prior period" },
@@ -244,18 +246,18 @@ const copy: Record<Language, PortalCopy> = {
       },
     },
     roleModules: {
-      client: ["Resumen", "Envíos", "Documentos", "Facturación", "POD", "Soporte"],
-      driver: ["Hoy", "Rutas", "Check-in", "Fotos", "Firma", "Mensajes"],
-      operations: ["Dashboard", "Operaciones", "Envíos", "Rutas", "Conductores", "Flota", "Clientes", "Documentos", "Reportes"],
-      executive: ["Dashboard ejecutivo", "Operaciones", "Clientes", "Reportes"],
-      admin: ["Dashboard", "Operaciones", "Envíos", "Rutas", "Conductores", "Flota", "Clientes", "Facturación", "Documentos", "Reportes", "Configuración"],
+      client: ["Resumen", "Envíos", "Documentos", "POD"],
+      driver: ["Hoy", "Rutas", "Check-in", "Fotos", "Firma"],
+      operations: ["Dashboard", "Operaciones", "Envíos", "Rutas", "Conductores", "Flota", "Reportes"],
+      executive: ["Dashboard ejecutivo", "KPI", "Clientes", "Reportes"],
+      admin: ["Dashboard", "Operaciones", "Envíos", "Rutas", "Conductores", "Flota", "Clientes", "Facturación", "Documentos", "Reportes", "Configuración", "Integraciones"],
     },
     futureModules: {
       client: ["Cotizaciones"],
       driver: ["Inspección del vehículo"],
-      operations: ["Alertas avanzadas"],
-      executive: ["Riesgo consolidado"],
-      admin: ["Integraciones"],
+      operations: ["Clientes", "Documentos", "Alertas avanzadas"],
+      executive: ["Riesgo consolidado", "Rentabilidad"],
+      admin: [],
     },
     metrics: {
       client: [
@@ -271,9 +273,9 @@ const copy: Record<Language, PortalCopy> = {
         { label: "Excepciones", value: "0", tone: "red" },
       ],
       operations: [
-        { label: "Cargas activas", value: "84", tone: "blue" },
-        { label: "Conductores conectados", value: "46", tone: "green" },
-        { label: "En riesgo", value: "7", tone: "yellow" },
+        { label: "Expedientes de empresa", value: "28", tone: "blue" },
+        { label: "Conductores vinculados", value: "46", tone: "green" },
+        { label: "En revisión", value: "7", tone: "yellow" },
         { label: "Alertas críticas", value: "2", tone: "red" },
       ],
       executive: [
@@ -301,9 +303,11 @@ const copy: Record<Language, PortalCopy> = {
         { id: "STOP-03", title: "Punto de transferencia Lakewood", detail: "Pendiente", status: "Pendiente", eta: "16:05" },
       ],
       operations: [
-        { id: "LOAD-771", title: "Ventana en riesgo", detail: "JNE-24882 · retraso estimado 24 min", status: "Atención", eta: "17:20" },
-        { id: "LOAD-612", title: "Señal intermitente", detail: "JT-218 · último punto hace 9 min", status: "Revisión", eta: "Ahora" },
-        { id: "LOAD-580", title: "POD recibido", detail: "JNE-24876 listo para validación", status: "Hecho", eta: "12:42" },
+        { id: "COMP-01", title: "Northstar Fleet LLC", detail: "Expediente padre · 4 conductores vinculados · 6 unidades", status: "Under Review", eta: "Ahora" },
+        { id: "DR-14", title: "Rafael M.", detail: "Conductor vinculado · CDL · listo para asignación", status: "Approved", eta: "Actualizado ahora" },
+        { id: "DR-18", title: "Alex Chen", detail: "Conductor vinculado · Non-CDL · documentos faltantes", status: "Missing Documents", eta: "Actualizado hace 1 h" },
+        { id: "COMP-02", title: "Blue Ridge Transport LLC", detail: "Expediente padre · nueva solicitud enviada", status: "Initiated", eta: "Hoy" },
+        { id: "COMP-03", title: "Summit Carrier LLC", detail: "Expediente padre · decisión final pendiente", status: "Rejected", eta: "Ayer" },
       ],
       executive: [
         { id: "KPI-01", title: "Crecimiento comercial de última milla", detail: "Denver Metro · +22%", status: "Fuerte", eta: "Mensual" },
@@ -328,9 +332,9 @@ const copy: Record<Language, PortalCopy> = {
         { title: "Firma", detail: "Captura la entrega final", state: "muted" },
       ],
       operations: [
-        { title: "Primero excepciones", detail: "Prioriza cargas con impacto al cliente" },
-        { title: "Visibilidad de flota", detail: "Contexto vivo de unidades y conductores" },
-        { title: "Cerrar con POD", detail: "Valida prueba final y notas", state: "muted" },
+        { title: "Primero empresa", detail: "Revisa el expediente padre antes de abrir los conductores hijos" },
+        { title: "Conductores vinculados", detail: "Compara cada conductor con la solicitud de empresa" },
+        { title: "Traspaso operativo", detail: "Solo el resumen aprobado pasa a Operaciones", state: "muted" },
       ],
       executive: [
         { title: "Ingresos", detail: "Desempeño MTD vs período anterior" },
@@ -409,26 +413,36 @@ export default function PortalPage({
 
   const portalCopy = copy[language];
   const modules = portalCopy.roleModules[role];
-  const [activeModule, setActiveModule] = useState(modules[0]);
+  const roleDefaultModule: Record<RoleId, string> = {
+    client: modules[0],
+    driver: modules[0],
+    operations: modules[0],
+    executive: modules[0],
+    admin: modules[0],
+  };
+  const [activeModule, setActiveModule] = useState(roleDefaultModule[role]);
 
   const roleMetrics = portalCopy.metrics[role];
   const roleRecords = portalCopy.records[role];
   const roleTimeline = portalCopy.timeline[role];
 
   useEffect(() => {
-    setActiveModule(portalCopy.roleModules[role][0]);
+    const nextModule = portalCopy.roleModules[role][0];
+    setActiveModule(nextModule);
   }, [language, role, portalCopy]);
+
+  useEffect(() => {
+    if (!modules.includes(activeModule)) {
+      setActiveModule(modules[0]);
+    }
+  }, [activeModule, modules]);
 
   if (!authenticatedPreview) {
     return (
       <main className="joned-entra-page">
         <section className="joned-entra-story">
-          <div className="joned-lockup inverse">
-            <span className="brand-mark">J</span>
-            <span>
-              <strong>JONED</strong>
-              <small>ENTERPRISE PLATFORM</small>
-            </span>
+          <div className="joned-logo-shell joned-logo-shell--portal">
+            <img src="/joned-logo-color.png" alt="Joned Transpor Co" className="joned-logo-image" />
           </div>
           <div className="joned-language-switcher auth">
             <button
@@ -455,12 +469,8 @@ export default function PortalPage({
         </section>
         <section className="joned-entra-panel">
           <div className="joned-entra-card">
-            <div className="joned-lockup">
-              <span className="brand-mark">J</span>
-              <span>
-                <strong>JONED</strong>
-                <small>ENTERPRISE PLATFORM</small>
-              </span>
+            <div className="joned-logo-shell joned-logo-shell--portal">
+              <img src="/joned-logo-color.png" alt="Joned Transpor Co" className="joned-logo-image" />
             </div>
             <span className="joned-eyebrow">{portalCopy.auth.panelEyebrow}</span>
             <h2>{portalCopy.auth.panelTitle}</h2>
@@ -495,12 +505,8 @@ export default function PortalPage({
   return (
     <main className="joned-portal">
       <aside className="joned-portal-sidebar">
-        <div className="joned-lockup inverse">
-          <span className="brand-mark">J</span>
-          <span>
-            <strong>JONED</strong>
-            <small>ENTERPRISE PLATFORM</small>
-          </span>
+        <div className="joned-logo-shell joned-logo-shell--portal">
+          <img src="/joned-logo-color.png" alt="Joned Transpor Co" className="joned-logo-image" />
         </div>
         <div className="joned-portal-note">
           <strong>{portalCopy.sidebar.accessTitle}</strong>
@@ -542,6 +548,7 @@ export default function PortalPage({
               className={module === activeModule ? "active" : ""}
               type="button"
               onClick={() => setActiveModule(module)}
+              aria-pressed={module === activeModule}
             >
               {module}
             </button>

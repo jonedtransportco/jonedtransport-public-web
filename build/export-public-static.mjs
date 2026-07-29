@@ -17,7 +17,13 @@ const routes = [
   { path: "/quote", output: "quote/index.html" },
   { path: "/tracking", output: "tracking/index.html" },
   { path: "/drivers", output: "drivers/index.html" },
+  { path: "/drivers/es", output: "drivers/es/index.html" },
+  { path: "/drivers/actions", output: "drivers/actions/index.html" },
+  { path: "/drivers/actions/es", output: "drivers/actions/es/index.html" },
   { path: "/owner-operators", output: "owner-operators/index.html" },
+  { path: "/owner-operators/es", output: "owner-operators/es/index.html" },
+  { path: "/owner-operators/actions", output: "owner-operators/actions/index.html" },
+  { path: "/owner-operators/actions/es", output: "owner-operators/actions/es/index.html" },
 ];
 
 async function main() {
