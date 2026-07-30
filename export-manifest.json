@@ -1,5 +1,5 @@
 {
-  "exportedAtUtc": "2026-07-30T12:11:47.088Z",
+  "exportedAtUtc": "2026-07-30T12:21:36.904Z",
   "deploymentType": "public-corporate-multipage",
   "routes": [
     "/",
@@ -12,12 +12,8 @@
     "/tracking",
     "/drivers",
     "/drivers/es",
-    "/drivers/actions",
-    "/drivers/actions/es",
     "/owner-operators",
-    "/owner-operators/es",
-    "/owner-operators/actions",
-    "/owner-operators/actions/es"
+    "/owner-operators/es"
   ],
   "outputRoot": "dist/public-static"
 }
