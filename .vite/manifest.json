@@ -6,8 +6,8 @@
       "_rolldown-runtime-S-ySWqyJ.js"
     ]
   },
-  "_query-CMEgHEdo.js": {
-    "file": "assets/query-CMEgHEdo.js",
+  "_query-MT-qb2J4.js": {
+    "file": "assets/query-MT-qb2J4.js",
     "name": "query"
   },
   "_rolldown-runtime-S-ySWqyJ.js": {
@@ -25,7 +25,7 @@
     ]
   },
   "app/owner-operators/prequalification-form.tsx": {
-    "file": "assets/prequalification-form-CZr5Uigh.js",
+    "file": "assets/prequalification-form-DGcirh2i.js",
     "name": "prequalification-form",
     "src": "app/owner-operators/prequalification-form.tsx",
     "isDynamicEntry": true,
@@ -35,7 +35,7 @@
     ]
   },
   "app/portal/page.tsx": {
-    "file": "assets/page-oU7_lKBn.js",
+    "file": "assets/page-BUOOJbbQ.js",
     "name": "page",
     "src": "app/portal/page.tsx",
     "isDynamicEntry": true,
@@ -44,8 +44,18 @@
       "_framework-CXnKph_e.js"
     ]
   },
+  "app/workspace/_components/applicant-route.tsx": {
+    "file": "assets/applicant-route-C1St3Bmw.js",
+    "name": "applicant-route",
+    "src": "app/workspace/_components/applicant-route.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
   "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "assets/layout-segment-context-wZLoqjUC.js",
+    "file": "assets/layout-segment-context-Dqshwqyn.js",
     "name": "layout-segment-context",
     "src": "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
@@ -56,7 +66,7 @@
     ]
   },
   "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/link.js": {
-    "file": "assets/link-DVqyzlHa.js",
+    "file": "assets/link-CAGiWrPc.js",
     "name": "link",
     "src": "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/link.js",
     "isDynamicEntry": true,
@@ -64,14 +74,14 @@
       "_rolldown-runtime-S-ySWqyJ.js",
       "virtual:vinext-app-browser-entry",
       "_framework-CXnKph_e.js",
-      "_query-CMEgHEdo.js"
+      "_query-MT-qb2J4.js"
     ],
     "dynamicImports": [
       "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/router.js"
     ]
   },
   "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/router.js": {
-    "file": "assets/router-BhIdYumu.js",
+    "file": "assets/router-CBl9WNfg.js",
     "name": "router",
     "src": "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/router.js",
     "isDynamicEntry": true,
@@ -79,14 +89,14 @@
       "_rolldown-runtime-S-ySWqyJ.js",
       "virtual:vinext-app-browser-entry",
       "_framework-CXnKph_e.js",
-      "_query-CMEgHEdo.js"
+      "_query-MT-qb2J4.js"
     ],
     "dynamicImports": [
       "_framework-CXnKph_e.js"
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "assets/index-BCceNHzj.js",
+    "file": "assets/index-75oLoKp9.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
@@ -97,6 +107,7 @@
     "dynamicImports": [
       "app/portal/page.tsx",
       "app/owner-operators/prequalification-form.tsx",
+      "app/workspace/_components/applicant-route.tsx",
       "virtual:vinext-app-browser-entry",
       "app/drivers/prequalification-form.tsx",
       "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/link.js",
