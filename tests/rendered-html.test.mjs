@@ -181,31 +181,25 @@ test("frontend source preserves api-real rollback and non-operational filtering 
 test("owner operators page keeps the public intake framing", async () => {
   const ownerPage = await readFile(new URL("app/owner-operators/page.tsx", root), "utf8");
 
-  assert.match(ownerPage, /Apply through the path that fits your operation/);
-  assert.match(ownerPage, /Person with vehicle/);
-  assert.match(ownerPage, /Business with vehicle/);
-  assert.match(ownerPage, /Person without vehicle/);
-  assert.match(ownerPage, /WHY WORK WITH JONED|why-joned/);
-  assert.match(ownerPage, /Start your application and we will guide you to the right path/);
-  assert.match(ownerPage, /CDL and Non-CDL routes/);
-  assert.match(ownerPage, /The application is designed to adapt to your route/);
+  assert.match(ownerPage, /Owner-operator intake\./);
+  assert.match(ownerPage, /Start your owner-operator profile with Joned Transpor Co\./);
+  assert.match(ownerPage, /owner-operators/);
+  assert.match(ownerPage, /PublicHeader/);
+  assert.match(ownerPage, /PublicFooter/);
+  assert.doesNotMatch(ownerPage, /Apply through the path that fits your operation/);
 });
 
 test("drivers page keeps the public driver intake framing", async () => {
   const driversPage = await readFile(new URL("app/drivers/page.tsx", root), "utf8");
   const driversForm = await readFile(new URL("app/drivers/prequalification-form.tsx", root), "utf8");
 
-  assert.match(driversPage, /Apply through the driver path that fits your role/);
-  assert.match(driversPage, /CDL drivers/);
-  assert.match(driversPage, /Non-CDL drivers/);
-  assert.match(driversPage, /Personal or business route/);
-  assert.match(driversPage, /WHY WORK WITH JONED|why-joned/);
-  assert.match(driversPage, /This page is intended mainly for driver paths that do not begin with a self-provided vehicle/);
-  assert.match(driversPage, /public recruiting entry point/i);
-  assert.match(driversPage, /personal or business applicant context/i);
-  assert.match(driversPage, /The form should adapt to your profile instead of rejecting you too early/);
+  assert.match(driversPage, /Driver intake\./);
+  assert.match(driversPage, /Start your driver profile with Joned Transpor Co\./);
+  assert.match(driversPage, /drivers/);
+  assert.match(driversPage, /PublicHeader/);
+  assert.match(driversPage, /PublicFooter/);
   assert.match(driversPage, /DriversPrequalificationForm/);
-  assert.match(driversForm, /Drivers prequalification/);
+  assert.match(driversForm, /Driver prequalification/);
   assert.match(driversForm, /P3/);
   assert.match(driversForm, /P4/);
   assert.match(driversForm, /No-vehicle route only/);

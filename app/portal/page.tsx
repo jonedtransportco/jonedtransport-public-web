@@ -37,6 +37,8 @@ type PortalCopy = {
   shell: {
     export: string;
     newAction: string;
+    reviewSubmissions: string;
+    openTracking: string;
     workspaceTitle: string;
     workspaceSubtitle: string;
     ready: string;
@@ -97,70 +99,70 @@ const copy: Record<Language, PortalCopy> = {
     },
     metrics: {
       client: [
-        { label: "Active shipments", value: "12", tone: "blue" },
-        { label: "On time", value: "98.4%", tone: "green" },
-        { label: "Open invoices", value: "3", tone: "yellow" },
-        { label: "Incidents", value: "2", tone: "red" },
+        { label: "Shipment status", value: "Live", tone: "blue" },
+        { label: "Document status", value: "Current", tone: "green" },
+        { label: "Billing status", value: "Pending", tone: "yellow" },
+        { label: "Exceptions", value: "None", tone: "red" },
       ],
       driver: [
-        { label: "Stops today", value: "4", tone: "blue" },
-        { label: "Completed", value: "2", tone: "green" },
-        { label: "Check-in pending", value: "1", tone: "yellow" },
-        { label: "Exceptions", value: "0", tone: "red" },
+        { label: "Route status", value: "Live", tone: "blue" },
+        { label: "Required docs", value: "Current", tone: "green" },
+        { label: "Check-in", value: "Pending", tone: "yellow" },
+        { label: "Exceptions", value: "None", tone: "red" },
       ],
       operations: [
-        { label: "Company files", value: "28", tone: "blue" },
-        { label: "Linked drivers", value: "46", tone: "green" },
-        { label: "Pending review", value: "7", tone: "yellow" },
-        { label: "Critical alerts", value: "2", tone: "red" },
+        { label: "Open expedientes", value: "Live", tone: "blue" },
+        { label: "Owner cases", value: "Current", tone: "green" },
+        { label: "Driver cases", value: "Pending", tone: "yellow" },
+        { label: "Missing docs", value: "None", tone: "red" },
       ],
       executive: [
-        { label: "Monthly revenue", value: "$842K", tone: "blue" },
-        { label: "Margin", value: "24.8%", tone: "green" },
-        { label: "On-time service", value: "98.7%", tone: "yellow" },
+        { label: "Commercial trend", value: "Healthy", tone: "blue" },
+        { label: "Margin", value: "Stable", tone: "green" },
+        { label: "Service level", value: "Strong", tone: "yellow" },
         { label: "Exposure", value: "Low", tone: "red" },
       ],
       admin: [
-        { label: "Users", value: "148", tone: "blue" },
-        { label: "Active roles", value: "9", tone: "green" },
-        { label: "Pending access", value: "4", tone: "yellow" },
-        { label: "Security alerts", value: "0", tone: "red" },
+        { label: "Users", value: "Managed", tone: "blue" },
+        { label: "Active roles", value: "Ready", tone: "green" },
+        { label: "Pending access", value: "Queued", tone: "yellow" },
+        { label: "Security alerts", value: "None", tone: "red" },
       ],
     },
     records: {
       client: [
-        { id: "JNE-24891", title: "Denver, CO -> Aurora, CO", detail: "Primary lane · customer priority", status: "In transit", eta: "14:35" },
-        { id: "JNE-24887", title: "Boulder, CO -> Pueblo, CO", detail: "Retail replenishment", status: "On time", eta: "16:10" },
-        { id: "JNE-24882", title: "Loveland, CO -> Denver, CO", detail: "Requires review", status: "Review", eta: "17:20" },
+        { id: "SHIP-1001", title: "Shipment record", detail: "Approved customer context", status: "Active", eta: "Updated now" },
+        { id: "SHIP-1002", title: "Shipment record", detail: "Awaiting a final update", status: "In review", eta: "Today" },
+        { id: "SHIP-1003", title: "Shipment record", detail: "Ready for follow-up", status: "Pending", eta: "Later" },
       ],
       driver: [
-        { id: "STOP-01", title: "Denver Distribution Center", detail: "Pickup completed", status: "Done", eta: "12:42" },
-        { id: "STOP-02", title: "Aurora Distribution Center", detail: "Next stop", status: "In transit", eta: "14:35" },
-        { id: "STOP-03", title: "Lakewood Transfer Point", detail: "Pending", status: "Pending", eta: "16:05" },
+        { id: "STOP-01", title: "Route step", detail: "Completed", status: "Done", eta: "Updated now" },
+        { id: "STOP-02", title: "Route step", detail: "Next in sequence", status: "In progress", eta: "Today" },
+        { id: "STOP-03", title: "Route step", detail: "Waiting for confirmation", status: "Pending", eta: "Later" },
       ],
       operations: [
-        { id: "COMP-01", title: "Northstar Fleet LLC", detail: "Company parent record · 4 linked drivers · 6 vehicles", status: "Under Review", eta: "Now" },
-        { id: "DR-14", title: "Rafael M.", detail: "Linked driver · CDL · ready for assignment", status: "Approved", eta: "Updated now" },
-        { id: "DR-18", title: "Alex Chen", detail: "Linked driver · Non-CDL · documents missing", status: "Missing Documents", eta: "Updated 1 h ago" },
-        { id: "COMP-02", title: "Blue Ridge Transport LLC", detail: "Company parent record · new intake submitted", status: "Initiated", eta: "Today" },
-        { id: "COMP-03", title: "Summit Carrier LLC", detail: "Company parent record · final decision pending", status: "Rejected", eta: "Yesterday" },
+        { id: "OO-CASE-001", title: "Owner expediente", detail: "Current review snapshot", status: "Under review", eta: "Now" },
+        { id: "DR-CASE-014", title: "Driver expediente", detail: "Pending validation", status: "Missing docs", eta: "Updated now" },
+        { id: "OO-CASE-006", title: "Business expediente", detail: "Queued for follow-up", status: "In review", eta: "Today" },
+        { id: "DR-CASE-018", title: "Driver expediente", detail: "Needs resubmission", status: "Clarification", eta: "Updated 1 h ago" },
+        { id: "OO-CASE-003", title: "Business expediente", detail: "Waiting for final step", status: "Review queued", eta: "Yesterday" },
       ],
       executive: [
-        { id: "KPI-01", title: "Last-mile commercial growth", detail: "Denver Metro · +22%", status: "Strong", eta: "Monthly" },
-        { id: "KPI-02", title: "Friday PM capacity", detail: "Demand 14% over planned availability", status: "Watch", eta: "Weekly" },
-        { id: "KPI-03", title: "Customer self-service", detail: "96.2% tracking without support touch", status: "Strong", eta: "Weekly" },
+        { id: "KPI-01", title: "Commercial signal", detail: "High-level performance snapshot", status: "Strong", eta: "Monthly" },
+        { id: "KPI-02", title: "Capacity signal", detail: "Review demand against available lanes", status: "Watch", eta: "Weekly" },
+        { id: "KPI-03", title: "Self-service signal", detail: "Tracking and portal adoption", status: "Strong", eta: "Weekly" },
       ],
       admin: [
-        { id: "USR-01", title: "Elena Ruiz", detail: "Northstar Foods · Client Admin", status: "Active", eta: "Updated now" },
-        { id: "USR-02", title: "Rafael M.", detail: "JONED · Driver", status: "Active", eta: "Updated now" },
-        { id: "USR-03", title: "Alex Chen", detail: "JONED · Operations", status: "Review", eta: "Updated 1 h ago" },
+        { id: "USR-01", title: "User 01", detail: "Client access", status: "Active", eta: "Updated now" },
+        { id: "USR-02", title: "User 02", detail: "Driver access", status: "Active", eta: "Updated now" },
+        { id: "USR-03", title: "User 03", detail: "Operations access", status: "Review", eta: "Updated 1 h ago" },
       ],
     },
     timeline: {
       client: [
-        { title: "Shipment picked up", detail: "12:42 · Denver Distribution Center" },
-        { title: "In transit to destination", detail: "13:58 · Protected route context" },
-        { title: "Delivery and POD", detail: "Estimated 14:35-14:50", state: "muted" },
+        { title: "Shipment picked up", detail: "Pickup confirmed and case updated" },
+        { title: "In transit to destination", detail: "Protected route context in progress" },
+        { title: "Delivery and POD", detail: "Estimated completion window", state: "muted" },
       ],
       driver: [
         { title: "Check-in", detail: "Confirm arrival once safely stopped" },
@@ -168,9 +170,9 @@ const copy: Record<Language, PortalCopy> = {
         { title: "Signature", detail: "Capture final handoff", state: "muted" },
       ],
       operations: [
-        { title: "Company first", detail: "Review the parent business record before the child drivers" },
-        { title: "Linked drivers", detail: "Compare each driver against the company-level intake" },
-        { title: "Operational handoff", detail: "Advance only the approved summary into dispatch and follow-up", state: "muted" },
+        { title: "Submission summary", detail: "Review case id, route, current state, and missing items" },
+        { title: "Role isolation", detail: "Keep owner and driver cases separated unless explicitly linked" },
+        { title: "Operational handoff", detail: "Advance only approved summaries into follow-up", state: "muted" },
       ],
       executive: [
         { title: "Revenue", detail: "MTD performance vs. prior period" },
@@ -185,26 +187,28 @@ const copy: Record<Language, PortalCopy> = {
     },
     auth: {
       eyebrow: "Enterprise access",
-      title: "One identity across the JONED platform.",
-      body: "Employees, clients, drivers, and authorized external users sign in exclusively through Microsoft Entra ID. Visible modules and data depend on assigned role and scope.",
-      footnote: "No local credentials · No public access to private location or driver data",
+      title: "Sign in with your personal email to open your private case.",
+      body: "Owners and drivers use Microsoft Entra ID with the personal email captured for their case. The same identity opens only the expediente assigned to that email.",
+      footnote: "No local credentials · One email per case · No public access to private location or driver data",
       panelEyebrow: "Protected portal",
       panelTitle: "Sign in",
-      panelBody: "Use the account authorized by your organization to continue.",
-      cta: "Continue with Microsoft Entra ID",
-      note: "Authentication is handled by Microsoft Entra ID. Access is limited to accounts authorized by Joned Transpor Co.",
+      panelBody: "Use the personal email linked to your expediente to continue.",
+      cta: "Continue with personal email",
+      note: "Authentication is handled by Microsoft Entra ID. The signed-in email is bound to one private case and its permitted role.",
     },
     sidebar: {
       accessTitle: "Access through Microsoft Entra ID",
-      accessBody: "The real role determines modules, data visibility, and allowed actions.",
+      accessBody: "Your personal email opens only your private expediente. Role determines modules, data visibility, and allowed actions.",
       designView: "Design view by role",
       futureLabel: "READY TO ADAPT",
     },
     shell: {
       export: "Export",
       newAction: "New action",
+      reviewSubmissions: "Review submissions",
+      openTracking: "Open tracking",
       workspaceTitle: "Workspace overview",
-      workspaceSubtitle: "Aligned to the approved portal structure.",
+      workspaceSubtitle: "Aligned to the approved workspace structure.",
       ready: "Prototype ready",
       context: "Context",
       status: "Status",
@@ -214,8 +218,8 @@ const copy: Record<Language, PortalCopy> = {
       locationVisibleBody: "Visible only after authentication and within assigned role scope.",
       locationRestrictedBody: "This role does not require operational location detail to perform its function.",
       mapLabelClient: "Authorized shipments",
-      mapLabelDriver: "4 stops today",
-      mapLabelOperations: "46 connected units",
+      mapLabelDriver: "Driver context",
+      mapLabelOperations: "Operational context",
       mapLabelPrivate: "Private role context",
       mapLabelPrivateBody: "Role-based visibility only",
       nextActionsTitle: "Next actions",
@@ -261,70 +265,70 @@ const copy: Record<Language, PortalCopy> = {
     },
     metrics: {
       client: [
-        { label: "Envíos activos", value: "12", tone: "blue" },
-        { label: "A tiempo", value: "98.4%", tone: "green" },
-        { label: "Facturas abiertas", value: "3", tone: "yellow" },
-        { label: "Incidencias", value: "2", tone: "red" },
+        { label: "Estado de envíos", value: "Vivo", tone: "blue" },
+        { label: "Estado de documentos", value: "Actual", tone: "green" },
+        { label: "Estado de facturación", value: "Pendiente", tone: "yellow" },
+        { label: "Excepciones", value: "Ninguna", tone: "red" },
       ],
       driver: [
-        { label: "Paradas hoy", value: "4", tone: "blue" },
-        { label: "Completadas", value: "2", tone: "green" },
-        { label: "Check-in pendiente", value: "1", tone: "yellow" },
-        { label: "Excepciones", value: "0", tone: "red" },
+        { label: "Estado de ruta", value: "Vivo", tone: "blue" },
+        { label: "Documentos requeridos", value: "Actual", tone: "green" },
+        { label: "Check-in", value: "Pendiente", tone: "yellow" },
+        { label: "Excepciones", value: "Ninguna", tone: "red" },
       ],
       operations: [
-        { label: "Expedientes de empresa", value: "28", tone: "blue" },
-        { label: "Conductores vinculados", value: "46", tone: "green" },
-        { label: "En revisión", value: "7", tone: "yellow" },
-        { label: "Alertas críticas", value: "2", tone: "red" },
+        { label: "Estado de envíos", value: "Vivo", tone: "blue" },
+        { label: "Estado de documentos", value: "Actual", tone: "green" },
+        { label: "Estado de facturación", value: "Pendiente", tone: "yellow" },
+        { label: "Excepciones", value: "Ninguna", tone: "red" },
       ],
       executive: [
-        { label: "Ingresos del mes", value: "$842K", tone: "blue" },
-        { label: "Margen", value: "24.8%", tone: "green" },
-        { label: "Entregas a tiempo", value: "98.7%", tone: "yellow" },
+        { label: "Tendencia comercial", value: "Sana", tone: "blue" },
+        { label: "Margen", value: "Estable", tone: "green" },
+        { label: "Nivel de servicio", value: "Fuerte", tone: "yellow" },
         { label: "Exposición", value: "Baja", tone: "red" },
       ],
       admin: [
-        { label: "Usuarios", value: "148", tone: "blue" },
-        { label: "Roles activos", value: "9", tone: "green" },
-        { label: "Accesos pendientes", value: "4", tone: "yellow" },
-        { label: "Alertas de seguridad", value: "0", tone: "red" },
+        { label: "Usuarios", value: "Administrados", tone: "blue" },
+        { label: "Roles activos", value: "Listos", tone: "green" },
+        { label: "Accesos pendientes", value: "En cola", tone: "yellow" },
+        { label: "Alertas de seguridad", value: "Ninguna", tone: "red" },
       ],
     },
     records: {
       client: [
-        { id: "JNE-24891", title: "Denver, CO -> Aurora, CO", detail: "Carril principal · prioridad del cliente", status: "En tránsito", eta: "14:35" },
-        { id: "JNE-24887", title: "Boulder, CO -> Pueblo, CO", detail: "Reabastecimiento retail", status: "A tiempo", eta: "16:10" },
-        { id: "JNE-24882", title: "Loveland, CO -> Denver, CO", detail: "Requiere revisión", status: "Revisión", eta: "17:20" },
+        { id: "SHIP-1001", title: "Registro de envío", detail: "Contexto de cliente aprobado", status: "Activo", eta: "Actualizado ahora" },
+        { id: "SHIP-1002", title: "Registro de envío", detail: "Esperando una actualización final", status: "En revisión", eta: "Hoy" },
+        { id: "SHIP-1003", title: "Registro de envío", detail: "Listo para seguimiento", status: "Pendiente", eta: "Más tarde" },
       ],
       driver: [
-        { id: "STOP-01", title: "Centro de distribución Denver", detail: "Recogida completada", status: "Hecho", eta: "12:42" },
-        { id: "STOP-02", title: "Centro de distribución Aurora", detail: "Siguiente parada", status: "En tránsito", eta: "14:35" },
-        { id: "STOP-03", title: "Punto de transferencia Lakewood", detail: "Pendiente", status: "Pendiente", eta: "16:05" },
+        { id: "STOP-01", title: "Paso de ruta", detail: "Completado", status: "Hecho", eta: "Actualizado ahora" },
+        { id: "STOP-02", title: "Paso de ruta", detail: "Siguiente en secuencia", status: "En progreso", eta: "Hoy" },
+        { id: "STOP-03", title: "Paso de ruta", detail: "En espera de confirmación", status: "Pendiente", eta: "Más tarde" },
       ],
       operations: [
-        { id: "COMP-01", title: "Northstar Fleet LLC", detail: "Expediente padre · 4 conductores vinculados · 6 unidades", status: "Under Review", eta: "Ahora" },
-        { id: "DR-14", title: "Rafael M.", detail: "Conductor vinculado · CDL · listo para asignación", status: "Approved", eta: "Actualizado ahora" },
-        { id: "DR-18", title: "Alex Chen", detail: "Conductor vinculado · Non-CDL · documentos faltantes", status: "Missing Documents", eta: "Actualizado hace 1 h" },
-        { id: "COMP-02", title: "Blue Ridge Transport LLC", detail: "Expediente padre · nueva solicitud enviada", status: "Initiated", eta: "Hoy" },
-        { id: "COMP-03", title: "Summit Carrier LLC", detail: "Expediente padre · decisión final pendiente", status: "Rejected", eta: "Ayer" },
+        { id: "COMP-01", title: "Expediente de empresa", detail: "Instantánea de revisión actual", status: "Under Review", eta: "Ahora" },
+        { id: "DR-14", title: "Conductor vinculado", detail: "Validación pendiente", status: "Missing Documents", eta: "Actualizado ahora" },
+        { id: "DR-18", title: "Conductor vinculado", detail: "Requiere reenvío", status: "Clarification", eta: "Actualizado hace 1 h" },
+        { id: "COMP-02", title: "Expediente de empresa", detail: "En cola para seguimiento", status: "Initiated", eta: "Hoy" },
+        { id: "COMP-03", title: "Expediente de empresa", detail: "Esperando el paso final", status: "Rejected", eta: "Ayer" },
       ],
       executive: [
-        { id: "KPI-01", title: "Crecimiento comercial de última milla", detail: "Denver Metro · +22%", status: "Fuerte", eta: "Mensual" },
-        { id: "KPI-02", title: "Capacidad viernes PM", detail: "Demanda 14% por encima de lo planificado", status: "Vigilar", eta: "Semanal" },
-        { id: "KPI-03", title: "Autoservicio del cliente", detail: "96.2% de rastreo sin contacto de soporte", status: "Fuerte", eta: "Semanal" },
+        { id: "KPI-01", title: "Señal comercial", detail: "Instantánea de desempeño de alto nivel", status: "Fuerte", eta: "Mensual" },
+        { id: "KPI-02", title: "Señal de capacidad", detail: "Revisar demanda contra las rutas disponibles", status: "Vigilar", eta: "Semanal" },
+        { id: "KPI-03", title: "Señal de autoservicio", detail: "Adopción de rastreo y portal", status: "Fuerte", eta: "Semanal" },
       ],
       admin: [
-        { id: "USR-01", title: "Elena Ruiz", detail: "Northstar Foods · Admin cliente", status: "Activo", eta: "Actualizado ahora" },
-        { id: "USR-02", title: "Rafael M.", detail: "JONED · Conductor", status: "Activo", eta: "Actualizado ahora" },
-        { id: "USR-03", title: "Alex Chen", detail: "JONED · Operaciones", status: "Revisión", eta: "Actualizado hace 1 h" },
+        { id: "USR-01", title: "Usuario 01", detail: "Acceso cliente", status: "Activo", eta: "Actualizado ahora" },
+        { id: "USR-02", title: "Usuario 02", detail: "Acceso conductor", status: "Activo", eta: "Actualizado ahora" },
+        { id: "USR-03", title: "Usuario 03", detail: "Acceso operaciones", status: "Revisión", eta: "Actualizado hace 1 h" },
       ],
     },
     timeline: {
       client: [
-        { title: "Envío recogido", detail: "12:42 · Centro de distribución Denver" },
-        { title: "En tránsito al destino", detail: "13:58 · Contexto de ruta protegido" },
-        { title: "Entrega y POD", detail: "Estimado 14:35-14:50", state: "muted" },
+        { title: "Envío recogido", detail: "Recogida confirmada y expediente actualizado" },
+        { title: "En tránsito al destino", detail: "Contexto de ruta protegido en curso" },
+        { title: "Entrega y POD", detail: "Ventana estimada de finalización", state: "muted" },
       ],
       driver: [
         { title: "Check-in", detail: "Confirma llegada cuando estés detenido de forma segura" },
@@ -332,9 +336,9 @@ const copy: Record<Language, PortalCopy> = {
         { title: "Firma", detail: "Captura la entrega final", state: "muted" },
       ],
       operations: [
-        { title: "Primero empresa", detail: "Revisa el expediente padre antes de abrir los conductores hijos" },
+        { title: "Primero empresa", detail: "Revisa el expediente padre antes de abrir conductores vinculados" },
         { title: "Conductores vinculados", detail: "Compara cada conductor con la solicitud de empresa" },
-        { title: "Traspaso operativo", detail: "Solo el resumen aprobado pasa a Operaciones", state: "muted" },
+        { title: "Traspaso operativo", detail: "Solo el resumen aprobado pasa a seguimiento", state: "muted" },
       ],
       executive: [
         { title: "Ingresos", detail: "Desempeño MTD vs período anterior" },
@@ -367,8 +371,10 @@ const copy: Record<Language, PortalCopy> = {
     shell: {
       export: "Exportar",
       newAction: "Nueva acción",
+      reviewSubmissions: "Revisar envíos",
+      openTracking: "Abrir seguimiento",
       workspaceTitle: "Resumen del espacio de trabajo",
-      workspaceSubtitle: "Alineado con la estructura aprobada del portal.",
+      workspaceSubtitle: "Alineado con la estructura aprobada del workspace.",
       ready: "Prototipo listo",
       context: "Contexto",
       status: "Estado",
@@ -378,8 +384,8 @@ const copy: Record<Language, PortalCopy> = {
       locationVisibleBody: "Visible solo después de autenticación y dentro del alcance del rol asignado.",
       locationRestrictedBody: "Este rol no necesita detalle de ubicación operativa para cumplir su función.",
       mapLabelClient: "Envíos autorizados",
-      mapLabelDriver: "4 paradas hoy",
-      mapLabelOperations: "46 unidades conectadas",
+      mapLabelDriver: "Contexto de conductor",
+      mapLabelOperations: "Contexto operativo",
       mapLabelPrivate: "Contexto privado por rol",
       mapLabelPrivateBody: "Solo visibilidad según rol",
       nextActionsTitle: "Próximas acciones",
@@ -410,6 +416,7 @@ export default function PortalPage({
   const [authenticatedPreview] = useState(initialAuthenticatedPreview);
   const [language, setLanguage] = useState<Language>("en");
   const [role, setRole] = useState<RoleId>("operations");
+  const [pilotCase, setPilotCase] = useState<{ caseId: string; routeCode: string; reviewState: string; applicantName: string; email: string; submittedAt: string } | null>(null);
 
   const portalCopy = copy[language];
   const modules = portalCopy.roleModules[role];
@@ -437,13 +444,29 @@ export default function PortalPage({
     }
   }, [activeModule, modules]);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const raw = window.localStorage.getItem("JONED_DRIVER_PILOT_CASE");
+      if (raw) {
+        const parsed = JSON.parse(raw) as typeof pilotCase;
+        if (parsed && parsed.caseId) {
+          setPilotCase(parsed);
+          setRole("operations");
+        }
+      }
+    } catch {
+      setPilotCase(null);
+    }
+  }, []);
+
   if (!authenticatedPreview) {
     return (
       <main className="joned-entra-page">
         <section className="joned-entra-story">
           <div className="joned-logo-shell joned-logo-shell--portal">
             <img
-              src="/joned-logo-wordmark.png"
+              src="/joned-logo-color-integrated.png"
               alt="Joned Transpor Co"
               className="joned-logo-image joned-logo-image--brand"
               loading="eager"
@@ -477,7 +500,7 @@ export default function PortalPage({
           <div className="joned-entra-card">
             <div className="joned-logo-shell joned-logo-shell--portal">
               <img
-                src="/joned-logo-wordmark.png"
+                src="/joned-logo-color-integrated.png"
                 alt="Joned Transpor Co"
                 className="joned-logo-image joned-logo-image--brand"
                 loading="eager"
@@ -519,7 +542,7 @@ export default function PortalPage({
       <aside className="joned-portal-sidebar">
         <div className="joned-logo-shell joned-logo-shell--portal">
           <img
-            src="/joned-logo-wordmark.png"
+            src="/joned-logo-color-integrated.png"
             alt="Joned Transpor Co"
             className="joned-logo-image joned-logo-image--brand"
             loading="eager"
@@ -581,12 +604,48 @@ export default function PortalPage({
       </aside>
 
       <section className="joned-portal-main">
+        {pilotCase ? (
+          <section className="joned-operations-bridge">
+            <div>
+              <span className="joned-eyebrow">Pilot case loaded</span>
+              <h2>{pilotCase.caseId} · {pilotCase.routeCode}</h2>
+              <p>{pilotCase.applicantName} · {pilotCase.email}</p>
+            </div>
+            <div className="joned-operations-bridge-grid">
+              <div>
+                <small>Status</small>
+                <strong>{pilotCase.reviewState}</strong>
+              </div>
+              <div>
+                <small>Source</small>
+                <strong>Drivers submit</strong>
+              </div>
+              <div>
+                <small>Submitted</small>
+                <strong>{pilotCase.submittedAt}</strong>
+              </div>
+              <div>
+                <small>Workspace</small>
+                <strong>/workspace</strong>
+              </div>
+            </div>
+            <div className="joned-button-row" style={{ marginTop: 18 }}>
+              <a className="joned-secondary-btn" href="/workspace/application">
+                {portalCopy.shell.reviewSubmissions}
+              </a>
+              <a className="joned-primary-btn" href="/workspace/tracking">
+                {portalCopy.shell.openTracking}
+              </a>
+            </div>
+          </section>
+        ) : null}
+
         <header className="joned-portal-topbar">
           <div className="joned-portal-topbar-copy">
             <div className="joned-portal-brand">
               <div className="joned-logo-shell joned-logo-shell--portal joned-logo-shell--portal-dark">
                 <img
-                  src="/joned-logo-wordmark.png"
+                  src="/joned-logo-color-integrated.png"
                   alt="Joned Transpor Co"
                   className="joned-logo-image joned-logo-image--brand"
                   loading="eager"
@@ -598,15 +657,51 @@ export default function PortalPage({
             <h1>{activeModule}</h1>
             <p>{portalCopy.roles[role].subtitle}</p>
           </div>
-          <div className="joned-button-row">
-            <button type="button" className="joned-secondary-btn">
-              {portalCopy.shell.export}
-            </button>
-            <button type="button" className="joned-primary-btn">
-              {portalCopy.shell.newAction}
-            </button>
+        <div className="joned-button-row">
+          <button type="button" className="joned-secondary-btn">
+            {portalCopy.shell.export}
+          </button>
+          <button type="button" className="joned-primary-btn">
+            {portalCopy.shell.newAction}
+          </button>
+        </div>
+      </header>
+
+      {role === "operations" ? (
+        <section className="joned-operations-bridge">
+          <div>
+            <span className="joned-eyebrow">Same expediente bridge</span>
+            <h2>{roleRecords[0].id} · {roleRecords[0].title}</h2>
+            <p>{roleRecords[0].detail}</p>
           </div>
-        </header>
+          <div className="joned-operations-bridge-grid">
+            <div>
+              <small>Case identity</small>
+              <strong>{activeModule}</strong>
+            </div>
+            <div>
+              <small>{portalCopy.shell.status}</small>
+              <strong>{roleRecords[0].status}</strong>
+            </div>
+            <div>
+              <small>{portalCopy.shell.eta}</small>
+              <strong>{roleRecords[0].eta}</strong>
+            </div>
+            <div>
+              <small>Next action</small>
+              <strong>{roleTimeline[0]?.detail}</strong>
+            </div>
+          </div>
+          <div className="joned-button-row" style={{ marginTop: 18 }}>
+            <a className="joned-secondary-btn" href="/workspace/application">
+              {portalCopy.shell.reviewSubmissions}
+            </a>
+            <a className="joned-primary-btn" href="/workspace/tracking">
+              {portalCopy.shell.openTracking}
+            </a>
+          </div>
+        </section>
+      ) : null}
 
         <div className="joned-grid four portal-metrics">
           {roleMetrics.map((item) => (
