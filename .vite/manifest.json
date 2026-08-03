@@ -6,16 +6,20 @@
       "_rolldown-runtime-S-ySWqyJ.js"
     ]
   },
-  "_query-MT-qb2J4.js": {
-    "file": "assets/query-MT-qb2J4.js",
+  "_query-RNEeZVC5.js": {
+    "file": "assets/query-RNEeZVC5.js",
     "name": "query"
   },
   "_rolldown-runtime-S-ySWqyJ.js": {
     "file": "assets/rolldown-runtime-S-ySWqyJ.js",
     "name": "rolldown-runtime"
   },
+  "_workspace-case-DdhUtv-r.js": {
+    "file": "assets/workspace-case-DdhUtv-r.js",
+    "name": "workspace-case"
+  },
   "app/drivers/prequalification-form.tsx": {
-    "file": "assets/prequalification-form-Dx0unydm.js",
+    "file": "assets/prequalification-form-aI9HCz75.js",
     "name": "prequalification-form",
     "src": "app/drivers/prequalification-form.tsx",
     "isDynamicEntry": true,
@@ -25,7 +29,7 @@
     ]
   },
   "app/owner-operators/prequalification-form.tsx": {
-    "file": "assets/prequalification-form-DGcirh2i.js",
+    "file": "assets/prequalification-form-DczAowzH.js",
     "name": "prequalification-form",
     "src": "app/owner-operators/prequalification-form.tsx",
     "isDynamicEntry": true,
@@ -35,27 +39,29 @@
     ]
   },
   "app/portal/page.tsx": {
-    "file": "assets/page-BUOOJbbQ.js",
+    "file": "assets/page-lPGobQ8G.js",
     "name": "page",
     "src": "app/portal/page.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_rolldown-runtime-S-ySWqyJ.js",
+      "_workspace-case-DdhUtv-r.js",
       "_framework-CXnKph_e.js"
     ]
   },
   "app/workspace/_components/applicant-route.tsx": {
-    "file": "assets/applicant-route-C1St3Bmw.js",
+    "file": "assets/applicant-route-D7IPX7mI.js",
     "name": "applicant-route",
     "src": "app/workspace/_components/applicant-route.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_rolldown-runtime-S-ySWqyJ.js",
+      "_workspace-case-DdhUtv-r.js",
       "_framework-CXnKph_e.js"
     ]
   },
   "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "assets/layout-segment-context-Dqshwqyn.js",
+    "file": "assets/layout-segment-context-DaPn17C8.js",
     "name": "layout-segment-context",
     "src": "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
@@ -66,7 +72,7 @@
     ]
   },
   "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/link.js": {
-    "file": "assets/link-CAGiWrPc.js",
+    "file": "assets/link-NC_DYxz3.js",
     "name": "link",
     "src": "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/link.js",
     "isDynamicEntry": true,
@@ -74,14 +80,14 @@
       "_rolldown-runtime-S-ySWqyJ.js",
       "virtual:vinext-app-browser-entry",
       "_framework-CXnKph_e.js",
-      "_query-MT-qb2J4.js"
+      "_query-RNEeZVC5.js"
     ],
     "dynamicImports": [
       "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/router.js"
     ]
   },
   "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/router.js": {
-    "file": "assets/router-CBl9WNfg.js",
+    "file": "assets/router-oVfbkSdT.js",
     "name": "router",
     "src": "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._6558342ba0b940cbd621b36b626ca262/node_modules/vinext/dist/shims/router.js",
     "isDynamicEntry": true,
@@ -89,14 +95,14 @@
       "_rolldown-runtime-S-ySWqyJ.js",
       "virtual:vinext-app-browser-entry",
       "_framework-CXnKph_e.js",
-      "_query-MT-qb2J4.js"
+      "_query-RNEeZVC5.js"
     ],
     "dynamicImports": [
       "_framework-CXnKph_e.js"
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "assets/index-75oLoKp9.js",
+    "file": "assets/index-Coz7Ao7u.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
